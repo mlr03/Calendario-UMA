@@ -1,55 +1,93 @@
 /* script.js */
 
 document.addEventListener('DOMContentLoaded', function() {
-    const coursesData = [
-        { course: 'curso1', subjects: ['Matemáticas', 'Física', 'Química'] },
-        { course: 'curso2', subjects: ['Historia', 'Literatura', 'Geografía'] },
-        // Agrega más cursos y asignaturas según necesites
+    generateCalendar();
+});
+
+function generateCalendar() {
+    const calendar = document.getElementById('calendar');
+    const days = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
+    
+    days.forEach(day => {
+        const dayColumn = document.createElement('div');
+        dayColumn.classList.add('day-column');
+        dayColumn.innerHTML = `<h3>${day}</h3>`;
+        calendar.appendChild(dayColumn);
+    });
+
+    // Cargar las clases iniciales (esto debería venir de una base de datos o similar)
+    const initialClasses = [
+        { name: 'Matemáticas', grado: 'Grado 1', curso: 'Curso 1', grupo: 'A', tipo: 'Teórica', day: 'Lunes', time: '08:00' },
+        { name: 'Física', grado: 'Grado 1', curso: 'Curso 1', grupo: 'B', tipo: 'Práctica', day: 'Martes', time: '10:00' }
     ];
 
-    const courseFilter = document.getElementById('courseFilter');
-    const calendar = document.getElementById('calendar');
-    const detailsModal = document.getElementById('detailsModal');
-    const detailsContent = document.getElementById('detailsContent');
-    const closeModal = document.querySelector('.close');
+    initialClasses.forEach(addClassToCalendar);
+}
 
-    function renderSubjects(course) {
-        calendar.innerHTML = ''; // Limpiar el contenido previo del calendario
+function addClassToCalendar(classInfo) {
+    const dayColumn = Array.from(document.querySelectorAll('.day-column'))
+        .find(column => column.querySelector('h3').textContent === classInfo.day);
+    
+    const classDiv = document.createElement('div');
+    classDiv.classList.add('class');
+    classDiv.textContent = `${classInfo.time} - ${classInfo.name}`;
+    classDiv.dataset.details = JSON.stringify(classInfo);
+    classDiv.onclick = () => showClassDetails(classInfo);
+    
+    dayColumn.appendChild(classDiv);
+}
 
-        coursesData.forEach(item => {
-            if (course === 'todos' || item.course === course) {
-                item.subjects.forEach(subject => {
-                    const subjectElement = document.createElement('div');
-                    subjectElement.classList.add('course');
-                    subjectElement.textContent = subject;
-                    subjectElement.addEventListener('click', () => {
-                        showDetails(subject, item.course);
-                    });
-                    calendar.appendChild(subjectElement);
-                });
-            }
-        });
-    }
+function showClassDetails(classInfo) {
+    const detailsDiv = document.getElementById('class-details');
+    detailsDiv.innerHTML = `
+        <h2>${classInfo.name}</h2>
+        <p><strong>Grado:</strong> ${classInfo.grado}</p>
+        <p><strong>Curso:</strong> ${classInfo.curso}</p>
+        <p><strong>Grupo:</strong> ${classInfo.grupo}</p>
+        <p><strong>Tipo:</strong> ${classInfo.tipo}</p>
+        <p><strong>Día:</strong> ${classInfo.day}</p>
+        <p><strong>Hora:</strong> ${classInfo.time}</p>
+    `;
+}
 
-    function showDetails(subject, course) {
-        detailsContent.innerHTML = `<h2>${subject}</h2><p>Detalles sobre la asignatura de ${subject} del ${course}.</p>`;
-        detailsModal.style.display = 'block';
-    }
+function applyFilters() {
+    const grado = document.getElementById('grado').value.toLowerCase();
+    const curso = document.getElementById('curso').value.toLowerCase();
+    const grupo = document.getElementById('grupo').value.toLowerCase();
+    const tipo = document.getElementById('tipo').value.toLowerCase();
+    const keyword = document.getElementById('keyword').value.toLowerCase();
 
-    closeModal.addEventListener('click', function() {
-        detailsModal.style.display = 'none';
+    document.querySelectorAll('.class').forEach(classDiv => {
+        const classInfo = JSON.parse(classDiv.dataset.details);
+        const matches = (!grado || classInfo.grado.toLowerCase() === grado)
+            && (!curso || classInfo.curso.toLowerCase() === curso)
+            && (!grupo || classInfo.grupo.toLowerCase() === grupo)
+            && (!tipo || classInfo.tipo.toLowerCase() === tipo)
+            && (!keyword || classInfo.name.toLowerCase().includes(keyword));
+        
+        classDiv.style.display = matches ? '' : 'none';
     });
+}
 
-    window.addEventListener('click', function(event) {
-        if (event.target === detailsModal) {
-            detailsModal.style.display = 'none';
-        }
-    });
+function showAddClassForm() {
+    document.getElementById('add-class-form').style.display = 'block';
+}
 
-    courseFilter.addEventListener('change', function() {
-        const selectedCourse = this.value;
-        renderSubjects(selectedCourse);
-    });
+function hideAddClassForm() {
+    document.getElementById('add-class-form').style.display = 'none';
+}
 
-    renderSubjects('todos'); // Mostrar todas las asignaturas al cargar la página inicialmente
-});
+function addClass() {
+    const name = document.getElementById('new-class-name').value;
+    const grado = document.getElementById('new-class-grado').value;
+    const curso = document.getElementById('new-class-curso').value;
+    const grupo = document.getElementById('new-class-grupo').value;
+    const tipo = document.getElementById('new-class-tipo').value;
+    const day = document.getElementById('new-class-day').value;
+    const time = document.getElementById('new-class-time').value;
+
+    const newClass = { name, grado, curso, grupo, tipo, day, time };
+    addClassToCalendar(newClass);
+    hideAddClassForm();
+}
+
