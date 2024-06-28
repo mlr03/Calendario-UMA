@@ -2,6 +2,7 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     generateCalendar();
+    loadClassesFromStorage(); // Cargar clases almacenadas al cargar la página
 });
 
 function generateCalendar() {
@@ -88,6 +89,17 @@ function addClass() {
 
     const newClass = { name, grado, curso, grupo, tipo, day, time };
     addClassToCalendar(newClass);
+    saveClassToStorage(newClass); // Guardar la nueva clase en localStorage
     hideAddClassForm();
 }
 
+function saveClassToStorage(newClass) {
+    let classes = JSON.parse(localStorage.getItem('classes')) || [];
+    classes.push(newClass);
+    localStorage.setItem('classes', JSON.stringify(classes));
+}
+
+function loadClassesFromStorage() {
+    const classes = JSON.parse(localStorage.getItem('classes')) || [];
+    classes.forEach(addClassToCalendar);
+}
