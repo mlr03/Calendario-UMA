@@ -91,14 +91,33 @@
 .day-column {
     flex: 1; /* Ocupar espacio igualmente en la línea */
     border: 1px solid #ccc;
-    padding: 15px; /* Ajustar el padding para menor tamaño */
+    padding: 10px; /* Ajustar el padding */
     box-sizing: border-box;
     text-align: center;
     cursor: pointer;
     height: calc(80vh - 30px); /* Ajustar la altura de cada columna para ocupar la pantalla */
+    display: flex;
+    flex-direction: column; /* Asegurar que los slots se alineen verticalmente */
 }
 
 .day-column h3 {
     margin: 5px 0; /* Ajustar el margen */
     font-size: 1.2em; /* Tamaño de fuente ligeramente más pequeño */
+}
+
+.time-slot {
+    flex: 1; /* Ocupar espacio igualmente en la columna */
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    margin: 5px 0; /* Añadir margen entre las franjas horarias */
+}
+
+.time-slot p {
+    margin: 0; /* Ajustar el margen de los párrafos dentro de los slots */
+}
+
+.selected {
+    background-color: #e0e0e0;
 }
