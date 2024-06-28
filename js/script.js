@@ -1,3 +1,4 @@
+/* script.js */
 document.addEventListener('DOMContentLoaded', function() {
     const coursesData = [
         { course: 'curso1', subjects: ['Matemáticas', 'Física', 'Química'] },
