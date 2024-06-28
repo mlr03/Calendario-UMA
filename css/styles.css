@@ -63,3 +63,42 @@
 .selected {
     background-color: #e0e0e0;
 }
+
+.time-slot {
+    margin-bottom: 10px; /* Espacio entre franjas horarias */
+}
+
+.class {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    padding: 5px;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.class:hover {
+    background-color: #f0f0f0;
+}
+
+/* Estilos para el calendario */
+#calendar {
+    display: flex;
+    flex-wrap: nowrap; /* Para que los días se muestren en una sola línea */
+    overflow-x: auto; /* Permitir desplazamiento horizontal si los días no caben en la pantalla */
+    height: 80vh; /* Ajustar la altura total del calendario */
+}
+
+.day-column {
+    flex: 1; /* Ocupar espacio igualmente en la línea */
+    border: 1px solid #ccc;
+    padding: 15px; /* Ajustar el padding para menor tamaño */
+    box-sizing: border-box;
+    text-align: center;
+    cursor: pointer;
+    height: calc(80vh - 30px); /* Ajustar la altura de cada columna para ocupar la pantalla */
+}
+
+.day-column h3 {
+    margin: 5px 0; /* Ajustar el margen */
+    font-size: 1.2em; /* Tamaño de fuente ligeramente más pequeño */
+}

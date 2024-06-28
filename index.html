@@ -115,11 +115,16 @@
             <option value="Miércoles">Miércoles</option>
             <option value="Jueves">Jueves</option>
             <option value="Viernes">Viernes</option>
-            <option value="Sábado">Sábado</option>
-            <option value="Domingo">Domingo</option>
         </select>
-        <label for="new-class-time">Hora:</label>
-        <input type="time" id="new-class-time">
+       
+        <select id="new-class-time">
+            <option value="08:45">08:45</option>
+            <option value="10:30">10:30</option>
+            <option value="12:45">12:45</option>
+        </select>
+        
+
+
         <button onclick="addClass()">Añadir</button>
         <button onclick="hideAddClassForm()">Cancelar</button>
     </div>
