@@ -48,61 +48,81 @@
     </header>
     <main>
         <div id="calendar">
-            <!-- El calendario semanal se generará dinámicamente aquí -->
-        </div>
-        <div id="class-details">
-            <!-- Los detalles de la clase seleccionada se mostrarán aquí -->
+            <div class="day-column">
+                <h3>Lunes</h3>
+            </div>
+            <div class="day-column">
+                <h3>Martes</h3>
+            </div>
+            <div class="day-column">
+                <h3>Miércoles</h3>
+            </div>
+            <div class="day-column">
+                <h3>Jueves</h3>
+            </div>
+            <div class="day-column">
+                <h3>Viernes</h3>
+            </div>
         </div>
     </main>
+    <div id="class-details-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="class-details">
+                <!-- Los detalles de la clase seleccionada se mostrarán aquí -->
+            </div>
+            <button onclick="deleteSelectedClass()">Eliminar Clase</button>
+        </div>
+    </div>
     <footer>
         <button onclick="showAddClassForm()">Añadir Clase</button>
-        <div id="add-class-form" style="display: none;">
-            <h2>Añadir Nueva Clase</h2>
-            <label for="new-class-name">Nombre:</label>
-            <input type="text" id="new-class-name">
-            <label for="new-class-grado">Grado:</label>
-            <select id="new-class-grado">
-                <option value="Grado 1">Grado 1</option>
-                <option value="Grado 2">Grado 2</option>
-                <option value="Grado 3">Grado 3</option>
-                <option value="Grado 4">Grado 4</option>
-            </select>
-            <label for="new-class-curso">Curso:</label>
-            <select id="new-class-curso">
-                <option value="Curso 1">Curso 1</option>
-                <option value="Curso 2">Curso 2</option>
-                <option value="Curso 3">Curso 3</option>
-                <option value="Curso 4">Curso 4</option>
-            </select>
-            <label for="new-class-grupo">Grupo:</label>
-            <select id="new-class-grupo">
-                <option value="A">A</option>
-                <option value="B">B</option>
-                <option value="C">C</option>
-                <option value="D">D</option>
-            </select>
-            <label for="new-class-tipo">Tipo:</label>
-            <select id="new-class-tipo">
-                <option value="Teórica">Teórica</option>
-                <option value="Práctica">Práctica</option>
-                <option value="Prueba">Prueba</option>
-            </select>
-            <label for="new-class-day">Día:</label>
-            <select id="new-class-day">
-                <option value="Lunes">Lunes</option>
-                <option value="Martes">Martes</option>
-                <option value="Miércoles">Miércoles</option>
-                <option value="Jueves">Jueves</option>
-                <option value="Viernes">Viernes</option>
-                <option value="Sábado">Sábado</option>
-                <option value="Domingo">Domingo</option>
-            </select>
-            <label for="new-class-time">Hora:</label>
-            <input type="time" id="new-class-time">
-            <button onclick="addClass()">Añadir</button>
-            <button onclick="hideAddClassForm()">Cancelar</button>
-        </div>
     </footer>
+    <div id="add-class-form" style="display: none;">
+        <h2>Añadir Nueva Clase</h2>
+        <label for="new-class-name">Nombre:</label>
+        <input type="text" id="new-class-name">
+        <label for="new-class-grado">Grado:</label>
+        <select id="new-class-grado">
+            <option value="Grado 1">Grado 1</option>
+            <option value="Grado 2">Grado 2</option>
+            <option value="Grado 3">Grado 3</option>
+            <option value="Grado 4">Grado 4</option>
+        </select>
+        <label for="new-class-curso">Curso:</label>
+        <select id="new-class-curso">
+            <option value="Curso 1">Curso 1</option>
+            <option value="Curso 2">Curso 2</option>
+            <option value="Curso 3">Curso 3</option>
+            <option value="Curso 4">Curso 4</option>
+        </select>
+        <label for="new-class-grupo">Grupo:</label>
+        <select id="new-class-grupo">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+        </select>
+        <label for="new-class-tipo">Tipo:</label>
+        <select id="new-class-tipo">
+            <option value="Teórica">Teórica</option>
+            <option value="Práctica">Práctica</option>
+            <option value="Prueba">Prueba</option>
+        </select>
+        <label for="new-class-day">Día:</label>
+        <select id="new-class-day">
+            <option value="Lunes">Lunes</option>
+            <option value="Martes">Martes</option>
+            <option value="Miércoles">Miércoles</option>
+            <option value="Jueves">Jueves</option>
+            <option value="Viernes">Viernes</option>
+            <option value="Sábado">Sábado</option>
+            <option value="Domingo">Domingo</option>
+        </select>
+        <label for="new-class-time">Hora:</label>
+        <input type="time" id="new-class-time">
+        <button onclick="addClass()">Añadir</button>
+        <button onclick="hideAddClassForm()">Cancelar</button>
+    </div>
     <script src="js/script.js"></script>
 </body>
 </html>

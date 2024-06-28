@@ -1,5 +1,3 @@
-/* script.js */
-
 document.addEventListener('DOMContentLoaded', function() {
     generateCalendar();
     loadClassesFromStorage(); // Cargar clases almacenadas al cargar la página
@@ -7,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function generateCalendar() {
     const calendar = document.getElementById('calendar');
-    const days = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
+    const days = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes'];
     
     days.forEach(day => {
         const dayColumn = document.createElement('div');
@@ -15,14 +13,6 @@ function generateCalendar() {
         dayColumn.innerHTML = `<h3>${day}</h3>`;
         calendar.appendChild(dayColumn);
     });
-
-    // Cargar las clases iniciales (esto debería venir de una base de datos o similar)
-    const initialClasses = [
-        { name: 'Matemáticas', grado: 'Grado 1', curso: 'Curso 1', grupo: 'A', tipo: 'Teórica', day: 'Lunes', time: '08:00' },
-        { name: 'Física', grado: 'Grado 1', curso: 'Curso 1', grupo: 'B', tipo: 'Práctica', day: 'Martes', time: '10:00' }
-    ];
-
-    initialClasses.forEach(addClassToCalendar);
 }
 
 function addClassToCalendar(classInfo) {
@@ -33,13 +23,24 @@ function addClassToCalendar(classInfo) {
     classDiv.classList.add('class');
     classDiv.textContent = `${classInfo.time} - ${classInfo.name}`;
     classDiv.dataset.details = JSON.stringify(classInfo);
-    classDiv.onclick = () => showClassDetails(classInfo);
+    classDiv.onclick = () => openModal(classDiv); // Asignar función al hacer clic
     
     dayColumn.appendChild(classDiv);
 }
 
-function showClassDetails(classInfo) {
+function openModal(selectedClassDiv) {
+    const modal = document.getElementById('class-details-modal');
     const detailsDiv = document.getElementById('class-details');
+    
+    // Quitar la clase 'selected' de cualquier otra clase seleccionada
+    document.querySelectorAll('.class').forEach(classDiv => {
+        classDiv.classList.remove('selected');
+    });
+
+    selectedClassDiv.classList.add('selected'); // Marcar la clase como seleccionada
+
+    const classInfo = JSON.parse(selectedClassDiv.dataset.details);
+    
     detailsDiv.innerHTML = `
         <h2>${classInfo.name}</h2>
         <p><strong>Grado:</strong> ${classInfo.grado}</p>
@@ -49,25 +50,13 @@ function showClassDetails(classInfo) {
         <p><strong>Día:</strong> ${classInfo.day}</p>
         <p><strong>Hora:</strong> ${classInfo.time}</p>
     `;
+    
+    modal.style.display = 'block';
 }
 
-function applyFilters() {
-    const grado = document.getElementById('grado').value.toLowerCase();
-    const curso = document.getElementById('curso').value.toLowerCase();
-    const grupo = document.getElementById('grupo').value.toLowerCase();
-    const tipo = document.getElementById('tipo').value.toLowerCase();
-    const keyword = document.getElementById('keyword').value.toLowerCase();
-
-    document.querySelectorAll('.class').forEach(classDiv => {
-        const classInfo = JSON.parse(classDiv.dataset.details);
-        const matches = (!grado || classInfo.grado.toLowerCase() === grado)
-            && (!curso || classInfo.curso.toLowerCase() === curso)
-            && (!grupo || classInfo.grupo.toLowerCase() === grupo)
-            && (!tipo || classInfo.tipo.toLowerCase() === tipo)
-            && (!keyword || classInfo.name.toLowerCase().includes(keyword));
-        
-        classDiv.style.display = matches ? '' : 'none';
-    });
+function closeModal() {
+    const modal = document.getElementById('class-details-modal');
+    modal.style.display = 'none';
 }
 
 function showAddClassForm() {
@@ -87,7 +76,7 @@ function addClass() {
     const day = document.getElementById('new-class-day').value;
     const time = document.getElementById('new-class-time').value;
 
-    const newClass = { name, grado, curso, grupo, tipo, day, time };
+    const newClass = { id: generateId(), name, grado, curso, grupo, tipo, day, time };
     addClassToCalendar(newClass);
     saveClassToStorage(newClass); // Guardar la nueva clase en localStorage
     hideAddClassForm();
@@ -102,4 +91,26 @@ function saveClassToStorage(newClass) {
 function loadClassesFromStorage() {
     const classes = JSON.parse(localStorage.getItem('classes')) || [];
     classes.forEach(addClassToCalendar);
+}
+
+function deleteSelectedClass() {
+    const selectedClass = document.querySelector('.class.selected');
+    if (selectedClass) {
+        const classInfo = JSON.parse(selectedClass.dataset.details);
+        deleteClass(classInfo.id);
+        selectedClass.remove(); // Quitar visualmente la clase seleccionada
+        closeModal(); // Cerrar el modal después de eliminar la clase
+    } else {
+        alert('Selecciona una clase para eliminarla.');
+    }
+}
+
+function deleteClass(classId) {
+    let classes = JSON.parse(localStorage.getItem('classes')) || [];
+    classes = classes.filter(c => c.id !== classId);
+    localStorage.setItem('classes', JSON.stringify(classes));
+}
+
+function generateId() {
+    return '_' + Math.random().toString(36).substr(2, 9); // Generar un ID único aleatorio
 }
