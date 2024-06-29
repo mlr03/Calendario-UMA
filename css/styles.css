@@ -192,9 +192,20 @@ footer button {
         align-items: center; /* Centrar los filtros */
     }
 
-    /* Asegurarse de que el formulario de añadir clase sea igual al de filtros en móvil */
+    /* Asegurarse de que las etiquetas del formulario de añadir clase se comporten igual que en los filtros en móvil */
+    #add-class-form label {
+        display: block; /* Asegura que las etiquetas estén sobre los campos */
+        margin-bottom: 5px; /* Añadir espacio entre la etiqueta y el campo */
+    }
+
     #add-class-form label, #add-class-form input, #add-class-form select, #add-class-form button {
         width: 100%; /* Asegurar que los campos ocupen todo el ancho */
         max-width: 300px; /* Establecer un ancho máximo razonable */
     }
+    
+    #add-class-form input, #add-class-form select, #add-class-form button {
+        margin-bottom: 10px; /* Añadir un margen inferior para separar los campos */
+    }
 }
+
+
