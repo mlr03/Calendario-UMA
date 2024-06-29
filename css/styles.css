@@ -40,26 +40,26 @@ header {
     width: 100%; /* Asegurar que el header ocupe todo el ancho */
 }
 
-/* Ajustar el botón en el footer */
+/* BOTÓN AÑADIR CLASE */
 footer button {
     margin-top: 20px; /* Puedes ajustar este valor según tus necesidades */
     margin-left: 10vh;
 }
 
-/* Ajustar el tamaño del formulario de añadir clase */
+/*                   */
+
+/* FORMULARIO DE AÑADIR CLASE */
 #add-class-form {
     display: flex;
-    flex-direction: column;
-    align-items: center; /* Centrar los elementos horizontalmente */
-    padding: 0 10px; /* Añadir padding a los lados */
-    width: 100%; /* Asegurar que el formulario ocupe todo el ancho */
+    flex-wrap: wrap; /* Permitir que los filtros se envuelvan en varias líneas si es necesario */
+    justify-content: center; /* Centrar los filtros en la pantalla */
+    margin: 30px 0 50px; /* Añadir margen superior e inferior */
+    text-align: center; /* Alinear texto al centro */
 }
 
 #add-class-form label, #add-class-form input, #add-class-form select, #add-class-form button {
-    width: 100%; /* Asegurar que los elementos del formulario ocupen todo el ancho */
-    max-width: 400px; /* Ancho máximo para los elementos del formulario */
-    margin: 5px 0; /* Añadir margen entre los elementos */
-    text-align: left; /* Alinear texto a la izquierda */
+   
+    margin: 5px; /* Añadir margen entre los elementos */
 }
 
 #add-class-form h2 {
@@ -69,7 +69,9 @@ footer button {
     text-align: center; /* Centrar el texto */
 }
 
-/* Ajustar los filtros */
+/*                   */
+
+/* FORMULARIO DE FILTROS*/
 #filters {
     display: flex;
     flex-wrap: wrap; /* Permitir que los filtros se envuelvan en varias líneas si es necesario */
@@ -85,6 +87,8 @@ footer button {
 #filters label {
     display: block; /* Asegurar que los labels sean bloques */
 }
+
+/*                     */
 
 /* Estilos para el calendario */
 #calendar {
@@ -186,11 +190,13 @@ footer button {
     
     /* Ajustar el formulario de añadir clase */
     #add-class-form {
-        padding: 0 10px; /* Añadir padding a los lados */
+        
+        flex-direction: column; /* Apilar filtros verticalmente */
+        align-items: center; /* Centrar los filtros */
     }
 
     #add-class-form label, #add-class-form input, #add-class-form select, #add-class-form button {
-        width: 100%; /* Asegurar que los elementos del formulario ocupen todo el ancho */
-        max-width: none; /* Eliminar el ancho máximo */
+        width: 100%; /* Asegurar que los campos ocupen todo el ancho */
+        max-width: 300px; /* Establecer un ancho máximo razonable */
     }
 }
