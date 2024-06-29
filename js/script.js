@@ -69,12 +69,15 @@ function closeModal() {
     modal.style.display = 'none';
 }
 
-function showAddClassForm() {
-    document.getElementById('add-class-form').style.display = 'block';
-}
-
-function hideAddClassForm() {
-    document.getElementById('add-class-form').style.display = 'none';
+function clearForm() {
+    // Limpiar todos los campos del formulario
+    document.getElementById('new-class-name').value = '';
+    document.getElementById('new-class-grado').value = 'Grado 1';
+    document.getElementById('new-class-curso').value = 'Curso 1';
+    document.getElementById('new-class-grupo').value = 'A';
+    document.getElementById('new-class-tipo').value = 'Teórica';
+    document.getElementById('new-class-day').value = 'Lunes';
+    document.getElementById('new-class-time').value = '08:45';
 }
 
 function addClass() {
@@ -96,7 +99,7 @@ function addClass() {
     const newClass = { id: generateId(), name, grado, curso, grupo, tipo, day, time };
     addClassToCalendar(newClass);
     saveClassToStorage(newClass); // Guardar la nueva clase en localStorage
-    hideAddClassForm();
+    clearForm(); // Limpiar el formulario después de añadir una clase
 }
 
 function saveClassToStorage(newClass) {

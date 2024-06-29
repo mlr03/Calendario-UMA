@@ -42,10 +42,7 @@ header {
 }
 
 /* BOTÓN AÑADIR CLASE */
-footer button {
-    margin-top: 20px; /* Puedes ajustar este valor según tus necesidades */
-    margin-left: 10vh;
-}
+
 
 /* FORMULARIO DE AÑADIR CLASE */
 #add-class-form {
@@ -207,5 +204,3 @@ footer button {
         margin-bottom: 10px; /* Añadir un margen inferior para separar los campos */
     }
 }
-
-
