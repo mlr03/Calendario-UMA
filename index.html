@@ -18,31 +18,30 @@
         <div id="filters">
             <label for="grado">Grado:</label>
             <select id="grado">
-                <option value="">Todos</option>
-                <option value="Grado 1">Grado 1</option>
-                <option value="Grado 2">Grado 2</option>
-                <option value="Grado 3">Grado 3</option>
-                <option value="Grado 4">Grado 4</option>
+                <option value="">Grado</option>
+                <option value="Grado 1">Ing. Informática</option>
+                <option value="Grado 2">Ing. Software</option>
+                <option value="Grado 3">Ing. Computadores</option>
+             
             </select>
             <label for="curso">Curso:</label>
             <select id="curso">
-                <option value="">Todos</option>
-                <option value="Curso 1">Curso 1</option>
-                <option value="Curso 2">Curso 2</option>
-                <option value="Curso 3">Curso 3</option>
-                <option value="Curso 4">Curso 4</option>
+                <option value="">Curso</option>
+                <option value="Curso 1">1º</option>
+                <option value="Curso 2">2º</option>
+                <option value="Curso 3">3º</option>
+                <option value="Curso 4">4º</option>
             </select>
             <label for="grupo">Grupo:</label>
             <select id="grupo">
-                <option value="">Todos</option>
+                <option value="">Grupo</option>
                 <option value="A">A</option>
                 <option value="B">B</option>
                 <option value="C">C</option>
-                <option value="D">D</option>
             </select>
             <label for="tipo">Tipo de clase:</label>
             <select id="tipo">
-                <option value="">Todos</option>
+                <option value="">Tipo</option>
                 <option value="Teórica">Teórica</option>
                 <option value="Práctica">Práctica</option>
                 <option value="Prueba">Prueba</option>
@@ -83,39 +82,44 @@
     </div>
     
     <div id="add-class-form">
-        <h2>A continuación, deberá de seleccionar los siguientes filtros para poder añadir una nueva clase. Pulse "añadir" al completar todos los filtros</h2>
+        <h2>A continuación, deberá de completar  los siguientes campos para poder añadir una nueva clase a su horario. Posteriormente, pulse "Añadir Clase" para añadir la clase a su horario</h2>
         <div class="form-group">
             <label for="new-class-name">Nombre:</label>
             <input type="text" id="new-class-name">
             <label for="new-class-grado">Grado:</label>
             <select id="new-class-grado">
-                <option value="Grado 1">Grado 1</option>
-                <option value="Grado 2">Grado 2</option>
-                <option value="Grado 3">Grado 3</option>
-                <option value="Grado 4">Grado 4</option>
+                <option value="">Grado</option>
+                <option value="Grado 1">Ing. Informática</option>
+                <option value="Grado 2">Ing. Software</option>
+                <option value="Grado 3">Ing. Computadores</option>
+              
             </select>
             <label for="new-class-curso">Curso:</label>
             <select id="new-class-curso">
-                <option value="Curso 1">Curso 1</option>
-                <option value="Curso 2">Curso 2</option>
-                <option value="Curso 3">Curso 3</option>
-                <option value="Curso 4">Curso 4</option>
+                <option value="">Curso</option>
+                <option value="Curso 1">1º</option>
+                <option value="Curso 2">2º</option>
+                <option value="Curso 3">3º</option>
+                <option value="Curso 4">4º</option> 
+
             </select>
             <label for="new-class-grupo">Grupo:</label>
             <select id="new-class-grupo">
+                <option value="">Grupo</option>
                 <option value="A">A</option>
                 <option value="B">B</option>
                 <option value="C">C</option>
-                <option value="D">D</option>
             </select>
             <label for="new-class-tipo">Tipo:</label>
             <select id="new-class-tipo">
+                <option value="">Tipo</option>
                 <option value="Teórica">Teórica</option>
                 <option value="Práctica">Práctica</option>
-                <option value="Prueba">Prueba</option>
+                <option value="Prueba">Prueba</option> 
             </select>
             <label for="new-class-day">Día:</label>
             <select id="new-class-day">
+                <option value="">Día</option> 
                 <option value="Lunes">Lunes</option>
                 <option value="Martes">Martes</option>
                 <option value="Miércoles">Miércoles</option>
@@ -124,12 +128,13 @@
             </select>
             <label for="new-class-time">Hora:</label>
             <select id="new-class-time">
+                <option value="">Hora</option>
                 <option value="08:45">08:45</option>
                 <option value="10:45">10:45</option>
                 <option value="12:45">12:45</option>
             </select>
-            <button onclick="addClass()">Añadir</button>
-            <button onclick="clearForm()">Cancelar</button>
+            <button onclick="addClass()">Añadir Clase</button>
+            <button onclick="clearForm()">Borrar Campos</button>
         </div>
         <script src="js/script.js"></script>
     </div>
