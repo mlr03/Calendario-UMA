@@ -71,20 +71,36 @@
         <div id="calendar">
             <div class="day-column" aria-labelledby="lunes-heading">
                 <h3 id="lunes-heading">Lunes</h3>
+                <div class="time-slot" aria-label="08:45 a 10:30">08:45 - 10:30</div>
+                <div class="time-slot" aria-label="10:45 a 12:30">10:45 - 12:30</div>
+                <div class="time-slot" aria-label="12:45 a 14:30">12:45 - 14:30</div>
             </div>
             <div class="day-column" aria-labelledby="martes-heading">
                 <h3 id="martes-heading">Martes</h3>
+                <div class="time-slot" aria-label="08:45 a 10:30">08:45 - 10:30</div>
+                <div class="time-slot" aria-label="10:45 a 12:30">10:45 - 12:30</div>
+                <div class="time-slot" aria-label="12:45 a 14:30">12:45 - 14:30</div>
             </div>
             <div class="day-column" aria-labelledby="miercoles-heading">
                 <h3 id="miercoles-heading">Miércoles</h3>
+                <div class="time-slot" aria-label="08:45 a 10:30">08:45 - 10:30</div>
+                <div class="time-slot" aria-label="10:45 a 12:30">10:45 - 12:30</div>
+                <div class="time-slot" aria-label="12:45 a 14:30">12:45 - 14:30</div>
             </div>
             <div class="day-column" aria-labelledby="jueves-heading">
                 <h3 id="jueves-heading">Jueves</h3>
+                <div class="time-slot" aria-label="08:45 a 10:30">08:45 - 10:30</div>
+                <div class="time-slot" aria-label="10:45 a 12:30">10:45 - 12:30</div>
+                <div class="time-slot" aria-label="12:45 a 14:30">12:45 - 14:30</div>
             </div>
             <div class="day-column" aria-labelledby="viernes-heading">
                 <h3 id="viernes-heading">Viernes</h3>
+                <div class="time-slot" aria-label="08:45 a 10:30">08:45 - 10:30</div>
+                <div class="time-slot" aria-label="10:45 a 12:30">10:45 - 12:30</div>
+                <div class="time-slot" aria-label="12:45 a 14:30">12:45 - 14:30</div>
             </div>
         </div>
+        
     </main>
     <div id="class-details-modal" class="modal" role="dialog" aria-labelledby="modal-heading" aria-hidden="true">
         <div class="modal-content">
@@ -100,8 +116,22 @@
         <h2 id="add-class-form-heading" tabindex="0">A continuación, deberá de completar los siguientes campos para poder añadir una nueva clase a su horario. Posteriormente, pulse "Añadir Clase" para añadir la clase a su horario</h2>
         <div class="form-group">
             <label for="new-class-name">Nombre*:</label>
-            <input type="text" id="new-class-name" aria-required="true" aria-describedby="new-class-name-description">
-            
+            <select id="new-class-name"  aria-required="true" aria-describedby="new-class-name-description">
+                <option value="">Nombre</option>
+                <option value="a1">Calculo</option>
+                <option value="a2">Discretas</option>
+                <option value="a3">Empresa</option>
+                <option value="a4">EC</option> 
+                <option value="a5">Base de Datos</option> 
+                <option value="a6">SSOO</option>
+                <option value="a7">Gestión</option>
+                <option value="a8">ABD</option>
+                <option value="a9">TAW</option>
+                <option value="a10">Interfaces de Usuario</option>
+                <option value="a11">Proyectos</option>
+                <option value="a12">Inteligencia Artificial</option>
+            </select>
+       
             <label for="new-class-grado">Grado* :</label>
             <select id="new-class-grado" aria-required="true" aria-describedby="new-class-grado-description">
                 <option value="">Grado</option>
