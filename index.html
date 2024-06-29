@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Horario Clases</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/inicio.css">
 </head>
 <body>
     <header>
+
+        <!-------------------- Encabezado principal con una descripción accesible -------------------------->
+
         <div id="logo-container">
             <a href="https://www.uma.es/" id="logo-link" aria-label="Ir al sitio web de la Universidad de Málaga">
                 <img src="img/logo.png" alt="Logo de la Universidad de Málaga" id="logo">
@@ -15,12 +18,14 @@
         </div>
         
         <div role="banner">
-            <!-- Encabezado principal con una descripción accesible -->
+         
             <h1 tabindex="0">Horarios ETSII 2024/2025</h1>
             <p tabindex="0"> Página de horarios para el año académico 2024/2025 en la Escuela Técnica Superior de Ingeniería Informática de la Universidad de Málaga.</p>
         </div>
         
-    
+
+        <!------------------------------------------------------------------------------------------------------------>
+            <!------------------------- FILTROS------------------------------------------>
 
         <div id="filters">
             <label for="grado">Grado:</label>
@@ -68,6 +73,11 @@
         </div>
     </header>
     <main>
+
+        <!--------------------------------------------------------------------------->
+
+        <!---------------------------ESTRUCTURA CALENDARIO----------------------------->
+
         <div id="calendar">
             <div class="day-column" aria-labelledby="lunes-heading">
                 <h3 id="lunes-heading">Lunes</h3>
@@ -106,12 +116,16 @@
         <div class="modal-content">
             <span class="close" onclick="closeModal()" aria-label="Cerrar ventana">&times;</span>
             <div id="class-details" aria-live="polite">
+
+
                 <!-- Los detalles de la clase seleccionada se mostrarán aquí -->
             </div>
             <button onclick="deleteSelectedClass()">Eliminar Clase</button>
         </div>
     </div>
     
+                <!----------------------AÑADIR CLASE----------------------------------->
+
     <div id="add-class-form" aria-labelledby="add-class-form-heading">
         <h2 id="add-class-form-heading" tabindex="0">A continuación, deberá de completar los siguientes campos para poder añadir una nueva clase a su horario. Posteriormente, pulse "Añadir Clase" para añadir la clase a su horario</h2>
         <div class="form-group">
@@ -192,7 +206,10 @@
             <button onclick="addClass()">Añadir Clase</button>
             <button onclick="clearForm()">Borrar Campos</button>
         </div>
-        <script src="js/script.js"></script>
+
+        <!-------------------------------------------------------------------------------------->
+
+        <script src="js/inicio.js"></script>
     </div>
 </body>
 </html>
