@@ -30,69 +30,12 @@
     cursor: pointer;
 }
 
+/* Añadimos un margen inferior al contenedor de los filtros */
+#filters {
 
-/* Estilos para el calendario */
-#calendar {
-    display: flex;
-    flex-wrap: nowrap; /* Para que los días se muestren en una sola línea */
-    overflow-x: auto; /* Permitir desplazamiento horizontal si los días no caben en la pantalla */
-    background-color: #add8e6; /* Fondo azul claro detrás de los contenedores */
-    padding: 10px; /* Añadido espacio interno al calendario */
-}
-
-.day-column {
-    flex: 1; /* Ocupar espacio igualmente en la línea */
-    flex: 2; /* Doble de tamaño en comparación con antes */
-    border: 1px solid #ccc;
-    padding: 10px;
-    box-sizing: border-box;
+    margin-top: 30px;
+    margin-bottom: 50px; /* Puedes ajustar este valor según tus necesidades */
     text-align: center;
-    cursor: pointer;
-    background-color: #d3d3d3; /* Fondo gris */
-    margin: 10px; /* Margen entre los contenedores */
-}
-
-.day-column:hover {
-    background-color: #f0f0f0;
-    background-color: #ccc;
-}
-
-.day-column h3 {
-    margin: 5px ;
-}
-
-.selected {
-    background-color: #e0e0e0;
-    margin :10 px ; /* Aumentado el margen para centrar mejor el texto */
-
-}
-
-.time-slot {
-    margin-bottom: 10px; /* Espacio entre franjas horarias */
-}
-
-.class {
-    background-color: #ffffff;
-    border: 1px solid #ccc;
-    padding: 5px;
-    cursor: pointer;
-    margin-bottom: 5px;
-}
-
-h1{
-
-   text-align: center ;
-}
-
-.class:hover {
-    background-color: #f0f0f0;
-    border: 2px dashed #ccc; /* Aumentado el grosor del borde */
-    margin: 15px; /* Aumentado el margen superior e inferior */
-    padding: 20px; /* Aumentado el padding */
-    background-color: white; /* Fondo de las franjas horarias */
-    display: flex; /* Usamos flexbox para alinear verticalmente */
-    justify-content: flex-start; /* Alineamos el contenido al inicio */
-    align-items: flex-start; /* Alineamos los items al inicio */
 }
 
 /* Estilos para el calendario */
@@ -101,6 +44,9 @@ h1{
     flex-wrap: nowrap; /* Para que los días se muestren en una sola línea */
     overflow-x: auto; /* Permitir desplazamiento horizontal si los días no caben en la pantalla */
     height: 80vh; /* Ajustar la altura total del calendario */
+    margin-top: 20px; /* Añadimos un margen superior al calendario */
+    background-color: #add8e6; /* Fondo azul claro detrás de los contenedores */
+    padding: 10px; /* Añadido espacio interno al calendario */
 }
 
 .day-column {
@@ -113,6 +59,8 @@ h1{
     height: calc(80vh - 30px); /* Ajustar la altura de cada columna para ocupar la pantalla */
     display: flex;
     flex-direction: column; /* Asegurar que los slots se alineen verticalmente */
+    background-color: #d3d3d3; /* Fondo gris */
+    margin: 10px; /* Margen entre los contenedores */
 }
 
 .day-column h3 {
@@ -135,4 +83,106 @@ h1{
 
 .selected {
     background-color: #e0e0e0;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* fondo oscuro semitransparente */
+}
+
+.modal-content {
+    background-color: whitesmoke;
+    margin: 15% auto;
+    padding: 50px;
+    border: 1px solid #888;
+    width: 60%;
+    position: relative;
+}
+
+.close {
+    color: red;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.class:hover {
+    background-color: #f0f0f0;
+    border: 2px dashed #ccc; /* Aumentado el grosor del borde */
+    margin: 15px; /* Aumentado el margen superior e inferior */
+    padding: 20px; /* Aumentado el padding */
+    background-color: white; /* Fondo de las franjas horarias */
+    display: flex; /* Usamos flexbox para alinear verticalmente */
+    justify-content: flex-start; /* Alineamos el contenido al inicio */
+    align-items: flex-start; /* Alineamos los items al inicio */
+}
+
+
+
+/* Estilos para el encabezado */
+header {
+    background-color: #003366; /* Azul marino */
+    color: white; /* Letra blanca */
+    text-align: center; /* Centrar el texto */
+    padding: 20px 0; /* Añadir padding superior e inferior */
+    margin: 0; /* Eliminar cualquier margen del header */
+    width: 100%; /* Asegurar que el header ocupe todo el ancho */
+}
+
+header h1 {
+    margin: 0; /* Eliminar márgenes del h1 */
+    font-size: 2em; /* Ajustar el tamaño de la fuente */
+}
+
+h1 {
+    text-align: center;
+}
+
+/*                    */
+
+/* Contenedor del logo */
+#logo-container {
+    position: absolute;
+    top: 5vh; /* Ajustar la distancia desde la parte superior */
+    left: 5vh; /* Ajustar la distancia desde la parte izquierda */
+}
+
+#logo {
+    height: 15vh; /* Ajustar la altura del logo */
+    width: 15vh; /* Mantener la proporción del logo */
+}
+
+/*               */
+
+footer button {
+    margin-top: 20px; /* Puedes ajustar este valor según tus necesidades */
+    margin-left: 10vh;
+    
+}
+
+h2 {
+    font-size: 1em; /* Tamaño normal de la letra */
+    font-weight: normal; /* Texto sin negrita */
+    margin-left: 20vh;
+  
+}
+
+/* Centrar los elementos del formulario de añadir clase */
+#add-class-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrar los elementos horizontalmente */
+}
+
+#add-class-form label, #add-class-form input, #add-class-form select, #add-class-form button {
+    width: 12vh; /* Ajustar el ancho de los elementos */
+    max-width: 15vh; /* Ancho máximo para los elementos */
+    margin: 5px ; /* Añadir margen entre los elementos */
+    text-align: center; /* Alinear el texto de los labels a la izquierda */
 }
