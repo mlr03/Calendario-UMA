@@ -1,3 +1,4 @@
+
 /* General styles for better responsiveness */
 body {
     margin: 0;
@@ -46,8 +47,6 @@ footer button {
     margin-left: 10vh;
 }
 
-/*                   */
-
 /* FORMULARIO DE AÑADIR CLASE */
 #add-class-form {
     display: flex;
@@ -57,11 +56,12 @@ footer button {
     text-align: center; /* Alinear texto al centro */
 }
 
+/* Asegurar que los elementos del formulario se comporten igual en móvil y en escritorio */
 #add-class-form label, #add-class-form input, #add-class-form select, #add-class-form button {
-   
     margin: 5px; /* Añadir margen entre los elementos */
 }
 
+/* Estilo del título en el formulario */
 #add-class-form h2 {
     font-size: 1em; /* Tamaño normal de la letra */
     font-weight: normal; /* Texto sin negrita */
@@ -69,9 +69,7 @@ footer button {
     text-align: center; /* Centrar el texto */
 }
 
-/*                   */
-
-/* FORMULARIO DE FILTROS*/
+/* FORMULARIO DE FILTROS */
 #filters {
     display: flex;
     flex-wrap: wrap; /* Permitir que los filtros se envuelvan en varias líneas si es necesario */
@@ -80,6 +78,7 @@ footer button {
     text-align: center; /* Alinear texto al centro */
 }
 
+/* Asegurar que los elementos de los filtros se comporten igual en móvil y en escritorio */
 #filters label, #filters select, #filters input, #filters button {
     margin: 5px; /* Añadir margen entre los elementos */
 }
@@ -87,8 +86,6 @@ footer button {
 #filters label {
     display: block; /* Asegurar que los labels sean bloques */
 }
-
-/*                     */
 
 /* Estilos para el calendario */
 #calendar {
@@ -165,6 +162,7 @@ footer button {
     cursor: pointer;
 }
 
+/* Asegurar que la clase sea igual en todos los dispositivos */
 .class:hover {
     background-color: #f0f0f0;
     border: 2px dashed #ccc; /* Aumentado el grosor del borde */
@@ -190,11 +188,11 @@ footer button {
     
     /* Ajustar el formulario de añadir clase */
     #add-class-form {
-        
         flex-direction: column; /* Apilar filtros verticalmente */
         align-items: center; /* Centrar los filtros */
     }
 
+    /* Asegurarse de que el formulario de añadir clase sea igual al de filtros en móvil */
     #add-class-form label, #add-class-form input, #add-class-form select, #add-class-form button {
         width: 100%; /* Asegurar que los campos ocupen todo el ancho */
         max-width: 300px; /* Establecer un ancho máximo razonable */
