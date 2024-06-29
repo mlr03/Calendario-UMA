@@ -1,41 +1,89 @@
+/* General styles for better responsiveness */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
 
-/* Modal */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
+header, footer {
     width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* fondo oscuro semitransparente */
-    background-color: white; /* Fondo oscuro semitransparente */
+    box-sizing: border-box;
 }
 
-.modal-content {
-    background-color: white;
-    background-color: whitesmoke;
-    margin: 15% auto;
-    padding: 20px;
-    padding: 50px;
-    border: 1px solid #888;
-    width: 60%;
-    position: relative;
+/* Estilos del logo en la esquina superior izquierda */
+#logo-container {
+    position: absolute; /* Mantener la posición absoluta para la esquina superior izquierda */
+    top: 10px; /* Ajustar la distancia desde la parte superior */
+    left: 10px; /* Ajustar la distancia desde la parte izquierda */
 }
 
-.close {
-    color: #4f4d4d;
-    color: red;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
+#logo {
+    height: 40px; /* Ajustar la altura del logo para que sea más pequeño */
+    width: auto; /* Mantener la proporción del logo */
 }
 
-/* Añadimos un margen inferior al contenedor de los filtros */
+/* Estilo para el título en el header */
+header h1 {
+    margin: 0; /* Eliminar márgenes del h1 */
+    font-size: 2em; /* Tamaño de fuente para el título */
+    padding-top: 10px; /* Ajustar el espacio entre el logo y el título */
+}
+
+/* Ajustar el header */
+header {
+    background-color: #003366; /* Azul marino */
+    color: white; /* Letra blanca */
+    text-align: center; /* Centrar el texto */
+    padding: 20px 0; /* Añadir padding superior e inferior */
+    margin: 0; /* Eliminar cualquier margen del header */
+    position: relative; /* Asegurar que el logo esté posicionado relativo al header */
+    width: 100%; /* Asegurar que el header ocupe todo el ancho */
+}
+
+/* Ajustar el botón en el footer */
+footer button {
+    margin-top: 20px; /* Puedes ajustar este valor según tus necesidades */
+    margin-left: 10vh;
+}
+
+/* Ajustar el tamaño del formulario de añadir clase */
+#add-class-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrar los elementos horizontalmente */
+    padding: 0 10px; /* Añadir padding a los lados */
+    width: 100%; /* Asegurar que el formulario ocupe todo el ancho */
+}
+
+#add-class-form label, #add-class-form input, #add-class-form select, #add-class-form button {
+    width: 100%; /* Asegurar que los elementos del formulario ocupen todo el ancho */
+    max-width: 400px; /* Ancho máximo para los elementos del formulario */
+    margin: 5px 0; /* Añadir margen entre los elementos */
+    text-align: left; /* Alinear texto a la izquierda */
+}
+
+#add-class-form h2 {
+    font-size: 1em; /* Tamaño normal de la letra */
+    font-weight: normal; /* Texto sin negrita */
+    margin: 10px 0; /* Añadir margen superior e inferior */
+    text-align: center; /* Centrar el texto */
+}
+
+/* Ajustar los filtros */
 #filters {
+    display: flex;
+    flex-wrap: wrap; /* Permitir que los filtros se envuelvan en varias líneas si es necesario */
+    justify-content: center; /* Centrar los filtros en la pantalla */
+    margin: 30px 0 50px; /* Añadir margen superior e inferior */
+    text-align: center; /* Alinear texto al centro */
+}
 
-    margin-top: 30px;
-    margin-bottom: 50px; /* Puedes ajustar este valor según tus necesidades */
-    text-align: center;
+#filters label, #filters select, #filters input, #filters button {
+    margin: 5px; /* Añadir margen entre los elementos */
+}
+
+#filters label {
+    display: block; /* Asegurar que los labels sean bloques */
 }
 
 /* Estilos para el calendario */
@@ -44,7 +92,7 @@
     flex-wrap: nowrap; /* Para que los días se muestren en una sola línea */
     overflow-x: auto; /* Permitir desplazamiento horizontal si los días no caben en la pantalla */
     height: 80vh; /* Ajustar la altura total del calendario */
-    margin-top: 20px; /* Añadimos un margen superior al calendario */
+    margin-top: 20px; /* Añadir un margen superior al calendario */
     background-color: #add8e6; /* Fondo azul claro detrás de los contenedores */
     padding: 10px; /* Añadido espacio interno al calendario */
 }
@@ -85,14 +133,15 @@
     background-color: #e0e0e0;
 }
 
-/* Modal */
+/* Estilos para el modal */
 .modal {
     display: none;
     position: fixed;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* fondo oscuro semitransparente */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
+    background-color: white; /* Fondo oscuro semitransparente */
 }
 
 .modal-content {
@@ -123,66 +172,25 @@
     align-items: flex-start; /* Alineamos los items al inicio */
 }
 
+/* Media Queries para pantallas pequeñas */
+@media (max-width: 768px) {
+    #filters {
+        flex-direction: column; /* Apilar filtros verticalmente */
+        align-items: center; /* Centrar los filtros */
+    }
 
-
-/* Estilos para el encabezado */
-header {
-    background-color: #003366; /* Azul marino */
-    color: white; /* Letra blanca */
-    text-align: center; /* Centrar el texto */
-    padding: 20px 0; /* Añadir padding superior e inferior */
-    margin: 0; /* Eliminar cualquier margen del header */
-    width: 100%; /* Asegurar que el header ocupe todo el ancho */
-}
-
-header h1 {
-    margin: 0; /* Eliminar márgenes del h1 */
-    font-size: 2em; /* Ajustar el tamaño de la fuente */
-}
-
-h1 {
-    text-align: center;
-}
-
-/*                    */
-
-/* Contenedor del logo */
-#logo-container {
-    position: absolute;
-    top: 5vh; /* Ajustar la distancia desde la parte superior */
-    left: 5vh; /* Ajustar la distancia desde la parte izquierda */
-}
-
-#logo {
-    height: 5vh; /* Ajustar la altura del logo */
-    width: 5vh; /* Mantener la proporción del logo */
-}
-
-/*               */
-
-footer button {
-    margin-top: 20px; /* Puedes ajustar este valor según tus necesidades */
-    margin-left: 10vh;
+    #filters label, #filters select, #filters input, #filters button {
+        width: 100%; /* Asegurar que los campos ocupen todo el ancho */
+        max-width: 300px; /* Establecer un ancho máximo razonable */
+    }
     
-}
+    /* Ajustar el formulario de añadir clase */
+    #add-class-form {
+        padding: 0 10px; /* Añadir padding a los lados */
+    }
 
-h2 {
-    font-size: 1em; /* Tamaño normal de la letra */
-    font-weight: normal; /* Texto sin negrita */
-    margin-left: 20vh;
-  
-}
-
-/* Centrar los elementos del formulario de añadir clase */
-#add-class-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centrar los elementos horizontalmente */
-}
-
-#add-class-form label, #add-class-form input, #add-class-form select, #add-class-form button {
-    width: 12vh; /* Ajustar el ancho de los elementos */
-    max-width: 15vh; /* Ancho máximo para los elementos */
-    margin: 5px ; /* Añadir margen entre los elementos */
-    text-align: center; /* Alinear el texto de los labels a la izquierda */
+    #add-class-form label, #add-class-form input, #add-class-form select, #add-class-form button {
+        width: 100%; /* Asegurar que los elementos del formulario ocupen todo el ancho */
+        max-width: none; /* Eliminar el ancho máximo */
+    }
 }
