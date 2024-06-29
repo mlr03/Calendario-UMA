@@ -3,6 +3,21 @@ document.addEventListener('DOMContentLoaded', function() {
     loadClassesFromStorage(); // Cargar clases almacenadas al cargar la página
 });
 
+const defaultClasses = [
+    { id: generateId(), name: 'Matemáticas I', grado: 'Ing. Informática', curso: '1º', grupo: 'A', tipo: 'Teórica', day: 'Martes', time: '08:45' },
+    { id: generateId(), name: 'Proyectos y Legislación', grado: 'Ing. Informática', curso: '4º', grupo: 'C', tipo: 'Práctica', day: 'Lunes', time: '10:45' },
+    { id: generateId(), name: 'Física I', grado: 'Ing. Software', curso: '1º', grupo: 'A', tipo: 'Teórica', day: 'Miércoles', time: '08:45' },
+    { id: generateId(), name: 'Álgebra', grado: 'Ing. Informática', curso: '1º', grupo: 'B', tipo: 'Práctica', day: 'Jueves', time: '10:45' },
+    { id: generateId(), name: 'Estructuras de Datos', grado: 'Ing.Computadores', curso: '2º', grupo: 'C', tipo: 'Teórica', day: 'Viernes', time: '12:45' },
+
+
+    { id: generateId(), name: 'Interfaces de Usuario', grado: 'Ing. Software', curso: '3º', grupo: 'A', tipo: 'Teórica', day: 'Lunes', time: '10:45' },
+    { id: generateId(), name: 'Programación I', grado: 'Ing. Informática', curso: '1º', grupo: 'A', tipo: 'Práctica', day: 'Lunes', time: '12:45' },
+    { id: generateId(), name: 'Física I', grado: 'Ing. Computadores', curso: '1º', grupo: 'A', tipo: 'Teórica', day: 'Viernes', time: '08:45' },
+    { id: generateId(), name: 'Interfaces de Usuario', grado: 'Ing. Software', curso: '3º', grupo: 'B', tipo: 'Práctica', day: 'Miércoles', time: '10:45' },
+    { id: generateId(), name: 'Estructuras de Datos', grado: 'Ing. Computadores', curso: '2º', grupo: 'C', tipo: 'Teórica', day: 'Martes', time: '12:45' }
+];
+
 function generateCalendar() {
     const calendar = document.getElementById('calendar');
     calendar.innerHTML = ''; // Limpiar el calendario antes de generar
@@ -20,6 +35,9 @@ function generateCalendar() {
         `;
         calendar.appendChild(dayColumn);
     });
+
+    // Añadir las asignaturas fijas al calendario
+    defaultClasses.forEach(addClassToCalendar);
 }
 
 function addClassToCalendar(classInfo) {
@@ -29,9 +47,10 @@ function addClassToCalendar(classInfo) {
     const timeSlot = Array.from(dayColumn.querySelectorAll('.time-slot'))
         .find(slot => slot.dataset.slotId === classInfo.time);
 
+    // Crear un div para la clase con solo el nombre de la asignatura
     const classDiv = document.createElement('div');
     classDiv.classList.add('class');
-    classDiv.textContent = `${classInfo.time} - ${classInfo.name}`;
+    classDiv.textContent = classInfo.name;
     classDiv.dataset.details = JSON.stringify(classInfo);
     classDiv.onclick = () => openModal(classDiv); // Asignar función al hacer clic
 
