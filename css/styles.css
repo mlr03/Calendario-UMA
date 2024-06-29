@@ -26,7 +26,7 @@ header, footer {
 header h1 {
     margin: 0; /* Eliminar márgenes del h1 */
     font-size: 2em; /* Tamaño de fuente para el título */
-    padding-top: 10px; /* Ajustar el espacio entre el logo y el título */
+    padding-top: 10vh; /* Ajustar el espacio entre el logo y el título */
 }
 
 /* Ajustar el header */
