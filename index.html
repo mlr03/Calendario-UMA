@@ -9,116 +9,138 @@
 <body>
     <header>
         <div id="logo-container">
-            <a href="https://www.uma.es/" id="logo-link">
-                <img src="img/logo.png" alt="Logo" id="logo">
+            <a href="https://www.uma.es/" id="logo-link" aria-label="Ir al sitio web de la Universidad de Málaga">
+                <img src="img/logo.png" alt="Logo de la Universidad de Málaga" id="logo">
             </a>
         </div>
         
-        <h1>Horarios  ETSII 2024/2025 </h1>
+        <div role="banner">
+            <!-- Encabezado principal con una descripción accesible -->
+            <h1 tabindex="0">Horarios ETSII 2024/2025</h1>
+            <p tabindex="0"> Página de horarios para el año académico 2024/2025 en la Escuela Técnica Superior de Ingeniería Informática de la Universidad de Málaga.</p>
+        </div>
+        
+    
+
         <div id="filters">
             <label for="grado">Grado:</label>
-            <select id="grado">
+            <select id="grado" aria-describedby="grado-description">
                 <option value="">Grado</option>
                 <option value="Grado 1">Ing. Informática</option>
                 <option value="Grado 2">Ing. Software</option>
                 <option value="Grado 3">Ing. Computadores</option>
-             
             </select>
+           
+
             <label for="curso">Curso:</label>
-            <select id="curso">
+            <select id="curso" aria-describedby="curso-description">
                 <option value="">Curso</option>
                 <option value="Curso 1">1º</option>
                 <option value="Curso 2">2º</option>
                 <option value="Curso 3">3º</option>
                 <option value="Curso 4">4º</option>
             </select>
+
+
             <label for="grupo">Grupo:</label>
-            <select id="grupo">
+            <select id="grupo" aria-describedby="grupo-description">
                 <option value="">Grupo</option>
                 <option value="A">A</option>
                 <option value="B">B</option>
                 <option value="C">C</option>
             </select>
+
+
             <label for="tipo">Tipo de clase:</label>
-            <select id="tipo">
+            <select id="tipo" aria-describedby="tipo-description">
                 <option value="">Tipo</option>
                 <option value="Teórica">Teórica</option>
                 <option value="Práctica">Práctica</option>
                 <option value="Prueba">Prueba</option>
             </select>
-            <label for="keyword">Palabra clave:</label>
-            <input type="text" id="keyword">
-            <button onclick="applyFilters()">Aplicar Filtros</button>
 
+
+            <label for="keyword">Palabra clave:</label>
+            <input type="text" id="keyword" aria-describedby="keyword-description">
+           
+            
+            <button onclick="applyFilters()">Aplicar Filtros</button>
         </div>
     </header>
     <main>
         <div id="calendar">
-            <div class="day-column">
-                <h3>Lunes</h3>
+            <div class="day-column" aria-labelledby="lunes-heading">
+                <h3 id="lunes-heading">Lunes</h3>
             </div>
-            <div class="day-column">
-                <h3>Martes</h3>
+            <div class="day-column" aria-labelledby="martes-heading">
+                <h3 id="martes-heading">Martes</h3>
             </div>
-            <div class="day-column">
-                <h3>Miércoles</h3>
+            <div class="day-column" aria-labelledby="miercoles-heading">
+                <h3 id="miercoles-heading">Miércoles</h3>
             </div>
-            <div class="day-column">
-                <h3>Jueves</h3>
+            <div class="day-column" aria-labelledby="jueves-heading">
+                <h3 id="jueves-heading">Jueves</h3>
             </div>
-            <div class="day-column">
-                <h3>Viernes</h3>
+            <div class="day-column" aria-labelledby="viernes-heading">
+                <h3 id="viernes-heading">Viernes</h3>
             </div>
         </div>
     </main>
-    <div id="class-details-modal" class="modal">
+    <div id="class-details-modal" class="modal" role="dialog" aria-labelledby="modal-heading" aria-hidden="true">
         <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <div id="class-details">
+            <span class="close" onclick="closeModal()" aria-label="Cerrar ventana">&times;</span>
+            <div id="class-details" aria-live="polite">
                 <!-- Los detalles de la clase seleccionada se mostrarán aquí -->
             </div>
             <button onclick="deleteSelectedClass()">Eliminar Clase</button>
         </div>
     </div>
     
-    <div id="add-class-form">
-        <h2>A continuación, deberá de completar  los siguientes campos para poder añadir una nueva clase a su horario. Posteriormente, pulse "Añadir Clase" para añadir la clase a su horario</h2>
+    <div id="add-class-form" aria-labelledby="add-class-form-heading">
+        <h2 id="add-class-form-heading" tabindex="0">A continuación, deberá de completar los siguientes campos para poder añadir una nueva clase a su horario. Posteriormente, pulse "Añadir Clase" para añadir la clase a su horario</h2>
         <div class="form-group">
             <label for="new-class-name">Nombre*:</label>
-            <input type="text" id="new-class-name">
+            <input type="text" id="new-class-name" aria-required="true" aria-describedby="new-class-name-description">
+            
             <label for="new-class-grado">Grado* :</label>
-            <select id="new-class-grado">
+            <select id="new-class-grado" aria-required="true" aria-describedby="new-class-grado-description">
                 <option value="">Grado</option>
                 <option value="Grado 1">Ing. Informática</option>
                 <option value="Grado 2">Ing. Software</option>
                 <option value="Grado 3">Ing. Computadores</option>
-              
             </select>
+       
+
             <label for="new-class-curso">Curso*:</label>
-            <select id="new-class-curso">
+            <select id="new-class-curso" aria-required="true" aria-describedby="new-class-curso-description">
                 <option value="">Curso</option>
                 <option value="Curso 1">1º</option>
                 <option value="Curso 2">2º</option>
                 <option value="Curso 3">3º</option>
-                <option value="Curso 4">4º</option> 
-
+                <option value="Curso 4">4º</option>
             </select>
+   
+
             <label for="new-class-grupo">Grupo*:</label>
-            <select id="new-class-grupo">
+            <select id="new-class-grupo" aria-required="true" aria-describedby="new-class-grupo-description">
                 <option value="">Grupo</option>
                 <option value="A">A</option>
                 <option value="B">B</option>
                 <option value="C">C</option>
             </select>
+
+
             <label for="new-class-tipo">Tipo*:</label>
-            <select id="new-class-tipo">
+            <select id="new-class-tipo" aria-required="true" aria-describedby="new-class-tipo-description">
                 <option value="">Tipo</option>
                 <option value="Teórica">Teórica</option>
                 <option value="Práctica">Práctica</option>
-                <option value="Prueba">Prueba</option> 
+                <option value="Prueba">Prueba</option>
             </select>
+          
+
             <label for="new-class-day">Día*:</label>
-            <select id="new-class-day">
+            <select id="new-class-day" aria-required="true" aria-describedby="new-class-day-description">
                 <option value="">Día</option> 
                 <option value="Lunes">Lunes</option>
                 <option value="Martes">Martes</option>
@@ -126,16 +148,21 @@
                 <option value="Jueves">Jueves</option>
                 <option value="Viernes">Viernes</option>
             </select>
+            
+
             <label for="new-class-time">Hora*:</label>
-            <select id="new-class-time">
+            <select id="new-class-day" aria-required="true" aria-describedby="new-class-day-description">
                 <option value="">Hora</option>
                 <option value="08:45">08:45</option>
                 <option value="10:45">10:45</option>
                 <option value="12:45">12:45</option>
             </select>
+
+
             <button onclick="addClass()">Añadir Clase</button>
             <button onclick="clearForm()">Borrar Campos</button>
         </div>
         <script src="js/script.js"></script>
     </div>
-    
+</body>
+</html>
