@@ -13,15 +13,15 @@ class Clase {
 
 // Array de objetos que representan las diferentes clases
 const clases = [
-    new Clase('Matematica Discreta', 'Lunes', '08:45', 'Informatica', 1, 'A', 'Teórica'),
+    new Clase('Matematica Discreta', 'Lunes', '08:45', 'Informatica', 1, 'B', 'Teórica'),
     new Clase('Tecnologias Web', 'Martes', '10:45', 'Software', 3, 'A', 'Práctica'),
-    new Clase('Estructura de Computadores', 'Lunes', '08:45', 'Computadores', 2, 'A', 'Práctica'),
+    new Clase('Estructura de Computadores', 'Lunes', '08:45', 'Computadores', 2, 'C', 'Práctica'),
     new Clase('Interfaces de Usuario', 'Jueves', '08:45', 'Software', 3, 'A', 'Práctica'),
     new Clase('Organización Empresarial', 'Viernes', '12:45', 'Informatica', 1, 'A', 'Teórica'),
-    new Clase('Proyectos y Legislación', 'Miércoles', '08:45', 'Computadores', 4, 'A', 'Prueba'),
-    new Clase('Análisis y Diseño de Algoritmos', 'Viernes', '08:45', 'Informatica', 2, 'A', 'Teórica'),
+    new Clase('Proyectos y Legislación', 'Miércoles', '08:45', 'Computadores', 4, 'B', 'Prueba'),
+    new Clase('Análisis y Diseño de Algoritmos', 'Viernes', '08:45', 'Informatica', 2, 'B', 'Teórica'),
     new Clase('Gestión de la Información', 'Martes', '12:45', 'Software', 3, 'A', 'Práctica'),
-    new Clase('Sistemas Operativos', 'Viernes', '10:45', 'Computadores', 2, 'A', 'Prueba'),
+    new Clase('Sistemas Operativos', 'Viernes', '10:45', 'Computadores', 2, 'C', 'Prueba'),
     new Clase('Interfaces de Usuario', 'Miércoles', '08:45', 'Software', 3, 'A', 'Práctica'),
 ];
 
@@ -101,7 +101,7 @@ function handleConfirmarEliminarFiltros() {
     eliminarFiltrosModal.hide();
 }
 
-// Función para eliminar todos los filtros
+// Función para eliminar todos los filtros y mostrar todas las asignaturas
 function eliminarFiltros() {
     document.getElementById("grado").value = "";
     document.getElementById("curso").value = "";
@@ -109,6 +109,7 @@ function eliminarFiltros() {
     document.getElementById("tipo").value = "";
     document.getElementById("keyword").value = "";
 
+    // Mostrar todas las asignaturas
     generateHTMLForClases(clases);
 }
 
@@ -135,26 +136,15 @@ function closeModal() {
     classDetailsModal.style.display = 'none';
 }
 
-// Función para eliminar la clase seleccionada (pendiente de implementación)
-function deleteSelectedClass() {
-    // Aquí puedes agregar la lógica para eliminar la clase seleccionada
-    alert("Clase eliminada (pendiente de implementación)");
-    closeModal();
-}
+
 
 // Evento DOMContentLoaded para inicializar eventos
 document.addEventListener('DOMContentLoaded', () => {
+    // Mostrar todas las clases al cargar
     generateHTMLForClases(clases);
 
     const btnAplicarFiltros = document.getElementById('btnAplicarFiltros');
     btnAplicarFiltros.addEventListener('click', aplicarFiltros);
 
-    const confirmarEliminarFiltros = document.getElementById("confirmarEliminarFiltros");
-    confirmarEliminarFiltros.addEventListener('click', handleConfirmarEliminarFiltros);
 
-    const btnEliminarFiltros = document.getElementById('btnEliminarFiltros');
-    btnEliminarFiltros.addEventListener('click', () => {
-        const eliminarFiltrosModal = new bootstrap.Modal(document.getElementById('eliminarFiltrosModal'));
-        eliminarFiltrosModal.show();
-    });
 });
