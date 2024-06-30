@@ -13,16 +13,16 @@ class Clase {
 
 // Array de objetos que representan las diferentes clases
 const clases = [
-    new Clase('Matematica Discreta', 'Lunes', '08:45', 'Informatica', 1, 'A', 'Teoria'),
-    new Clase('Tecnologias Web', 'Martes', '10:45', 'Software', 3, 'A', 'Practica'),
-    new Clase('Estructura de Computadores', 'Lunes', '08:45', 'Computadores', 2, 'A', 'Practica'),
-    new Clase('Interfaces de Usuario', 'Jueves', '08:45', 'Software', 3, 'A', 'Practica'),
-    new Clase('Organización Empresarial', 'Viernes', '12:45', 'Informatica', 1, 'A', 'Teoria'),
+    new Clase('Matematica Discreta', 'Lunes', '08:45', 'Informatica', 1, 'A', 'Teórica'),
+    new Clase('Tecnologias Web', 'Martes', '10:45', 'Software', 3, 'A', 'Práctica'),
+    new Clase('Estructura de Computadores', 'Lunes', '08:45', 'Computadores', 2, 'A', 'Práctica'),
+    new Clase('Interfaces de Usuario', 'Jueves', '08:45', 'Software', 3, 'A', 'Práctica'),
+    new Clase('Organización Empresarial', 'Viernes', '12:45', 'Informatica', 1, 'A', 'Teórica'),
     new Clase('Proyectos y Legislación', 'Miércoles', '08:45', 'Computadores', 4, 'A', 'Prueba'),
-    new Clase('Análisis y Diseño de Algoritmos', 'Viernes', '08:45', 'Informatica', 2, 'A', 'Teoria'),
-    new Clase('Gestión de la Información', 'Martes', '12:45', 'Software', 3, 'A', 'Practica'),
+    new Clase('Análisis y Diseño de Algoritmos', 'Viernes', '08:45', 'Informatica', 2, 'A', 'Teórica'),
+    new Clase('Gestión de la Información', 'Martes', '12:45', 'Software', 3, 'A', 'Práctica'),
     new Clase('Sistemas Operativos', 'Viernes', '10:45', 'Computadores', 2, 'A', 'Prueba'),
-    new Clase('Interfaces de Usuario', 'Miércoles', '08:45', 'Software', 3, 'A', 'Practica'),
+    new Clase('Interfaces de Usuario', 'Miércoles', '08:45', 'Software', 3, 'A', 'Práctica'),
 ];
 
 localStorage.setItem('clases', JSON.stringify(clases));
