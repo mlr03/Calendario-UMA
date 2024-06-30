@@ -40,32 +40,11 @@ header {
     width: 100%; /* Asegurar que el header ocupe todo el ancho */
 }
 
-/* FORMULARIO DE AADIR CLASE */
-#add-class-form {
-    background-color: #ecec97; /* Fondo amarillo claro */
-    border: 1px solid #ccc; /* Borde gris claro */
-    padding: 20px; /* Espacio interno */
-    margin: 30px 0 50px; /* Margen superior e inferior */
-    border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    display: flex;
-    flex-wrap: wrap; /* Permitir que los filtros se envuelvan en varias lÃ­neas si es necesario */
-    justify-content: center; /* Centrar los filtros en la pantalla */
-    text-align: center; /* Alinear texto al centro */
+#totalClases{
+
+    text-align: center;
 }
 
-/* Asegurar que los elementos del formulario se comporten igual en mÃ³vil y en escritorio */
-#add-class-form label, #add-class-form input, #add-class-form select, #add-class-form button {
-    margin: 5px; /* AÃ±adir margen entre los elementos */
-}
-
-/* Estilo del tÃ­tulo en el formulario */
-#add-class-form h2 {
-    font-size: 1em; /* TamaÃ±o normal de la letra */
-    font-weight: normal; /* Texto sin negrita */
-    margin: 10px 0; /* AÃ±adir margen superior e inferior */
-    text-align: center; /* Centrar el texto */
-}
 
 
 /* FORMULARIO DE FILTROS */
@@ -109,7 +88,7 @@ header {
     text-align: center;
     cursor: pointer;
     height: calc(80vh - 30px); /* Ajustar la altura de cada columna para ocupar la pantalla */
-    display: flex;
+    display:flex;
     flex-direction: column; /* Asegurar que los slots se alineen verticalmente */
     background-color: #d3d3d3; /* Fondo gris */
     margin: 10px; /* Margen entre los contenedores */
@@ -128,6 +107,9 @@ header {
     text-align: center;
     margin: 5px 0; /* Añadir margen entre las franjas horarias */
 }
+
+
+
 
 .time-slot p {
     margin: 0; /* Ajustar el margen de los párrafos dentro de los slots */
@@ -190,24 +172,22 @@ header {
 
 /* Media Queries para pantallas pequeÃ±as */
 @media (max-width: 768px) {
-    #filters, #add-class-form {
+    #filters{
         flex-direction: column; /* Apilar filtros verticalmente */
         align-items: center; /* Centrar los filtros */
     }
 
-    #filters label, #filters select, #filters input, #filters button,
-    #add-class-form label, #add-class-form input, #add-class-form select, #add-class-form button {
+    #filters label, #filters select, #filters input, #filters button {
         width: 100%; /* Asegurar que los campos ocupen todo el ancho */
         max-width: 300px; /* Establecer un ancho mÃ¡ximo razonable */
     }
     
-    #filters label, #add-class-form label {
+    #filters label {
         display: block; /* Asegura que las etiquetas estÃ©n sobre los campos */
         margin-bottom: 5px; /* AÃ±adir espacio entre la etiqueta y el campo */
     }
 
-    #filters input, #filters select, #filters button,
-    #add-class-form input, #add-class-form select, #add-class-form button {
+    #filters input, #filters select, #filters button {
         margin-bottom: 10px; /* AÃ±adir un margen inferior para separar los campos */
     }
 }

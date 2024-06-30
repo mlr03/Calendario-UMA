@@ -8,7 +8,6 @@
 </head>
 <body>
     <header>
-
         <!-------------------- Encabezado principal con una descripción accesible -------------------------->
 
         <div id="logo-container">
@@ -18,7 +17,6 @@
         </div>
         
         <div role="banner">
-         
             <h1 tabindex="0">Horarios ETSII 2024/2025</h1>
             <p tabindex="0"> Página de horarios para el año académico 2024/2025 en la Escuela Técnica Superior de Ingeniería Informática de la Universidad de Málaga.</p>
         </div>
@@ -28,7 +26,7 @@
             <!------------------------- FILTROS------------------------------------------>
 
         <div id="filters">
-            <label for="grado">Grado:</label>
+            <label for="filtroGrado">Grado:</label>
             <select id="grado" aria-describedby="grado-description">
                 <option value="">Grado</option>
                 <option value="Grado 1">Informatica</option>
@@ -37,7 +35,7 @@
             </select>
            
 
-            <label for="curso">Curso:</label>
+            <label for="filtroCurso">Curso:</label>
             <select id="curso" aria-describedby="curso-description">
                 <option value="">Curso</option>
                 <option value="Curso 1">1</option>
@@ -47,7 +45,7 @@
             </select>
 
 
-            <label for="grupo">Grupo:</label>
+            <label for="filtroGrupo">Grupo:</label>
             <select id="grupo" aria-describedby="grupo-description">
                 <option value="">Grupo</option>
                 <option value="A">A</option>
@@ -56,7 +54,7 @@
             </select>
 
 
-            <label for="tipo">Tipo de clase:</label>
+            <label for="filtroTipo">Tipo de clase:</label>
             <select id="tipo" aria-describedby="tipo-description">
                 <option value="">Tipo</option>
                 <option value="Teórica">Teórica</option>
@@ -65,14 +63,23 @@
             </select>
 
 
-            <label for="keyword">Nombre:</label>
+            <label for="filtroNombre">Nombre:</label>
             <input type="text" id="keyword" aria-describedby="keyword-description">
            
             
-            <button onclick="applyFilters()">Aplicar Filtros</button>
+            <button id="btnAplicarFiltros" class="btn btn-primary">Aplicar Filtros</button>
+            <button id="btnEliminarFiltros" class="btn btn-secondary">Eliminar Filtros</button> 
         </div>
     </header>
     <main>
+        <div id="totalClases" class="container text-center mt-4">
+            <p class="text-white" tabindex="0" aria-live="polite">Total de clases mostradas: <span id="totalClasesCount" aria-live="assertive">0</span></p>
+        </div>
+
+        <!-- Mensaje ARIA para lectores de pantalla -->
+        <div id="ariaMessage" class="visually-hidden" role="alert" aria-live="assertive"></div>
+
+        <script src="js/clase.js"></script>
 
         <!--------------------------------------------------------------------------->
 
@@ -81,33 +88,78 @@
         <div id="calendar">
             <div class="day-column" aria-labelledby="lunes-heading">
                 <h3 id="lunes-heading">Lunes</h3>
-                <div class="time-slot" aria-label="08:45 a 10:30">08:45 - 10:30</div>
-                <div class="time-slot" aria-label="10:45 a 12:30">10:45 - 12:30</div>
-                <div class="time-slot" aria-label="12:45 a 14:30">12:45 - 14:30</div>
+                <div class="time-slot-container">
+                    <div class="time-label">08:45 - 10:30</div>
+                    <div class="time-slot" aria-label="08:45 a 10:30"></div>
+                </div>
+                <div class="time-slot-container">
+                    <div class="time-label">10:45 - 12:30</div>
+                    <div class="time-slot" aria-label="10:45 a 12:30"></div>
+                </div>
+                <div class="time-slot-container">
+                    <div class="time-label">12:45 - 14:30</div>
+                    <div class="time-slot" aria-label="12:45 a 14:30"></div>
+                </div>
             </div>
             <div class="day-column" aria-labelledby="martes-heading">
                 <h3 id="martes-heading">Martes</h3>
-                <div class="time-slot" aria-label="08:45 a 10:30">08:45 - 10:30</div>
-                <div class="time-slot" aria-label="10:45 a 12:30">10:45 - 12:30</div>
-                <div class="time-slot" aria-label="12:45 a 14:30">12:45 - 14:30</div>
+                <div class="time-slot-container">
+                    <div class="time-label">08:45 - 10:30</div>
+                    <div class="time-slot" aria-label="08:45 a 10:30"></div>
+                </div>
+                <div class="time-slot-container">
+                    <div class="time-label">10:45 - 12:30</div>
+                    <div class="time-slot" aria-label="10:45 a 12:30"></div>
+                </div>
+                <div class="time-slot-container">
+                    <div class="time-label">12:45 - 14:30</div>
+                    <div class="time-slot" aria-label="12:45 a 14:30"></div>
+                </div>
             </div>
             <div class="day-column" aria-labelledby="miercoles-heading">
                 <h3 id="miercoles-heading">Miércoles</h3>
-                <div class="time-slot" aria-label="08:45 a 10:30">08:45 - 10:30</div>
-                <div class="time-slot" aria-label="10:45 a 12:30">10:45 - 12:30</div>
-                <div class="time-slot" aria-label="12:45 a 14:30">12:45 - 14:30</div>
+                <div class="time-slot-container">
+                    <div class="time-label">08:45 - 10:30</div>
+                    <div class="time-slot" aria-label="08:45 a 10:30"></div>
+                </div>
+                <div class="time-slot-container">
+                    <div class="time-label">10:45 - 12:30</div>
+                    <div class="time-slot" aria-label="10:45 a 12:30"></div>
+                </div>
+                <div class="time-slot-container">
+                    <div class="time-label">12:45 - 14:30</div>
+                    <div class="time-slot" aria-label="12:45 a 14:30"></div>
+                </div>
             </div>
             <div class="day-column" aria-labelledby="jueves-heading">
                 <h3 id="jueves-heading">Jueves</h3>
-                <div class="time-slot" aria-label="08:45 a 10:30">08:45 - 10:30</div>
-                <div class="time-slot" aria-label="10:45 a 12:30">10:45 - 12:30</div>
-                <div class="time-slot" aria-label="12:45 a 14:30">12:45 - 14:30</div>
+                <div class="time-slot-container">
+                    <div class="time-label">08:45 - 10:30</div>
+                    <div class="time-slot" aria-label="08:45 a 10:30"></div>
+                </div>
+                <div class="time-slot-container">
+                    <div class="time-label">10:45 - 12:30</div>
+                    <div class="time-slot" aria-label="10:45 a 12:30"></div>
+                </div>
+                <div class="time-slot-container">
+                    <div class="time-label">12:45 - 14:30</div>
+                    <div class="time-slot" aria-label="12:45 a 14:30"></div>
+                </div>
             </div>
             <div class="day-column" aria-labelledby="viernes-heading">
                 <h3 id="viernes-heading">Viernes</h3>
-                <div class="time-slot" aria-label="08:45 a 10:30">08:45 - 10:30</div>
-                <div class="time-slot" aria-label="10:45 a 12:30">10:45 - 12:30</div>
-                <div class="time-slot" aria-label="12:45 a 14:30">12:45 - 14:30</div>
+                <div class="time-slot-container">
+                    <div class="time-label">08:45 - 10:30</div>
+                    <div class="time-slot" aria-label="08:45 a 10:30"></div>
+                </div>
+                <div class="time-slot-container">
+                    <div class="time-label">10:45 - 12:30</div>
+                    <div class="time-slot" aria-label="10:45 a 12:30"></div>
+                </div>
+                <div class="time-slot-container">
+                    <div class="time-label">12:45 - 14:30</div>
+                    <div class="time-slot" aria-label="12:45 a 14:30"></div>
+                </div>
             </div>
         </div>
         
@@ -115,102 +167,9 @@
     <div id="class-details-modal" class="modal" role="dialog" aria-labelledby="modal-heading" aria-hidden="true">
         <div class="modal-content">
             <span class="close" onclick="closeModal()" aria-label="Cerrar ventana">&times;</span>
-            <div id="class-details" aria-live="polite">
-
-
-                <!-- Los detalles de la clase seleccionada se mostrarán aquí -->
-            </div>
-            <button onclick="deleteSelectedClass()">Eliminar Clase</button>
+            <div id="class-details" aria-live="polite"></div>
         </div>
     </div>
-    
-            <!----------------------AÑADIR CLASE----------------------------------->
-
-            <div id="add-class-form" aria-labelledby="add-class-form-heading">
-                <h2 id="add-class-form-heading" tabindex="0">A continuación, deberá de completar los siguientes campos para poder añadir una nueva clase a su horario. Posteriormente, pulse "Añadir Clase" para añadir la clase a su horario</h2>
-                <div class="form-group">
-                    <label for="new-class-name">Nombre*:</label>
-                    <select id="new-class-name"  aria-required="true" aria-describedby="new-class-name-description">
-                        <option value="">Nombre</option>
-                        <option value="Calculo para la Computación">Calculo para la computación</option>
-                        <option value=" Matemática Discreta">Matemática Discreta</option>
-                        <option value="Estructura de Computadores">Estructura de Computadores</option> 
-                        <option value="Base de Datos">Base de Datos</option> 
-                        <option value="Sistemas Operativos">Sistemas Operativos</option>
-                        <option value="Gestión de la Informacion">Gestión de la Informacion</option>
-                        <option value="Tecnologías Web">Tencologias Web</option>
-                        <option value="Interfaces de Usuario">Interfaces de Usuario</option>
-                        <option value="Proyectos y Legislación">Proyectos y Legislación</option>
-             
-                    </select>
-               
-                    <label for="new-class-grado">Grado* :</label>
-                    <select id="new-class-grado" aria-required="true" aria-describedby="new-class-grado-description">
-                        <option value="">Grado</option>
-                        <option value="Informatica">Informatica</option>
-                        <option value="Software">Software</option>
-                        <option value="Computadores">Computadores</option>
-                    </select>
-               
-        
-                    <label for="new-class-curso">Curso*:</label>
-                    <select id="new-class-curso" aria-required="true" aria-describedby="new-class-curso-description">
-                        <option value="">Curso</option>
-                        <option value=1>1</option>
-                        <option value=2>2</option>
-                        <option value=3>3</option>
-                        <option value=4>4</option>
-                    </select>
-           
-        
-                    <label for="new-class-grupo">Grupo*:</label>
-                    <select id="new-class-grupo" aria-required="true" aria-describedby="new-class-grupo-description">
-                        <option value="">Grupo</option>
-                        <option value="A">A</option>
-                        <option value="B">B</option>
-                        <option value="C">C</option>
-                    </select>
-        
-        
-                    <label for="new-class-tipo">Tipo*:</label>
-                    <select id="new-class-tipo" aria-required="true" aria-describedby="new-class-tipo-description">
-                        <option value="">Tipo</option>
-                        <option value="Teórica">Teórica</option>
-                        <option value="Práctica">Práctica</option>
-                        <option value="Prueba">Prueba</option>
-                    </select>
-                  
-        
-                    <label for="new-class-day">Día*:</label>
-                    <select id="new-class-day" aria-required="true" aria-describedby="new-class-day-description">
-                        <option value="">Día</option> 
-                        <option value="Lunes">Lunes</option>
-                        <option value="Martes">Martes</option>
-                        <option value="Miércoles">Miércoles</option>
-                        <option value="Jueves">Jueves</option>
-                        <option value="Viernes">Viernes</option>
-                    </select>
-                    
-        
-                    <label for="new-class-time">Hora*:</label>
-                    <select id="new-class-day" aria-required="true" aria-describedby="new-class-day-description">
-                        <option value="">Hora</option>
-                        <option value="08:45">08:45</option>
-                        <option value="10:45">10:45</option>
-                        <option value="12:45">12:45</option>
-                    </select>
-        
-        
-                    <button onclick="addClass()">Añadir Clase</button>
-        
-                </div>
-
-
-
-
-
-        <script src="js/inicio.js"></script>
-        <script src="js/db.js"></script>
-    </div>
+    <script src="js/inicio.js"></script>
 </body>
 </html>
