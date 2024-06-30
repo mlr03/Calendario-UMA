@@ -27,6 +27,28 @@ const clases = [
 
 localStorage.setItem('clases', JSON.stringify(clases));
 
+// Función para aplicar los filtros
+function aplicarFiltros() {
+    const filtroGrado = document.getElementById("grado").value.toLowerCase();
+    const filtroCurso = parseInt(document.getElementById("curso").value);
+    const filtroGrupo = document.getElementById("grupo").value.toLowerCase();
+    const filtroTipo = document.getElementById("tipo").value.toLowerCase();
+    const filtroNombre = document.getElementById("keyword").value.toLowerCase();
+
+    const clasesFiltrados = clases.filter(clase => {
+        const gradoMatch = filtroGrado === "" || clase.grado.toLowerCase() === filtroGrado;
+        const cursoMatch = isNaN(filtroCurso) || clase.curso === filtroCurso;
+        const grupoMatch = filtroGrupo === "" || clase.grupo.toLowerCase() === filtroGrupo;
+        const tipoMatch = filtroTipo === "" || clase.tipo.toLowerCase() === filtroTipo;
+        const nombreMatch = filtroNombre === "" || clase.nombre.toLowerCase().includes(filtroNombre);
+
+        return gradoMatch && cursoMatch && grupoMatch && tipoMatch && nombreMatch;
+    });
+
+    generateHTMLForClases(clasesFiltrados);
+}
+
+// Función para generar el HTML para las clases mostradas
 function generateHTMLForClases(clasesMostrados) {
     const dayColumns = {
         'Lunes': document.querySelector('[aria-labelledby="lunes-heading"]'),
@@ -72,32 +94,14 @@ function generateHTMLForClases(clasesMostrados) {
     totalClasesCount.textContent = clasesMostrados.length;
 }
 
-function aplicarFiltros() {
-    const filtroGrado = document.getElementById("grado").value.toLowerCase();
-    const filtroCurso = parseInt(document.getElementById("curso").value);
-    const filtroGrupo = document.getElementById("grupo").value.toLowerCase();
-    const filtroTipo = document.getElementById("tipo").value.toLowerCase();
-    const filtroNombre = document.getElementById("keyword").value.toLowerCase();
-
-    const clasesFiltrados = clases.filter(clase => {
-        const gradoMatch = filtroGrado === "" || clase.grado.toString().toLowerCase() === filtroGrado;
-        const cursoMatch = isNaN(filtroCurso) || clase.curso === filtroCurso;
-        const grupoMatch = filtroGrupo === "" || clase.grupo.toLowerCase() === filtroGrupo;
-        const tipoMatch = filtroTipo === "" || clase.tipo.toLowerCase() === filtroTipo;
-        const nombreMatch = filtroNombre === "" || clase.nombre.toLowerCase().includes(filtroNombre);
-
-        return gradoMatch && cursoMatch && grupoMatch && tipoMatch && nombreMatch;
-    });
-
-    generateHTMLForClases(clasesFiltrados);
-}
-
+// Función para manejar la confirmación de eliminar filtros
 function handleConfirmarEliminarFiltros() {
     eliminarFiltros();
     const eliminarFiltrosModal = new bootstrap.Modal(document.getElementById('eliminarFiltrosModal'));
     eliminarFiltrosModal.hide();
 }
 
+// Función para eliminar todos los filtros
 function eliminarFiltros() {
     document.getElementById("grado").value = "";
     document.getElementById("curso").value = "";
@@ -108,22 +112,7 @@ function eliminarFiltros() {
     generateHTMLForClases(clases);
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    generateHTMLForClases(clases);
-
-    const btnAplicarFiltros = document.getElementById('btnAplicarFiltros');
-    btnAplicarFiltros.addEventListener('click', aplicarFiltros);
-
-    const confirmarEliminarFiltros = document.getElementById("confirmarEliminarFiltros");
-    confirmarEliminarFiltros.addEventListener('click', handleConfirmarEliminarFiltros);
-
-    const btnEliminarFiltros = document.getElementById('btnEliminarFiltros');
-    btnEliminarFiltros.addEventListener('click', () => {
-        const eliminarFiltrosModal = new bootstrap.Modal(document.getElementById('eliminarFiltrosModal'));
-        eliminarFiltrosModal.show();
-    });
-});
-
+// Función para mostrar los detalles de una clase
 function mostrarDetallesClase(clase) {
     const classDetails = document.getElementById('class-details');
     classDetails.innerHTML = `
@@ -140,13 +129,32 @@ function mostrarDetallesClase(clase) {
     classDetailsModal.style.display = 'block';
 }
 
+// Función para cerrar el modal de detalles de clase
 function closeModal() {
     const classDetailsModal = document.getElementById('class-details-modal');
     classDetailsModal.style.display = 'none';
 }
 
+// Función para eliminar la clase seleccionada (pendiente de implementación)
 function deleteSelectedClass() {
     // Aquí puedes agregar la lógica para eliminar la clase seleccionada
     alert("Clase eliminada (pendiente de implementación)");
     closeModal();
 }
+
+// Evento DOMContentLoaded para inicializar eventos
+document.addEventListener('DOMContentLoaded', () => {
+    generateHTMLForClases(clases);
+
+    const btnAplicarFiltros = document.getElementById('btnAplicarFiltros');
+    btnAplicarFiltros.addEventListener('click', aplicarFiltros);
+
+    const confirmarEliminarFiltros = document.getElementById("confirmarEliminarFiltros");
+    confirmarEliminarFiltros.addEventListener('click', handleConfirmarEliminarFiltros);
+
+    const btnEliminarFiltros = document.getElementById('btnEliminarFiltros');
+    btnEliminarFiltros.addEventListener('click', () => {
+        const eliminarFiltrosModal = new bootstrap.Modal(document.getElementById('eliminarFiltrosModal'));
+        eliminarFiltrosModal.show();
+    });
+});
