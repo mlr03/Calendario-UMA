@@ -40,32 +40,6 @@ header {
     width: 100%; /* Asegurar que el header ocupe todo el ancho */
 }
 
-/* FORMULARIO DE AÑADIR CLASE */
-#add-class-form {
-    background-color: #ecec97; /* Fondo amarillo claro */
-    border: 1px solid #ccc; /* Borde gris claro */
-    padding: 20px; /* Espacio interno */
-    margin: 30px 0 50px; /* Margen superior e inferior */
-    border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    display: flex;
-    flex-wrap: wrap; /* Permitir que los filtros se envuelvan en varias líneas si es necesario */
-    justify-content: center; /* Centrar los filtros en la pantalla */
-    text-align: center; /* Alinear texto al centro */
-}
-
-/* Asegurar que los elementos del formulario se comporten igual en móvil y en escritorio */
-#add-class-form label, #add-class-form input, #add-class-form select, #add-class-form button {
-    margin: 5px; /* Añadir margen entre los elementos */
-}
-
-/* Estilo del título en el formulario */
-#add-class-form h2 {
-    font-size: 1em; /* Tamaño normal de la letra */
-    font-weight: normal; /* Texto sin negrita */
-    margin: 10px 0; /* Añadir margen superior e inferior */
-    text-align: center; /* Centrar el texto */
-}
 
 /* FORMULARIO DE FILTROS */
 #filters {
@@ -163,38 +137,48 @@ header {
     cursor: pointer;
 }
 
-/* Asegurar que la clase sea igual en todos los dispositivos */
-.class:hover {
-    background-color: #f0f0f0;
-    border: 2px dashed #ccc; /* Aumentado el grosor del borde */
-    margin: 15px; /* Aumentado el margen superior e inferior */
-    padding: 20px; /* Aumentado el padding */
-    background-color: white; /* Fondo de las franjas horarias */
-    display: flex; /* Usamos flexbox para alinear verticalmente */
-    justify-content: flex-start; /* Alineamos el contenido al inicio */
-    align-items: flex-start; /* Alineamos los items al inicio */
+
+/* Estilo para las franjas horarias */
+.class {
+    border: 2px dashed #f0f0f0; /* Borde de franjas */
+    background-color: #f0f0f0; /* Fondo gris claro */
+    padding: 20px; /* Padding para más espacio */
+    margin: 10px 0; /* Margen entre franjas */
+    border-radius: 5px; /* Bordes redondeados */
+    display: flex; /* Flexbox para alinear contenido */
+    justify-content: flex-start; /* Alineación del contenido */
+    align-items: flex-start; /* Alineación del contenido */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    cursor: pointer; /* Cursor de puntero */
 }
+
+/* Si deseas mantener el estilo del hover también en el estado normal */
+.class:hover {
+    background-color: #e9a45a; /* Fondo más claro cuando se pasa el ratón */
+    border: 2px dashed #e9a45a; /* Borde más oscuro cuando se pasa el ratón */
+    margin: 15px; /* Aumentar el margen superior e inferior */
+    padding: 20px; /* Aumentar el padding */
+}
+
 
 /* Media Queries para pantallas pequeñas */
 @media (max-width: 768px) {
-    #filters, #add-class-form {
+    #filters{
         flex-direction: column; /* Apilar filtros verticalmente */
         align-items: center; /* Centrar los filtros */
     }
 
-    #filters label, #filters select, #filters input, #filters button,
-    #add-class-form label, #add-class-form input, #add-class-form select, #add-class-form button {
+    #filters label, #filters select, #filters input, #filters button{
         width: 100%; /* Asegurar que los campos ocupen todo el ancho */
         max-width: 300px; /* Establecer un ancho máximo razonable */
     }
     
-    #filters label, #add-class-form label {
+    #filters label {
         display: block; /* Asegura que las etiquetas estén sobre los campos */
         margin-bottom: 5px; /* Añadir espacio entre la etiqueta y el campo */
     }
 
-    #filters input, #filters select, #filters button,
-    #add-class-form input, #add-class-form select, #add-class-form button {
+    #filters input, #filters select, #filters button{
         margin-bottom: 10px; /* Añadir un margen inferior para separar los campos */
     }
 }

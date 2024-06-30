@@ -22,8 +22,12 @@ const classDetailsDiv = document.getElementById('class-details');
 let selectedClass = null;
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Mostrar clases y aplicar filtros al cargar la página
     mostrarClases();
-    aplicarFiltros();  // Aplica los filtros al inicio
+    applyFilters();
+
+    // Evento para aplicar los filtros solo cuando se haga clic en el botón de filtros
+    document.querySelector('#filters button').addEventListener('click', applyFilters);
 
     // Evento para cerrar el modal
     document.querySelector('.close').addEventListener('click', closeModal);
@@ -34,15 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
             closeModal();
         }
     });
-
-    // Añadir evento al botón de filtros
-    document.querySelector('#filters button').addEventListener('click', applyFilters);
-
-    // Añadir evento al botón de añadir clase
-    document.querySelector('#add-class-form button:nth-of-type(1)').addEventListener('click', addClass);
-
-    // Añadir evento al botón de borrar campos
-    document.querySelector('#add-class-form button:nth-of-type(2)').addEventListener('click', clearForm);
 
     // Añadir evento al botón de eliminar clase
     document.querySelector('#class-details-modal button').addEventListener('click', deleteSelectedClass);
@@ -55,6 +50,7 @@ function mostrarClases() {
         column.querySelectorAll('.class').forEach(el => el.remove());
     });
 
+    // Mostrar todas las clases primero
     clases.forEach(clase => {
         const timeSlot = [...dayColumns[clase.Dia].querySelectorAll('.time-slot')].find(slot => slot.getAttribute('aria-label').startsWith(clase.Hora));
 
@@ -79,6 +75,9 @@ function mostrarClases() {
             timeSlot.appendChild(classDiv);
         }
     });
+
+    // Después de mostrar todas las clases, aplica los filtros
+    applyFilters();
 }
 
 // Función para aplicar los filtros a las clases
@@ -98,6 +97,7 @@ function applyFilters() {
             const matchesTipo = tipoFilter ? classDiv.dataset.tipo === tipoFilter : true;
             const matchesKeyword = keywordFilter ? classDiv.dataset.nombre.toLowerCase().includes(keywordFilter) : true;
 
+            // Solo mostrar la clase si coincide con todos los filtros activos
             if (matchesGrado && matchesCurso && matchesGrupo && matchesTipo && matchesKeyword) {
                 classDiv.style.display = ''; // Mostrar la clase
             } else {
@@ -130,32 +130,6 @@ function closeModal() {
     selectedClass = null; // Limpiar la clase seleccionada al cerrar el modal
 }
 
-// Función para añadir una nueva clase
-function addClass() {
-    const newClass = {
-        Nombre: document.getElementById('new-class-name').value,
-        Dia: document.getElementById('new-class-day').value,
-        Hora: document.getElementById('new-class-time').value,
-        Grado: document.getElementById('new-class-grado').value,
-        Curso: document.getElementById('new-class-curso').value,
-        Grupo: document.getElementById('new-class-grupo').value,
-        Tipo: document.getElementById('new-class-tipo').value
-    };
-
-    if (Object.values(newClass).some(value => !value)) {
-        alert('Por favor, complete todos los campos obligatorios.');
-        return;
-    }
-
-    clases.push(newClass);
-    mostrarClases(); // Muestra las clases después de añadir una nueva clase
-}
-
-// Función para borrar los campos del formulario
-function clearForm() {
-    document.getElementById('add-class-form').reset();
-}
-
 // Función para eliminar la clase seleccionada
 function deleteSelectedClass() {
     if (!selectedClass) return; // No hacer nada si no hay clase seleccionada
@@ -169,6 +143,7 @@ function deleteSelectedClass() {
     if (index !== -1) {
         clases.splice(index, 1);
         mostrarClases(); // Actualiza la vista después de eliminar la clase
-        closeModal(); // Cierra el modal
     }
 }
+
+
