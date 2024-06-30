@@ -71,13 +71,13 @@ header {
 /* FORMULARIO DE FILTROS */
 #filters {
     border: 1px solid #ccc; /* Borde gris claro */
-    padding: 20px; /* Espacio interno */
-    border-radius: 10px; /* Bordes redondeados */
+    padding: 15px; /* Espacio interno */
+    border-radius: 50px; /* Bordes redondeados */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
     display: flex;
     flex-wrap: wrap; /* Permitir que los filtros se envuelvan en varias líneas si es necesario */
     justify-content: center; /* Centrar los filtros en la pantalla */
-    margin: 30px 0 50px; /* Añadir margen superior e inferior */
+    margin: 20px 10px; /* Añadir margen superior e inferior */
     text-align: center; /* Alinear texto al centro */
 }
 
