@@ -8,7 +8,7 @@ const clases = [
 
 { Nombre:'Interfaces de Usuario' , Dia:'Jueves', Hora:'08:45', Grado: 'Software', Curso:'3' , Grupo: 'A' , Tipo: 'Practica'},
 
-{ Nombre:'Fundamentos para la programación' , Dia:'Viernes', Hora:'12:45', Grado: 'Informatica', Curso:'1' , Grupo: 'A' , Tipo: 'Teoria'},
+{ Nombre:'Organización Empresarial' , Dia:'Viernes', Hora:'12:45', Grado: 'Informatica', Curso:'1' , Grupo: 'A' , Tipo: 'Teoria'},
 
 { Nombre:'Proyectos y Legislación' , Dia:'Miércoles', Hora:'08:45', Grado: 'Computadores', Curso:'4' , Grupo: 'A' , Tipo: 'Prueba'},
 
