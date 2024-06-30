@@ -22,12 +22,14 @@ const classDetailsDiv = document.getElementById('class-details');
 let selectedClass = null;
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Mostrar clases y aplicar filtros al cargar la página
+    // Mostrar todas las clases y luego aplicar filtros al cargar la página
     mostrarClases();
-    applyFilters();
 
     // Evento para aplicar los filtros solo cuando se haga clic en el botón de filtros
-    document.querySelector('#filters button').addEventListener('click', applyFilters);
+    document.querySelector('#filters button').addEventListener('click', () => {
+        mostrarClases(); // Mostrar todas las clases antes de aplicar filtros
+        applyFilters();  // Luego aplicar los filtros
+    });
 
     // Evento para cerrar el modal
     document.querySelector('.close').addEventListener('click', closeModal);
@@ -75,9 +77,6 @@ function mostrarClases() {
             timeSlot.appendChild(classDiv);
         }
     });
-
-    // Después de mostrar todas las clases, aplica los filtros
-    applyFilters();
 }
 
 // Función para aplicar los filtros a las clases
@@ -91,13 +90,21 @@ function applyFilters() {
     // Filtrar clases en el calendario
     Object.values(dayColumns).forEach(column => {
         column.querySelectorAll('.class').forEach(classDiv => {
-            const matchesGrado = gradoFilter ? classDiv.dataset.grado === gradoFilter : true;
-            const matchesCurso = cursoFilter ? classDiv.dataset.curso === cursoFilter : true;
-            const matchesGrupo = grupoFilter ? classDiv.dataset.grupo === grupoFilter : true;
-            const matchesTipo = tipoFilter ? classDiv.dataset.tipo === tipoFilter : true;
-            const matchesKeyword = keywordFilter ? classDiv.dataset.nombre.toLowerCase().includes(keywordFilter) : true;
+            // Obtener valores de datos de la clase
+            const grado = classDiv.dataset.grado;
+            const curso = classDiv.dataset.curso;
+            const grupo = classDiv.dataset.grupo;
+            const tipo = classDiv.dataset.tipo;
+            const nombre = classDiv.dataset.nombre.toLowerCase();
 
-            // Solo mostrar la clase si coincide con todos los filtros activos
+            // Aplicar filtros
+            const matchesGrado = gradoFilter ? grado === gradoFilter : true;
+            const matchesCurso = cursoFilter ? curso === cursoFilter : true;
+            const matchesGrupo = grupoFilter ? grupo === grupoFilter : true;
+            const matchesTipo = tipoFilter ? tipo === tipoFilter : true;
+            const matchesKeyword = keywordFilter ? nombre.includes(keywordFilter) : true;
+
+            // Mostrar u ocultar la clase según si cumple con todos los filtros
             if (matchesGrado && matchesCurso && matchesGrupo && matchesTipo && matchesKeyword) {
                 classDiv.style.display = ''; // Mostrar la clase
             } else {
@@ -145,5 +152,4 @@ function deleteSelectedClass() {
         mostrarClases(); // Actualiza la vista después de eliminar la clase
     }
 }
-
 
