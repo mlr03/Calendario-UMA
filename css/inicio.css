@@ -1,4 +1,4 @@
-/* General styles for better responsiveness */
+
 body {
     margin: 0;
     padding: 0;
@@ -10,124 +10,153 @@ header, footer {
     box-sizing: border-box;
 }
 
-/* Estilos del logo en la esquina superior izquierda */
+
 #logo-container {
-    position: absolute;
-    top: 10px;
-    left: 10px;
+    position: absolute; 
+    top: 10px; 
+    left: 10px; 
 }
 
 #logo {
-    height: 40px;
+    height: 40px; 
     width: auto;
 }
 
-/* Estilo para el título en el header */
+
 header h1 {
-    margin: 0;
-    font-size: 2em;
-    padding-top: 10vh;
+    margin: 0; 
+    font-size: 2em; 
+    padding-top: 10vh; 
 }
 
-/* Ajustar el header */
+
 header {
-    background-color: #003366;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-    margin: 0;
-    position: relative;
-    width: 100%;
+    background-color: #003366; 
+    color: white; 
+    text-align: center; 
+    padding: 20px 0; 
+    margin: 0; 
+    position: relative; 
+    width: 100%; 
 }
 
-#totalClases {
+#totalClases{
+
     text-align: center;
 }
 
-/* FORMULARIO DE FILTROS */
-#filters {
-    border: 1px solid #ccc;
-    padding: 15px;
-    border-radius: 50px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+/* ···········································FORMULARIO DE AÑADIR CLASE······································· */
+#add-class-form {
+    background-color: #ecec97;
+    border: 1px solid #ccc; 
+    padding: 20px; 
+    margin: 30px 0 50px; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 20px 10px;
-    text-align: center;
+    flex-wrap: wrap; /* Permitir que los filtros se envuelvan en varias lineas si es necesario */
+    justify-content: center; 
+    text-align: center; 
 }
+
+#add-class-form label, #add-class-form input, #add-class-form select, #add-class-form button {
+    margin: 3px; /* Añadir margen entre los elementos */
+}
+
+#add-class-form h2 {
+    font-size: 1em; 
+    font-weight: normal; /* Texto sin negrita */
+    margin: 10px 0; 
+    text-align: center; /* Centrar el texto */
+}
+
+
+/* ·······································..·······················································*/
+
+/* ·······························FORMULARIO DE FILTROS··········································· */
+#filters {
+    border: 1px solid #ccc; 
+    padding: 15px; /* Espacio interno */
+    border-radius: 50px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    display: flex;
+    flex-wrap: wrap; /* Permitir que los filtros se envuelvan en varias líneas si es necesario */
+    justify-content: center; /* Centrar los filtros en la pantalla */
+    margin: 20px 10px; 
+    text-align: center; 
+}
+
 
 #filters label, #filters select, #filters input, #filters button {
-    margin: 5px;
+    margin: 3px; 
 }
 
 #filters label {
-    display: block;
+    display: block; /* Asegurar que los labels sean bloques */
 }
 
-/* Estilos para el calendario */
+
+/*····························CALENDARIO······························································*/
+
 #calendar {
     display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    height: 60vh;
-    margin-top: 20px;
-    background-color: #add8e6;
-    padding: 10px;
-    width: 100%;
-    box-sizing: border-box;
-    justify-content: center;
+    flex-wrap: nowrap; /* Para que los días se muestren en una sola línea */
+    overflow-y: auto; /* Permitir desplazamiento vertical si los días no caben en la pantalla */
+    margin-top: 20px; /* Añadir un margen superior al calendario */
+    background-color: #add8e6; /* Fondo azul claro detrás de los contenedores */
+    padding: 10px; /* Añadido espacio interno al calendario */
 }
-
 .day-column {
-    flex: none;
-    width: 15%;
+    flex: 1; /* Ocupar espacio igualmente en la línea */
     border: 1px solid #ccc;
-    padding: 5px;
+    padding: 10px; /* Ajustar el padding */
     box-sizing: border-box;
     text-align: center;
     cursor: pointer;
-    height: calc(60vh - 20px);
     display: flex;
-    flex-direction: column;
-    background-color: #d3d3d3;
-    margin: 5px;
+    flex-direction: column; /* Asegurar que los slots se alineen verticalmente */
+    background-color: #d3d3d3; /* Fondo gris */
+    margin: 10px; /* Margen entre los contenedores */
 }
-
 .day-column h3 {
-    margin: 5px 0;
-    font-size: 1.2em;
+    margin: 5px 0; /* Ajustar el margen */
+    font-size: 1.2em; /* Tamaño de fuente ligeramente más pequeño */
 }
 
-.time-slot-container {
-    margin: 5px 0;
-}
 
+/* Asegurar que las franjas horarias ocupen el espacio necesario */
 .time-slot {
-    flex: 1;
+    flex: 0; /* No permitir que las franjas horarias crezcan automáticamente */
     border: 1px solid #ccc;
-    padding: 5px;
+    padding: 10px;
     box-sizing: border-box;
     text-align: center;
-    margin: 3px 0;
+    margin: 5px 0; /* Añadir margen entre las franjas horarias */
 }
 
+
+
+
 .time-slot p {
-    margin: 0;
+    margin: 0; /* Ajustar el margen de los párrafos dentro de los slots */
 }
 
 .selected {
     background-color: #e0e0e0;
 }
 
-/* Estilos para el modal */
+
+/*··················································································································*/
+
+/*················································ Estilos para el modal·········································· */
 .modal {
     display: none;
     position: fixed;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
 }
 
 .modal-content {
@@ -147,57 +176,69 @@ header {
     cursor: pointer;
 }
 
-/* Estilo para las franjas horarias */
+
+
 .class {
-    border: 2px dashed #f0f0f0;
-    background-color: #f0f0f0;
-    padding: 15px;
-    margin: 5px 0;
-    border-radius: 5px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
+    border: 2px dashed #f0f0f0; /* Borde de franjas */
+    background-color: #f0f0f0; /* Fondo gris claro */
+    padding: 20px; 
+    margin: 10px 0; /* Margen entre franjas */
+    border-radius: 5px; /* Bordes redondeados */
+    display: flex; /* Flexbox para alinear contenido */
+    justify-content: flex-start; /* Alineación del contenido */
+    align-items: flex-start; /* Alineación del contenido */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    cursor: pointer; /* Cursor de puntero */
 }
 
+
 .class:hover {
-    background-color: #e9a45a;
-    border: 2px dashed #e9a45a;
-    margin: 5px 0;
-    padding: 15px;
+    background-color: #e9a45a; 
+    border: 2px dashed #e9a45a; 
+    margin: 15px; 
+    padding: 20px;
 }
+
 
 /* Media Queries para pantallas pequeñas */
 @media (max-width: 768px) {
-    #filters {
-        flex-direction: column;
-        align-items: center;
+    #filters, #add-class-form {
+        flex-direction: column; /* Apilar filtros verticalmente */
+        align-items: center; /* Centrar los filtros */
     }
 
-    #filters label, #filters select, #filters input, #filters button {
-        width: 100%;
-        max-width: 300px;
+    #filters label, #filters select, #filters input, #filters button,
+    #add-class-form label, #add-class-form input, #add-class-form select, #add-class-form button {
+        width: 100%; 
+        max-width: 300px; 
     }
-
-    #filters label {
-        display: block;
+    
+    #filters label, #add-class-form label {
+        display: block; 
         margin-bottom: 5px;
     }
 
-    #filters input, #filters select, #filters button {
-        margin-bottom: 10px;
+    #filters input, #filters select, #filters button,
+    #add-class-form input, #add-class-form select, #add-class-form button {
+        margin-bottom: 10px; 
     }
+}
 
-    #calendar {
-        width: 90%; /* Ajustar el ancho a un 90% en pantallas pequeñas */
-        height: auto;
-        margin: 0 auto; /* Centrar el calendario horizontalmente */
-    }
 
-    .day-column {
-        width: 80%;
-        height: auto;
-        margin: 5px auto; /* Centrar las columnas */
-    }
+/* Color del mensae de "No hay clases en la franja actual"*/
+
+.empty-message {
+    color: #888; 
+    font-style: italic;
+    text-align: center;
+    padding: 10px;
+    background-color: #f9f9f9; 
+}
+
+.no-clases {
+    color: #888; 
+    font-style: italic;
+    text-align: center;
+    padding: 10px;
+    background-color: #f9f9f9; 
 }
