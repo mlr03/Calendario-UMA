@@ -70,24 +70,24 @@ header {
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
-    height: 60vh; /* Ajustar la altura total del calendario */
+    height: 60vh;
     margin-top: 20px;
-    background-color: #add8e6; /* Fondo azul claro detrás de los contenedores */
+    background-color: #add8e6;
     padding: 10px;
-    width: 100%; /* Asegurar que el contenedor ocupe todo el ancho de la pantalla */
-    box-sizing: border-box; /* Incluir el padding y borde en el ancho total */
-    justify-content: center; /* Centrar las columnas del calendario */
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: center;
 }
 
 .day-column {
-    flex: none; /* No permitir que los contenedores de días se expandan automáticamente */
-    width: 15%; /* Ajustar el ancho de cada columna de día */
+    flex: none;
+    width: 15%;
     border: 1px solid #ccc;
     padding: 5px;
     box-sizing: border-box;
     text-align: center;
     cursor: pointer;
-    height: calc(60vh - 20px); /* Ajustar la altura de cada columna para ocupar la pantalla */
+    height: calc(60vh - 20px);
     display: flex;
     flex-direction: column;
     background-color: #d3d3d3;
@@ -190,10 +190,14 @@ header {
     }
 
     #calendar {
-        width: 100%; /* Asegurar que el contenedor ocupe todo el ancho de la pantalla */
+        width: 90%; /* Ajustar el ancho a un 90% en pantallas pequeñas */
+        height: auto;
+        margin: 0 auto; /* Centrar el calendario horizontalmente */
     }
 
     .day-column {
-        width: 80%; /* Ajustar el ancho de cada columna de día en pantallas pequeñas */
+        width: 80%;
+        height: auto;
+        margin: 5px auto; /* Centrar las columnas */
     }
 }
