@@ -12,107 +12,108 @@ header, footer {
 
 /* Estilos del logo en la esquina superior izquierda */
 #logo-container {
-    position: absolute; /* Mantener la posición absoluta para la esquina superior izquierda */
-    top: 10px; /* Ajustar la distancia desde la parte superior */
-    left: 10px; /* Ajustar la distancia desde la parte izquierda */
+    position: absolute;
+    top: 10px;
+    left: 10px;
 }
 
 #logo {
-    height: 40px; /* Ajustar la altura del logo para que sea más pequeño */
-    width: auto; /* Mantener la proporción del logo */
+    height: 40px;
+    width: auto;
 }
 
 /* Estilo para el título en el header */
 header h1 {
-    margin: 0; /* Eliminar márgenes del h1 */
-    font-size: 2em; /* Tamaño de fuente para el título */
-    padding-top: 10vh; /* Ajustar el espacio entre el logo y el título */
+    margin: 0;
+    font-size: 2em;
+    padding-top: 10vh;
 }
 
 /* Ajustar el header */
 header {
-    background-color: #003366; /* Azul marino */
-    color: white; /* Letra blanca */
-    text-align: center; /* Centrar el texto */
-    padding: 20px 0; /* Añadir padding superior e inferior */
-    margin: 0; /* Eliminar cualquier margen del header */
-    position: relative; /* Asegurar que el logo esté posicionado relativo al header */
-    width: 100%; /* Asegurar que el header ocupe todo el ancho */
+    background-color: #003366;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin: 0;
+    position: relative;
+    width: 100%;
 }
 
-#totalClases{
-
+#totalClases {
     text-align: center;
 }
 
-
-
 /* FORMULARIO DE FILTROS */
 #filters {
-    border: 1px solid #ccc; /* Borde gris claro */
-    padding: 15px; /* Espacio interno */
-    border-radius: 50px; /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
-    flex-wrap: wrap; /* Permitir que los filtros se envuelvan en varias líneas si es necesario */
-    justify-content: center; /* Centrar los filtros en la pantalla */
-    margin: 20px 10px; /* Añadir margen superior e inferior */
-    text-align: center; /* Alinear texto al centro */
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px 10px;
+    text-align: center;
 }
 
-/* Asegurar que los elementos de los filtros se comporten igual en móvil y en escritorio */
 #filters label, #filters select, #filters input, #filters button {
-    margin: 5px; /* Añadir margen entre los elementos */
+    margin: 5px;
 }
 
 #filters label {
-    display: block; /* Asegurar que los labels sean bloques */
+    display: block;
 }
 
 /* Estilos para el calendario */
 #calendar {
     display: flex;
-    flex-wrap: nowrap; /* Para que los días se muestren en una sola línea */
-    overflow-x: auto; /* Permitir desplazamiento horizontal si los días no caben en la pantalla */
-    height: 80vh; /* Ajustar la altura total del calendario */
-    margin-top: 20px; /* Añadir un margen superior al calendario */
-    background-color: #add8e6; /* Fondo azul claro detrás de los contenedores */
-    padding: 10px; /* Añadido espacio interno al calendario */
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    height: 60vh;
+    margin-top: 20px;
+    background-color: #add8e6;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: center;
 }
 
 .day-column {
-    flex: 1; /* Ocupar espacio igualmente en la línea */
+    flex: none;
+    width: 15%;
     border: 1px solid #ccc;
-    padding: 10px; /* Ajustar el padding */
+    padding: 5px;
     box-sizing: border-box;
     text-align: center;
     cursor: pointer;
-    height: calc(80vh - 30px); /* Ajustar la altura de cada columna para ocupar la pantalla */
-    display:flex;
-    flex-direction: column; /* Asegurar que los slots se alineen verticalmente */
-    background-color: #d3d3d3; /* Fondo gris */
-    margin: 10px; /* Margen entre los contenedores */
+    height: calc(60vh - 20px);
+    display: flex;
+    flex-direction: column;
+    background-color: #d3d3d3;
+    margin: 5px;
 }
 
 .day-column h3 {
-    margin: 5px 0; /* Ajustar el margen */
-    font-size: 1.2em; /* Tamaño de fuente ligeramente más pequeño */
+    margin: 5px 0;
+    font-size: 1.2em;
+}
+
+.time-slot-container {
+    margin: 5px 0;
 }
 
 .time-slot {
-    flex: 1; /* Ocupar espacio igualmente en la columna */
+    flex: 1;
     border: 1px solid #ccc;
-    padding: 10px;
+    padding: 5px;
     box-sizing: border-box;
     text-align: center;
-    margin: 5px 0; /* Añadir margen entre las franjas horarias */
+    margin: 3px 0;
 }
 
-
-
-
 .time-slot p {
-    margin: 0; /* Ajustar el margen de los párrafos dentro de los slots */
+    margin: 0;
 }
 
 .selected {
@@ -126,7 +127,7 @@ header {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal-content {
@@ -146,48 +147,57 @@ header {
     cursor: pointer;
 }
 
-
 /* Estilo para las franjas horarias */
 .class {
-    border: 2px dashed #f0f0f0; /* Borde de franjas */
-    background-color: #f0f0f0; /* Fondo gris claro */
-    padding: 20px; /* Padding para más espacio */
-    margin: 10px 0; /* Margen entre franjas */
-    border-radius: 5px; /* Bordes redondeados */
-    display: flex; /* Flexbox para alinear contenido */
-    justify-content: flex-start; /* Alineación del contenido */
-    align-items: flex-start; /* Alineación del contenido */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    cursor: pointer; /* Cursor de puntero */
+    border: 2px dashed #f0f0f0;
+    background-color: #f0f0f0;
+    padding: 15px;
+    margin: 5px 0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
 }
 
-/* Si deseas mantener el estilo del hover también en el estado normal */
 .class:hover {
-    background-color: #e9a45a; /* Fondo más claro cuando se pasa el ratón */
-    border: 2px dashed #e9a45a; /* Borde más oscuro cuando se pasa el ratón */
-    margin: 15px; /* Aumentar el margen superior e inferior */
-    padding: 20px; /* Aumentar el padding */
+    background-color: #e9a45a;
+    border: 2px dashed #e9a45a;
+    margin: 5px 0;
+    padding: 15px;
 }
 
-
-/* Media Queries para pantallas pequeÃ±as */
+/* Media Queries para pantallas pequeñas */
 @media (max-width: 768px) {
-    #filters{
-        flex-direction: column; /* Apilar filtros verticalmente */
-        align-items: center; /* Centrar los filtros */
+    #filters {
+        flex-direction: column;
+        align-items: center;
     }
 
     #filters label, #filters select, #filters input, #filters button {
-        width: 100%; /* Asegurar que los campos ocupen todo el ancho */
-        max-width: 300px; /* Establecer un ancho mÃ¡ximo razonable */
+        width: 100%;
+        max-width: 300px;
     }
-    
+
     #filters label {
-        display: block; /* Asegura que las etiquetas estÃ©n sobre los campos */
-        margin-bottom: 5px; /* AÃ±adir espacio entre la etiqueta y el campo */
+        display: block;
+        margin-bottom: 5px;
     }
 
     #filters input, #filters select, #filters button {
-        margin-bottom: 10px; /* AÃ±adir un margen inferior para separar los campos */
+        margin-bottom: 10px;
+    }
+
+    #calendar {
+        width: 90%; /* Ajustar el ancho a un 90% en pantallas pequeñas */
+        height: auto;
+        margin: 0 auto; /* Centrar el calendario horizontalmente */
+    }
+
+    .day-column {
+        width: 80%;
+        height: auto;
+        margin: 5px auto; /* Centrar las columnas */
     }
 }
