@@ -24,20 +24,20 @@ const clases = [
     new Clase('Sistemas Operativos', 'Viernes', '10:45', 'Computadores', 2, 'C', 'Prueba'),
     new Clase('Interfaces de Usuario', 'Miércoles', '08:45', 'Software', 3, 'A', 'Práctica'),
     new Clase('Sistemas Inteligentes', 'Jueves', '12:45', 'Computadores', 2, 'C', 'Prueba'),
-    new Clase('Redes y Sistemas distribuidos', 'Martes', '08:45', 'Software', 2, 'A', 'Teoría'),
+    new Clase('Redes y Sistemas distribuidos', 'Martes', '08:45', 'Software', 2, 'A', 'Teórica'),
     new Clase('Mantenimiento', 'Lunes', '12:45', 'Software', 3, 'A', 'Práctica'),
     new Clase('Métodos estadísticos', 'Miércoles', '10:45', 'Software', 1, 'A', 'Práctica'),
     new Clase('Tecnología de Computadores', 'Jueves', '10:45', 'Informática', 1, 'A', 'Práctica'),
     new Clase('Métodos estadísticos', 'Lunes', '10:45', 'Software', 1, 'B', 'Teoría'),
-    new Clase('Programación Concurrente', 'Miércoles', '12:45', 'Computadores',2 , 'A', 'Teoría'),
-    new Clase('Organización Empresarial', 'Miércoles', '08:45', 'Software',2 , 'B', 'Teoría'),
-    new Clase('Estructuras Algebráicas', 'Jueves', '12:45', 'Computadores',1 , 'A', 'Teoría'),
-    new Clase('Estructuras Algebráicas', 'Lunes', '12:45', 'Informática',1 , 'B', 'Teoría'),
-    new Clase('Interfaces de Usuario', 'Martes', '12:45', 'Software',3 , 'A', 'Teoría'),
-    new Clase('Sistemas Inteligentes', 'Viernes', '12:45', 'Software',2 , 'B', 'Teoría'),
+    new Clase('Programación Concurrente', 'Miércoles', '12:45', 'Computadores',2 , 'A', 'Teórica'),
+    new Clase('Organización Empresarial', 'Miércoles', '08:45', 'Software',2 , 'B', 'Teórica'),
+    new Clase('Estructuras Algebráicas', 'Jueves', '12:45', 'Computadores',1 , 'A', 'Teórica'),
+    new Clase('Estructuras Algebráicas', 'Lunes', '12:45', 'Informática',1 , 'B', 'Teórica'),
+    new Clase('Interfaces de Usuario', 'Martes', '12:45', 'Software',3 , 'A', 'Teórica'),
+    new Clase('Sistemas Inteligentes', 'Viernes', '12:45', 'Software',2 , 'B', 'Teórica'),
     new Clase('Matematica Discreta', 'Miércoles', '12:45', 'Informática',1 , 'B', 'Prueba'),
     new Clase('Gestión de la Información', 'Martes', '08:45', 'Software',3 , 'B', 'Práctica'),
-    new Clase('Análisis y Diseño de Algoritmos', 'Viernes', '08:45', 'Software',2 , 'A', 'Teoría'),
+    new Clase('Análisis y Diseño de Algoritmos', 'Viernes', '08:45', 'Software',2 , 'A', 'Teórica'),
     new Clase('Sistemas Operativos', 'Lunes', '08:45', 'Software',2 , 'A', 'Práctica'),
 
 
@@ -197,7 +197,6 @@ function agregarClase() {
     const grupo = document.getElementById('grupoClase').value;
     const tipo = document.getElementById('tipoClase').value;
 
-
     // Verifica si todos los campos están completos
     if (nombre && dia && hora && grado && curso && grupo && tipo) {
         // Comprueba si ya existe una clase en el mismo día, hora, grado, curso y grupo
@@ -219,22 +218,21 @@ function agregarClase() {
             // Aplicar filtros y actualizar la vista del calendario
             aplicarFiltros();
         }
-
-    
     } else {
         alert('Por favor, complete todos los campos requeridos.');
     }
 
-     // Limpiar el formulario en todos los casos
-     document.getElementById('nombreClase').value = '';
-     document.getElementById('diaClase').value = '';
-     document.getElementById('horaClase').value = '';
-     document.getElementById('gradoClase').value = '';
-     document.getElementById('cursoClase').value = '';
-     document.getElementById('grupoClase').value = '';
-     document.getElementById('tipoClase').value = '';
-}
+    // Limpiar el formulario en todos los casos
 
+    document.getElementById('nombreClase').value = '';
+    document.getElementById('diaClase').value = '';
+    document.getElementById('horaClase').value = '';
+    document.getElementById('gradoClase').value = '';
+    document.getElementById('cursoClase').value = '';
+    document.getElementById('grupoClase').value = '';
+    document.getElementById('tipoClase').value = '';
+
+}
 
 
 // Llamar a generateHTMLForClases al cargar la página
@@ -286,7 +284,35 @@ document.addEventListener('DOMContentLoaded', () => {
             gradoClaseSelect.innerHTML = '<option value="Software">Software</option>';
             grupoClaseSelect.innerHTML = '<option value="A">A</option>';
 
+        }else if(clases.push(nuevaClase)){
+
+
+            cursoClaseSelect.innerHTML = `
+            <option value="">Curso</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            `
+            
+            gradoClaseSelect.innerHTML =`
+            <option value="">Grado</option>
+            <option value="Informática">Informática</option>
+            <option value="Software">Software</option>
+            <option value="Computadores">Computadores</option>
+        `
+
+            grupoClaseSelect.innerHTML = `
+            <option value="">Grupo</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+        `
+
+
+
         } else {
+
             cursoClaseSelect.innerHTML = `
                 <option value="">Curso</option>
                 <option value="1">1</option>
