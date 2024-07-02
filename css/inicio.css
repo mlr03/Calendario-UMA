@@ -200,8 +200,8 @@ header {
     width: 70%; 
     margin-left: 3%;
     text-align: center;
-    word-wrap: break-word; /* Añadir para evitar que el texto se desborde */
-    overflow-wrap: break-word; /* Añadir para evitar que el texto se desborde */
+    word-wrap: break-word; 
+    overflow-wrap: break-word; 
 
 }
 
@@ -218,8 +218,8 @@ header {
 @media (max-width: 768px) {
 
     #filters {
-        flex-direction: column; /* Apilar filtros verticalmente */
-        align-items: center; /* Centrar los filtros */
+        flex-direction: column; 
+        align-items: center; 
         display: block;
         }
 
@@ -278,8 +278,8 @@ header {
         max-width: 100%; 
         flex-direction: column; 
         margin-left: 10%;
-        word-wrap: break-word; /* Añadir para evitar que el texto se desborde */
-        overflow-wrap: break-word; /* Añadir para evitar que el texto se desborde */
+        word-wrap: break-word; 
+        overflow-wrap: break-word; 
 
     }
     
@@ -306,8 +306,8 @@ header {
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
         cursor: pointer; 
         text-align: center;
-        word-wrap: break-word; /* Añadir para evitar que el texto se desborde */
-        overflow-wrap: break-word; /* Añadir para evitar que el texto se desborde */
+        word-wrap: break-word; 
+        overflow-wrap: break-word; 
     }
     
     .no-clases {
@@ -338,7 +338,7 @@ header {
         text-align: center;
         cursor: pointer;
         display: flex;
-        flex-direction: column; /* Asegurar que los slots se alineen verticalmente */
+        flex-direction: column; 
         background-color: #d3d3d3; 
         margin: 10px; 
      

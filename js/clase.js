@@ -340,11 +340,6 @@ document.addEventListener('DOMContentLoaded', () => {
         btnEliminarFiltros.onclick = function() {
             modal.style.display = "block";
         }
-
-
-        
-    
-       
     
         // Cerrar el modal al hacer clic fuera del contenido del modal
         window.onclick = function(event) {
@@ -377,7 +372,6 @@ document.addEventListener('DOMContentLoaded', () => {
         // Llamar a generateHTMLForClases al cargar la página
         generateHTMLForClases(clases);
     
-        // Resto de tu lógica existente...
     });
     
 
