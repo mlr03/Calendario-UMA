@@ -118,10 +118,12 @@ header {
     flex-direction: column; /* Asegurar que los slots se alineen verticalmente */
     background-color: #d3d3d3; /* Fondo gris */
     margin: 10px; /* Margen entre los contenedores */
+    width: 40vh;
 }
 .day-column h3 {
-    margin: 5px 0; /* Ajustar el margen */
+    margin: 5vh; /* Ajustar el margen */
     font-size: 1.2em; /* Tamaño de fuente ligeramente más pequeño */
+  
 }
 
 
@@ -129,10 +131,11 @@ header {
 .time-slot {
     flex: 0; /* No permitir que las franjas horarias crezcan automáticamente */
     border: 1px solid #ccc;
-    padding: 10px;
+    padding: 20px;
     box-sizing: border-box;
     text-align: center;
     margin: 5px 0; /* Añadir margen entre las franjas horarias */
+    width: 30vh;
 }
 
 
@@ -189,6 +192,7 @@ header {
     align-items: flex-start; /* Alineación del contenido */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     cursor: pointer; /* Cursor de puntero */
+    width: 70%; /* Igualar el ancho */
 }
 
 
@@ -273,23 +277,90 @@ header {
         margin-bottom:5%; 
     }
 
+
+    
+ 
+     /* Asegúrate de que .class y .no-clases tengan el mismo ancho en pantallas pequeñas */
+     .class {
+        width: 70%;
+        margin: 10px auto; /* Margen entre franjas */
+        border-radius: 5px; /* Bordes redondeados */
+        display: flex; /* Flexbox para alinear contenido */
+        justify-content: flex-start; /* Alineación del contenido */
+        align-items: flex-start; /* Alineación del contenido */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+        cursor: pointer; /* Cursor de puntero */
+    }
+    
+    .no-clases {
+        width: 70%; /* Igualando el ancho de .no-clases con .class */
+        margin: 10px auto; /* Centrar horizontalmente */
+        border-radius: 5px; /* Bordes redondeados */
+        display: flex; /* Flexbox para alinear contenido */
+        justify-content: flex-start; /* Alineación del contenido */
+        align-items: flex-start; /* Alineación del contenido */
+        padding: 20px; /* Asegúrate de que .no-clases tenga el mismo padding */
+        background-color: #f9f9f9; /* Fondo gris claro */
+    }
+
+    .empty-message {
+        flex: 1;
+        width: 70%; /* Igualando el ancho de .empty-message con .class y .no-clases */
+        max-width: 100%; /* Ajusta el máximo ancho según tus necesidades */
+        margin: 10px auto; /* Centrar horizontalmente */
+        padding: 20px;
+        background-color: #f9f9f9; 
+    }
+
+    .day-column {
+        flex: 1; /* Ocupar espacio igualmente en la línea */
+        width: 40vh; 
+        box-sizing: border-box;
+        text-align: center;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column; /* Asegurar que los slots se alineen verticalmente */
+        background-color: #d3d3d3; /* Fondo gris */
+        margin: 10px; /* Margen entre los contenedores */
+    }
+
+    .time-slot {
+        border: 1px solid #ccc;
+        width: 30vh;
+        box-sizing: border-box;
+        text-align: center;
+        margin: 5px 0; /* Añadir margen entre las franjas horarias */
+    }
+
+
+
 }
 
 
-/* Color del mensae de "No hay clases en la franja actual"*/
+/* Mensaje de "No hay clases en la franja actual"*/
 
+/* Asegúrate de que .empty-message tenga el mismo tamaño que .class y .no-clases */
 .empty-message {
     color: #888; 
     font-style: italic;
     text-align: center;
-    padding: 10px;
+    padding: 20px;
     background-color: #f9f9f9; 
+    width: 70%; /* Igualar el ancho */
+    max-width: 100%; /* Ajusta el máximo ancho según tus necesidades */
+    margin: 10px auto; /* Centrar horizontalmente */
 }
-
 .no-clases {
     color: #888; 
     font-style: italic;
     text-align: center;
-    padding: 10px;
     background-color: #f9f9f9; 
+    padding: 20px; 
+    margin: 10px 0; /* Margen entre franjas */
+    border-radius: 5px; /* Bordes redondeados */
+    display: flex; /* Flexbox para alinear contenido */
+    justify-content: flex-start; /* Alineación del contenido */
+    align-items: flex-start; /* Alineación del contenido */
+    width: 70%; /* Igualar el ancho */
+    
 }

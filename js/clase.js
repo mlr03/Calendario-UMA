@@ -39,7 +39,7 @@ const clases = [
     new Clase('Gestión de la Información', 'Martes', '08:45', 'Software',3 , 'B', 'Práctica'),
     new Clase('Análisis y Diseño de Algoritmos', 'Viernes', '08:45', 'Software',2 , 'A', 'Teórica'),
     new Clase('Sistemas Operativos', 'Lunes', '08:45', 'Software',2 , 'A', 'Práctica'),
-
+    
 
 
 ];
