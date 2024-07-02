@@ -146,13 +146,14 @@ function generateHTMLForClases(clasesMostrados) {
 function mostrarDetallesClase(clase) {
     const classDetails = document.getElementById('class-details');
     classDetails.innerHTML = `
-        <h2>${clase.nombre}</h2>
-        <p><strong>Grado:</strong> ${clase.grado}</p>
-        <p><strong>Curso:</strong> ${clase.curso}</p>
-        <p><strong>Grupo:</strong> ${clase.grupo}</p>
-        <p><strong>Tipo:</strong> ${clase.tipo}</p>
-        <p><strong>Día:</strong> ${clase.dia}</p>
-        <p><strong>Hora:</strong> ${clase.hora}</p>
+    <h2 tabindex='0' aria-label="Nombre de la clase: ${clase.nombre}">${clase.nombre}</h2>
+    <p tabindex='0' aria-label="Grado: ${clase.grado}"><strong>Grado:</strong> ${clase.grado}</p>
+    <p tabindex='0' aria-label="Curso: ${clase.curso}"><strong>Curso:</strong> ${clase.curso}</p>
+    <p tabindex='0' aria-label="Grupo: ${clase.grupo}"><strong>Grupo:</strong> ${clase.grupo}</p>
+    <p tabindex='0' aria-label="Tipo: ${clase.tipo}"><strong>Tipo:</strong> ${clase.tipo}</p>
+    <p tabindex='0' aria-label="Día: ${clase.dia}"><strong>Día:</strong> ${clase.dia}</p>
+    <p tabindex='0' aria-label="Hora: ${clase.hora}"><strong>Hora:</strong> ${clase.hora}</p>
+    
     `;
 
     const classDetailsModal = document.getElementById('class-details-modal');
