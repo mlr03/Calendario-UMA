@@ -314,7 +314,7 @@ header {
 
     .day-column {
         flex: 1; /* Ocupar espacio igualmente en la línea */
-        width: 40vh; 
+        width: 45vh; 
         box-sizing: border-box;
         text-align: center;
         cursor: pointer;
@@ -322,6 +322,7 @@ header {
         flex-direction: column; /* Asegurar que los slots se alineen verticalmente */
         background-color: #d3d3d3; /* Fondo gris */
         margin: 10px; /* Margen entre los contenedores */
+     
     }
 
     .time-slot {
@@ -329,7 +330,8 @@ header {
         width: 30vh;
         box-sizing: border-box;
         text-align: center;
-        margin: 5px 0; /* Añadir margen entre las franjas horarias */
+        margin-left: 1px;
+      
     }
 
 
