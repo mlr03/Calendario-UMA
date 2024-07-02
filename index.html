@@ -81,35 +81,39 @@
         <!----------------------------------------Botones de Filtros--------------------------------------------------->
 
                 <div class="container text-center"> 
-                    <button id="eliminarFiltrosBtn">Eliminar Filtros</button>
-                    <button id="btnAplicarFiltros" class="btn btn-primary">Aplicar Filtros</button>
+                    <button id="eliminarFiltrosBtn" tabindex="0">Eliminar Filtros</button>
+
+                    <!------------------------------------------ Modal de Filtros ---------------------------------------------->
+
+                    
+            <div id="myModal" class="modal-eliminar-filtros">
+                <div class="modal-content-eliminar-filtros">
+                    <p class="text-black" tabindex="0" aria-live="polite">¿Seguro que deseas eliminar los filtros?<span aria-live="assertive"></span></p>
+                    <button id="aceptarBtn" tabindex="0">Aceptar</button>
+                    <button id="cancelarBtn" tabindex="0">Cancelar</button>
+                </div>
+            </div>
+
+            <!------------------------------------------------------------------------------------------------------------>
+
+                    <button id="btnAplicarFiltros" class="btn btn-primary" tabindex="0">Aplicar Filtros</button>
 
                 </div>  
-
-
-        <!--------------------------------------------------------------------------------------------------------------->
-
-
-
 
 
          <!--------------------------------------------------------------------------------------------------------------->
 
     </header>
+
     <main>
 
 
-
-        
         <div id="totalClases" class="container text-center mt-4">
             <p class="text-white" tabindex="0" aria-live="polite">Total de clases mostradas: <span id="totalClasesCount" aria-live="assertive">0</span></p>
         </div>
 
         <!-- Mensaje ARIA para lectores de pantalla -->
         <div id="ariaMessage" class="visually-hidden" role="alert" aria-live="assertive"></div>
-
-
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
         <script src="js/clase.js"></script>
 
         <!------------------------------------------------------------------------------------------------------------->
@@ -208,18 +212,6 @@
 
             <!--------------------------------------------------------------------------------------------------------->
 
-            <!------------------------------------------ Modal de Filtros ---------------------------------------------->
-
-        
-                    <div id="myModal" class="modal-eliminar-filtros">
-                        <div class="modal-content-eliminar-filtros">
-                            <p>¿Seguro que deseas eliminar los filtros?</p>
-                            <button id="aceptarBtn">Aceptar</button>
-                            <button id="cancelarBtn">Cancelar</button>
-                        </div>
-                    </div>
-
-            <!------------------------------------------------------------------------------------------------------------>
 
 
             <!------------------------------------------AÑADIR CLASE-------------------------------------------------------->

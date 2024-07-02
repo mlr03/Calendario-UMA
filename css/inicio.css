@@ -11,6 +11,11 @@ header, footer {
 }
 
 
+
+.text-black{
+    color: black;  /*color texto modal "Eliminar filtros"*/
+}
+
 #logo-container {
     position: absolute; 
     top: 10px; 
