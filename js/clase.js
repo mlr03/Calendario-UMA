@@ -139,26 +139,7 @@ function generateHTMLForClases(clasesMostrados) {
 
 
 
-// Función para eliminar todos los filtros y mostrar todas las asignaturas
-function eliminarFiltros() {
-    
-     document.getElementById("grado").value.toLowerCase()= "";
-     parseInt(document.getElementById("curso").value)="";
-     document.getElementById("grupo").value.toLowerCase()="";
-     document.getElementById("tipo").value.toLowerCase()="";
-     document.getElementById("keyword").value.toLowerCase()="";
 
-    // Mostrar todas las asignaturas
-    generateHTMLForClases(clases);
-}
-
-
-// Función para manejar la confirmación de eliminar filtros
-function handleConfirmarEliminarFiltros() {
-    eliminarFiltros();
-    const eliminarFiltrosModal = new bootstrap.Modal(document.getElementById('eliminarFiltrosModal'));
-    eliminarFiltrosModal.hide();
-}
 
 
 // Función para mostrar los detalles de una clase
@@ -339,25 +320,64 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // Aplica los filtros al hacer clic en el botón "Aplicar Filtros"
-    const btnAplicarFiltros = document.getElementById('btnAplicarFiltros');
-    btnAplicarFiltros.addEventListener('click', aplicarFiltros);
 
-    // Asocia el evento click al botón "Eliminar Filtros" para abrir el modal
-    const btnEliminarFiltros = document.getElementById('btnEliminarFiltros');
-    btnEliminarFiltros.addEventListener('click', () => {
-        const eliminarFiltrosModal = new bootstrap.Modal(document.getElementById('eliminarFiltrosModal'));
-        eliminarFiltrosModal.show();
+    
     });
 
-    // Asocia el evento click al botón "Aceptar" del modal de confirmación
-    const confirmarEliminarFiltros = document.getElementById("confirmarEliminarFiltros");
-    confirmarEliminarFiltros.addEventListener('click', handleConfirmarEliminarFiltros);
 
-    // Asocia el evento click al botón "Cancelar" del modal de confirmación
-    const cancelarEliminarFiltros = document.querySelector("#eliminarFiltrosModal .btn-secondary");
-    cancelarEliminarFiltros.addEventListener('click', () => {
-        const eliminarFiltrosModal = new bootstrap.Modal(document.getElementById('eliminarFiltrosModal'));
-        eliminarFiltrosModal.hide();
+
+    //MODAL DE ELIMINAR FILTROS Y MENSAJE
+
+    document.addEventListener('DOMContentLoaded', () => {
+        
+        const modal = document.getElementById("myModal");
+        const btnEliminarFiltros = document.getElementById("eliminarFiltrosBtn");
+        const spanClose = document.getElementsByClassName("close")[0];
+        const btnAceptar = document.getElementById("aceptarBtn");
+        const btnCancelar = document.getElementById("cancelarBtn");
+    
+        // Mostrar el modal al hacer clic en el botón de eliminar filtros
+        btnEliminarFiltros.onclick = function() {
+            modal.style.display = "block";
+        }
+    
+        // Cerrar el modal al hacer clic en la "x"
+        spanClose.onclick = function() {
+            modal.style.display = "none";
+        }
+    
+        // Cerrar el modal al hacer clic fuera del contenido del modal
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    
+        // Eliminar filtros y cerrar el modal al hacer clic en "Aceptar"
+        btnAceptar.onclick = function() {
+            // Lógica para eliminar los filtros
+            document.getElementById("grado").value = '';
+            document.getElementById("curso").value = '';
+            document.getElementById("grupo").value = '';
+            document.getElementById("tipo").value = '';
+            document.getElementById("keyword").value = '';
+            aplicarFiltros();
+            modal.style.display = "none";
+        }
+    
+        // Cerrar el modal al hacer clic en "Cancelar"
+        btnCancelar.onclick = function() {
+            modal.style.display = "none";
+        }
+    
+        // Lógica existente para aplicar filtros
+        const btnAplicarFiltros = document.getElementById('btnAplicarFiltros');
+        btnAplicarFiltros.addEventListener('click', aplicarFiltros);
+    
+        // Llamar a generateHTMLForClases al cargar la página
+        generateHTMLForClases(clases);
+    
+        // Resto de tu lógica existente...
     });
-});
+    
+

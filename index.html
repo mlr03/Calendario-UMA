@@ -77,7 +77,7 @@
                     <!---------Botones de Filtros-------------->
 
                 <div class="container text-center"> 
-                    <button id="btnEliminarFiltros" class="btn btn-secondary">Eliminar Filtros</button> 
+                    <button id="eliminarFiltrosBtn">Eliminar Filtros</button>
                     <button id="btnAplicarFiltros" class="btn btn-primary">Aplicar Filtros</button>
 
                 </div>  
@@ -201,24 +201,15 @@
 
             <!------------------------------------------ Modal de Filtros ---------------------------------------------->
 
-            <div class="modal fade" id="eliminarFiltrosModal" tabindex="-1" aria-labelledby="eliminarFiltrosModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="eliminarFiltrosModalLabel">Eliminar Filtros</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-                        </div>
-                        <div class="modal-body" tabindex="0">
-                            ¿Estás seguro de querer eliminar los filtros? No habrá vuelta atrás.
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                            <button type="button" class="btn btn-primary" id="confirmarEliminarFiltros">Aceptar</button>
+                            <!-- Modal -->
+                    <div id="myModal" class="modal-eliminar-filtros">
+                        <div class="modal-content-eliminar-filtros">
+                            <span class="close">&times;</span>
+                            <p>¿Seguro que deseas eliminar los filtros?</p>
+                            <button id="aceptarBtn">Aceptar</button>
+                            <button id="cancelarBtn">Cancelar</button>
                         </div>
                     </div>
-                </div>
-            </div>
-
 
                 <!---------------------------------------------------------------------------------------------------------->
 
