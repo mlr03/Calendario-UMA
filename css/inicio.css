@@ -118,7 +118,7 @@ header {
     flex-direction: column; /* Asegurar que los slots se alineen verticalmente */
     background-color: #d3d3d3; /* Fondo gris */
     margin: 10px; /* Margen entre los contenedores */
-    width: 40vh;
+    width: 30vh;
 }
 .day-column h3 {
     margin: 5vh; /* Ajustar el margen */
@@ -134,7 +134,7 @@ header {
     padding: 20px;
     box-sizing: border-box;
     text-align: center;
-    margin: 5px 0; /* Añadir margen entre las franjas horarias */
+    margin-left: 5px ; /* Añadir margen entre las franjas horarias */
     width: 30vh;
 }
 
