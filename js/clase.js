@@ -340,11 +340,11 @@ document.addEventListener('DOMContentLoaded', () => {
         btnEliminarFiltros.onclick = function() {
             modal.style.display = "block";
         }
+
+
+        
     
-        // Cerrar el modal al hacer clic en la "x"
-        spanClose.onclick = function() {
-            modal.style.display = "none";
-        }
+       
     
         // Cerrar el modal al hacer clic fuera del contenido del modal
         window.onclick = function(event) {
