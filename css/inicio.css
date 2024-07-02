@@ -61,7 +61,7 @@ header {
 }
 
 #add-class-form label, #add-class-form input, #add-class-form select, #add-class-form button {
-    margin: 3px; /* Añadir margen entre los elementos */
+    margin: 7px; /* Añadir margen entre los elementos */
 }
 
 #add-class-form h2 {
@@ -89,7 +89,7 @@ header {
 
 
 #filters label, #filters select, #filters input, #filters button {
-    margin: 3px; 
+    margin: 7px; 
 }
 
 #filters label {
@@ -202,26 +202,77 @@ header {
 
 /* Media Queries para pantallas pequeñas */
 @media (max-width: 768px) {
-    #filters, #add-class-form {
+
+    #filters {
         flex-direction: column; /* Apilar filtros verticalmente */
         align-items: center; /* Centrar los filtros */
+        display: block;
+        }
+
+    #add-class-form {
+            flex-direction: column; /* Apilar filtros verticalmente */
+            align-items: center; /* Centrar los filtros */
+        }
+
+
+     #filters input, #filters button{
+        min-width:15%; 
+        max-width: 100%; 
+        display: block;
+        margin-left:40%;
     }
 
-    #filters label, #filters select, #filters input, #filters button,
-    #add-class-form label, #add-class-form input, #add-class-form select, #add-class-form button {
-        width: 100%; 
-        max-width: 300px; 
+    #filters select{
+
+        min-width:15%; 
+        max-width: 100%; 
+        margin-left:0%;
+
+    }
+
+
+    #filters label{
+
+        text-align:center;
+        
+    }
+
+    #add-class-form label, #add-class-form input {
+        flex-direction: column; /* Apilar filtros verticalmente */
+        display: block; /*hace que se vea cada elemento en una fila */
+        margin-left:10%;
+    }
+
+    #add-class-form button {
+
+
+        flex-direction: column; /* Apilar filtros verticalmente */
+        display: block; /*hace que se vea cada elemento en una fila */
+        margin-left:40%;
+
+
+
+    }
+
+    #add-class-form select{
+
+        min-width:10%; 
+        max-width: 100%; 
+        flex-direction: column; /* Apilar filtros verticalmente */
+        margin-left:10%;
+
     }
     
     #filters label, #add-class-form label {
-        display: block; 
-        margin-bottom: 5px;
+        margin-bottom: 7px;
+
     }
 
     #filters input, #filters select, #filters button,
     #add-class-form input, #add-class-form select, #add-class-form button {
-        margin-bottom: 10px; 
+        margin-bottom:5%; 
     }
+
 }
 
 
