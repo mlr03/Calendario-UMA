@@ -163,21 +163,39 @@ function mostrarDetallesClase(clase) {
     classDetailsModal.focus();
 
     // Añadir un evento focusout para mantener el foco dentro del modal
-    classDetailsModal.addEventListener('focusout', function (event) {
-        // Comprobar si el foco se ha movido fuera del modal
-        if (!classDetailsModal.contains(event.relatedTarget)) {
-            // Si es así, volver a enfocar el primer elemento dentro del modal
-            document.getElementById('class-name').focus();
-        }
-    });
+    classDetailsModal.addEventListener('focusout', handleFocusOut);
 }
 
-// FUNCIÓN CERRAR MODAL DE CADA CLASE
-function closeModal() {
+
+
+// Función para cerrar el modal y mover el foco a la siguiente franja horaria
+function closeModal(scheduleId) {
     const classDetailsModal = document.getElementById('class-details-modal');
     classDetailsModal.style.display = 'none';
-    classDetailsModal.removeEventListener('focusout', handleFocusOut);
+
+    // Mover el foco a la siguiente franja horaria
+    const currentSchedule = document.querySelector(`.time-slot[data-schedule-id="${scheduleId}"]`);
+    const nextSchedule = document.querySelector(`.time-slot[data-schedule-id="${parseInt(scheduleId) + 1}"]`);
+
+    if (nextSchedule) {
+        nextSchedule.focus();
+    } else {
+        // Si no hay siguiente franja horaria, volver a la primera
+        const firstSchedule = document.querySelector('.time-slot[data-schedule-id="1"]');
+        if (firstSchedule) {
+            firstSchedule.focus();
+        }
+    }
 }
+
+
+
+
+
+
+
+
+
 
 // Manejar focusout del modal
 function handleFocusOut(event) {
