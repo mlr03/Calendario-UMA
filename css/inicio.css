@@ -186,9 +186,9 @@ header {
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
-    position: absolute; /* Cambiado de relative a absolute */
-    top: 10vh; /* Ajusta este valor para mover el botón más arriba o más abajo */
-    right: 10vh; /* Ajusta la distancia desde la derecha si es necesario */
+    position: absolute; 
+    top: 10vh; 
+    right: 10vh; 
     transform: translateY(-50%); /* Ajusta la posición vertical */
 }
 
