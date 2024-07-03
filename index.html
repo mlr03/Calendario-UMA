@@ -212,13 +212,15 @@
             <!--------------------------------------------------------------------------------------------------------->
 
              <!-------------------------------------------MODAL DE ELIMINAR CLASE-------------------------------------->
-            <div id="myModalClase" class="modal-eliminar-clase" style="display:none;">
-                <div class="modal-content-eliminar-clase">
-                    <p class="text-black" tabindex="0" aria-live="polite">¿Seguro que deseas eliminar esta clase?<span aria-live="assertive"></span></p>
-                    <button id="aceptarBtnEliminar" tabindex="0">Aceptar</button>
-                    <button id="cancelarBtnEliminar" tabindex="0">Cancelar</button>
-                </div>
+            
+             <div id="myModalClase" class="modal-eliminar-clase" style="display:none;" role="dialog" aria-labelledby="modalEliminarClaseTitulo">
+             <div class="modal-content-eliminar-clase">
+                 <p class="text-black" tabindex="0" aria-live="polite">¿Seguro que deseas eliminar esta clase?<span aria-live="assertive"></span></p>
+                 <button id="aceptarBtnEliminar" tabindex="0" aria-label="Aceptar eliminación de clase">Aceptar</button>
+                 <button id="cancelarBtnEliminar" tabindex="0" aria-label="Cancelar eliminación de clase">Cancelar</button>
+             </div>
             </div>
+
             
              <!--------------------------------------------------------------------------------------------------------->
 
