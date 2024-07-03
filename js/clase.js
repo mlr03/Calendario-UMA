@@ -140,9 +140,6 @@ function generateHTMLForClases(clasesMostrados) {
 
 
 
-
-
-
 // Función para mostrar los detalles de una clase
 function mostrarDetallesClase(clase) {
     const classDetails = document.getElementById('class-details');
@@ -190,13 +187,6 @@ function closeModal(scheduleId) {
 
 
 
-
-
-
-
-
-
-
 // Manejar focusout del modal
 function handleFocusOut(event) {
     const classDetailsModal = document.getElementById('class-details-modal');
@@ -204,8 +194,6 @@ function handleFocusOut(event) {
         document.getElementById('class-name').focus();
     }
 }
-
-
 
 
 
@@ -367,25 +355,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-    //MODAL DE ELIMINAR FILTROS Y MENSAJE
+
+    //Función del MODAL DE ELIMINAR FILTROS
+
+
+
 
     document.addEventListener('DOMContentLoaded', () => {
-        
         const modal = document.getElementById("myModal");
         const btnEliminarFiltros = document.getElementById("eliminarFiltrosBtn");
-        const spanClose = document.getElementsByClassName("close")[0];
         const btnAceptar = document.getElementById("aceptarBtn");
         const btnCancelar = document.getElementById("cancelarBtn");
+        
+        let previouslyFocusedElement;
     
         // Mostrar el modal al hacer clic en el botón de eliminar filtros
         btnEliminarFiltros.onclick = function() {
+            previouslyFocusedElement = document.activeElement;
             modal.style.display = "block";
+            // Foco en el primer elemento del modal
+            btnAceptar.focus();
+            // Añadir evento para gestionar el enfoque dentro del modal
+            modal.addEventListener('keydown', trapFocus);
         }
     
         // Cerrar el modal al hacer clic fuera del contenido del modal
         window.onclick = function(event) {
             if (event.target == modal) {
-                modal.style.display = "none";
+                closeModal();
             }
         }
     
@@ -398,12 +395,51 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById("tipo").value = '';
             document.getElementById("keyword").value = '';
             aplicarFiltros();
-            modal.style.display = "none";
+            closeModal();
         }
     
         // Cerrar el modal al hacer clic en "Cancelar"
         btnCancelar.onclick = function() {
+            closeModal();
+        }
+    
+        // Cerrar el modal al presionar la tecla ESC
+        window.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && modal.style.display === 'block') {
+                closeModal();
+            }
+        });
+    
+        // Función para cerrar el modal y restaurar el enfoque previo
+        function closeModal() {
             modal.style.display = "none";
+            // Restaurar el foco en el elemento que estaba enfocado antes de mostrar el modal
+            if (previouslyFocusedElement) {
+                previouslyFocusedElement.focus();
+            }
+            // Eliminar el evento de trampa de enfoque
+            modal.removeEventListener('keydown', trapFocus);
+        }
+    
+        // Función para mantener el enfoque dentro del modal
+        function trapFocus(event) {
+            const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+            const firstElement = focusableElements[0];
+            const lastElement = focusableElements[focusableElements.length - 1];
+    
+            if (event.key === 'Tab') {
+                if (event.shiftKey) { // Shift + Tab
+                    if (document.activeElement === firstElement) {
+                        lastElement.focus();
+                        event.preventDefault();
+                    }
+                } else { // Tab
+                    if (document.activeElement === lastElement) {
+                        firstElement.focus();
+                        event.preventDefault();
+                    }
+                }
+            }
         }
     
         // Lógica existente para aplicar filtros
@@ -412,7 +448,5 @@ document.addEventListener('DOMContentLoaded', () => {
     
         // Llamar a generateHTMLForClases al cargar la página
         generateHTMLForClases(clases);
-    
     });
     
-
