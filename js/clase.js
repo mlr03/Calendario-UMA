@@ -142,29 +142,51 @@ function generateHTMLForClases(clasesMostrados) {
 
 
 
+
 // Función para mostrar los detalles de una clase
 function mostrarDetallesClase(clase) {
     const classDetails = document.getElementById('class-details');
     classDetails.innerHTML = `
-    <h2 tabindex='0' aria-label="Nombre de la clase: ${clase.nombre}">${clase.nombre}</h2>
+    <h2 id="class-name" tabindex='0' aria-label="Nombre de la clase: ${clase.nombre}">${clase.nombre}</h2>
     <p tabindex='0' aria-label="Grado: ${clase.grado}"><strong>Grado:</strong> ${clase.grado}</p>
     <p tabindex='0' aria-label="Curso: ${clase.curso}"><strong>Curso:</strong> ${clase.curso}</p>
     <p tabindex='0' aria-label="Grupo: ${clase.grupo}"><strong>Grupo:</strong> ${clase.grupo}</p>
     <p tabindex='0' aria-label="Tipo: ${clase.tipo}"><strong>Tipo:</strong> ${clase.tipo}</p>
     <p tabindex='0' aria-label="Día: ${clase.dia}"><strong>Día:</strong> ${clase.dia}</p>
     <p tabindex='0' aria-label="Hora: ${clase.hora}"><strong>Hora:</strong> ${clase.hora}</p>
-    
+    <span class="close" onclick="closeModal()" tabindex="0" aria-label="Cerrar ventana">&times;</span>
     `;
 
     const classDetailsModal = document.getElementById('class-details-modal');
     classDetailsModal.style.display = 'block';
+    classDetailsModal.setAttribute('tabindex', '0');
+    classDetailsModal.focus();
+
+    // Añadir un evento focusout para mantener el foco dentro del modal
+    classDetailsModal.addEventListener('focusout', function (event) {
+        // Comprobar si el foco se ha movido fuera del modal
+        if (!classDetailsModal.contains(event.relatedTarget)) {
+            // Si es así, volver a enfocar el primer elemento dentro del modal
+            document.getElementById('class-name').focus();
+        }
+    });
 }
 
 // FUNCIÓN CERRAR MODAL DE CADA CLASE
 function closeModal() {
     const classDetailsModal = document.getElementById('class-details-modal');
     classDetailsModal.style.display = 'none';
+    classDetailsModal.removeEventListener('focusout', handleFocusOut);
 }
+
+// Manejar focusout del modal
+function handleFocusOut(event) {
+    const classDetailsModal = document.getElementById('class-details-modal');
+    if (!classDetailsModal.contains(event.relatedTarget)) {
+        document.getElementById('class-name').focus();
+    }
+}
+
 
 
 
