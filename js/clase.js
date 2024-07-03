@@ -251,17 +251,27 @@ function handleFocusOut(event) {
 
 
 
-// Función para mostrar el modal de error
+// Función para mostrar el modal de error si no se completan todos los campos
 function mostrarModal() {
     document.getElementById('myModal-error').style.display = 'block';
 }
 
-// Función para cerrar el modal de error
+// Función para cerrar el modal de error  si no se completan todos los campos
 function closeModalEliminar() {
     document.getElementById('myModal-error').style.display = 'none';
 }
 
-// FUNCIÓN PARA AÑADIR UNA NUEVA CLASE
+// Función para mostrar el modal de error si  el grado,grupo y curso está ocupado
+function mostrarModalExiste() {
+    document.getElementById('myModal-error-existe').style.display = 'block';
+}
+
+// Función para cerrar el modal de error  si el grado,grupo y curso está ocupado
+function closeModalEliminarExiste() {
+    document.getElementById('myModal-error-existe').style.display = 'none';
+}
+
+// FUNCIÓN PARA AÑADIR UNA NUEVA CLASE 
 function agregarClase() {
     const nombre = document.getElementById('nombreClase').value;
     const dia = document.getElementById('diaClase').value;
@@ -280,7 +290,7 @@ function agregarClase() {
 
         if (claseExistente) {
             // Muestra un mensaje de error si ya existe una clase en esa franja horaria
-            alert('Ya existe una clase en esta franja horaria para el mismo grado, curso y grupo.');
+            mostrarModalExiste();
         } else {
             // Crea una nueva instancia de la clase Clase
             const nuevaClase = new Clase(nombre, dia, hora, grado, curso, grupo, tipo);
