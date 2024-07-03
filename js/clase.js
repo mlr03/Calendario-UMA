@@ -137,9 +137,6 @@ function generateHTMLForClases(clasesMostrados) {
     totalClasesCount.textContent = clasesMostrados.length;
 }
 
-
-
-
 // Función para mostrar los detalles de una clase
 function mostrarDetallesClase(clase) {
     const classDetails = document.getElementById('class-details');
@@ -152,11 +149,9 @@ function mostrarDetallesClase(clase) {
     <p tabindex='0' aria-label="Día: ${clase.dia}"><strong>Día:</strong> ${clase.dia}</p>
     <p tabindex='0' aria-label="Hora: ${clase.hora}"><strong>Hora:</strong> ${clase.hora}</p>
     <span class="close" onclick="closeModal()" tabindex="0" aria-label="Cerrar ventana">&times;</span>
-    <button id="delete-class-button" tabinex='0' aria-label="Eliminar clase">Eliminar Clase</button>
+    <button id="delete-class-button" tabindex='0' aria-label="Eliminar clase">Eliminar Clase</button>
     `;
 
-
-    
     const classDetailsModal = document.getElementById('class-details-modal');
     classDetailsModal.style.display = 'block';
     classDetailsModal.setAttribute('tabindex', '0');
@@ -166,17 +161,39 @@ function mostrarDetallesClase(clase) {
     classDetailsModal.addEventListener('focusout', handleFocusOut);
 
     const deleteButton = document.getElementById('delete-class-button');
-    deleteButton.addEventListener('click', () => eliminarClase(clase));
+
+    // Añadir el manejador de eventos para el botón de eliminar
+    deleteButton.addEventListener('click', () => {
+        const modalEliminarClase = document.getElementById('myModalClase');
+        modalEliminarClase.style.display = 'block';
+
+        const aceptarBtnEliminar = document.getElementById('aceptarBtnEliminar');
+        const cancelarBtnEliminar = document.getElementById('cancelarBtnEliminar');
+
+        // Acción al hacer clic en Aceptar
+        aceptarBtnEliminar.addEventListener('click', () => {
+            eliminarClase(clase);
+            // Cierra el modal de confirmación
+            modalEliminarClase.style.display = 'none';
+        });
+
+        // Cierra el modal de confirmación al hacer clic en Cancelar
+        cancelarBtnEliminar.addEventListener('click', () => {
+            modalEliminarClase.style.display = 'none';
+        });
+
+        // Cierra el modal de confirmación al hacer clic fuera del contenido
+        modalEliminarClase.addEventListener('click', (event) => {
+            if (event.target === modalEliminarClase) {
+                modalEliminarClase.style.display = 'none';
+            }
+        });
+    });
 
     $('#modalDetallesClase').modal('show');
-
-
-
 }
 
-
-//Función ELIMINAR CLASE
-
+// Función ELIMINAR CLASE
 function eliminarClase(clase) {
     // Encuentra el índice de la clase en el array
     const index = clases.findIndex(c => c.nombre === clase.nombre && c.dia === clase.dia && c.hora === clase.hora);
@@ -194,13 +211,10 @@ function eliminarClase(clase) {
         // Vuelve a aplicar los filtros para actualizar la vista
         aplicarFiltros();
 
-        // Cierra el modal
+        // Cierra el modal de detalles de clase
         $('#modalDetallesClase').modal('hide');
     }
 }
-
-
-
 
 
 
