@@ -14,7 +14,7 @@ class Clase {
 // Array de objetos que representan las diferentes clases
 const clases = [
     new Clase('Matemática Discreta', 'Jueves', '08:45', 'Informática', 1, 'B', 'Teórica'),
-    new Clase('Tecnologias Web', 'Martes', '10:45', 'Software', 3, 'A', 'Práctica'),
+    new Clase('Tecnologías Web', 'Martes', '10:45', 'Software', 3, 'A', 'Práctica'),
     new Clase('Estructuras de Computadores', 'Lunes', '08:45', 'Computadores', 2, 'C', 'Práctica'),
     new Clase('Interfaces de Usuario', 'Jueves', '08:45', 'Software', 3, 'A', 'Práctica'),
     new Clase('Organización Empresarial', 'Viernes', '12:45', 'Informática', 1, 'A', 'Teórica'),
@@ -35,7 +35,7 @@ const clases = [
     new Clase('Estructuras Algebráicas', 'Lunes', '12:45', 'Informática',1 , 'B', 'Teórica'),
     new Clase('Interfaces de Usuario', 'Martes', '12:45', 'Software',3 , 'A', 'Teórica'),
     new Clase('Sistemas Inteligentes', 'Viernes', '12:45', 'Software',2 , 'B', 'Teórica'),
-    new Clase('Matematica Discreta', 'Miércoles', '12:45', 'Informática',1 , 'B', 'Prueba'),
+    new Clase('Matemática Discreta', 'Miércoles', '12:45', 'Informática',1 , 'B', 'Prueba'),
     new Clase('Gestión de la Información', 'Martes', '08:45', 'Software',3 , 'B', 'Práctica'),
     new Clase('Análisis y Diseño de Algoritmos', 'Viernes', '08:45', 'Software',2 , 'A', 'Teórica'),
     new Clase('Sistemas Operativos', 'Lunes', '08:45', 'Software',2 , 'A', 'Práctica'),
@@ -251,6 +251,16 @@ function handleFocusOut(event) {
 
 
 
+// Función para mostrar el modal de error
+function mostrarModal() {
+    document.getElementById('myModal-error').style.display = 'block';
+}
+
+// Función para cerrar el modal de error
+function closeModalEliminar() {
+    document.getElementById('myModal-error').style.display = 'none';
+}
+
 // FUNCIÓN PARA AÑADIR UNA NUEVA CLASE
 function agregarClase() {
     const nombre = document.getElementById('nombreClase').value;
@@ -283,11 +293,11 @@ function agregarClase() {
             aplicarFiltros();
         }
     } else {
-        alert('Por favor, complete todos los campos requeridos.');
+        // Muestra el modal de error si los campos no están completos
+        mostrarModal();
     }
 
     // Limpiar el formulario en todos los casos
-
     document.getElementById('nombreClase').value = '';
     document.getElementById('diaClase').value = '';
     document.getElementById('horaClase').value = '';
@@ -295,8 +305,13 @@ function agregarClase() {
     document.getElementById('cursoClase').value = '';
     document.getElementById('grupoClase').value = '';
     document.getElementById('tipoClase').value = '';
-
 }
+
+
+
+
+
+
 
 
 // Llamar a generateHTMLForClases al cargar la página

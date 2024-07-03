@@ -78,6 +78,49 @@ header {
 
 /* ·············································································································*/
 
+/* ············································MODAL DE ERROR DE AÑADIR CLASE···································*/
+
+
+.modal-error {
+   
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content-error {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.close-error {
+    color: red;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    position: fixed;
+    width: 25%;
+    text-align: center;
+    
+}
+
+
+
+/*···················································································································*/
+
+
 /* ·················································MODAL DE ELIMNAR CLASE········································*/
 
 .modal-eliminar-clase {
@@ -188,7 +231,7 @@ header {
 
 /*··················································································································*/
 
-/*················································ Estilos para el modal·········································· */
+/*················································ ESTILOS MODAL CLASES·········································· */
 .modal {
     display: none;
     position: fixed;
@@ -229,8 +272,8 @@ header {
     margin: 10px 0; /* Margen entre franjas */
     border-radius: 5px; 
     display: flex; 
-    justify-content: center; /* Alineación del contenido */
-    align-items: center; /* Alineación vertical del contenido */
+    justify-content: center; 
+    align-items: center; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     cursor: pointer; 
     width: 70%; 
@@ -242,12 +285,12 @@ header {
 }
 
 .class h3 {
-    margin: 0; /* Quita el margen para un ajuste más preciso */
+    margin: 0; 
     padding: 0;
     font-size: 1em; /* Tamaño de fuente adaptable */
     line-height: 1.2; /* Ajusta la altura de línea */
-    text-align: center; /* Alinea el texto al centro */
-    overflow: hidden; /* Oculta el contenido que desborda */
+    text-align: center; 
+    overflow: hidden; 
     text-overflow: ellipsis; /* Muestra puntos suspensivos si el texto es demasiado largo */
 }
 
@@ -261,7 +304,7 @@ header {
 
 
 
-/* Media Queries para pantallas pequeñas (Modo móvil) */
+/* ···································Media Queries para pantallas pequeñas (Modo móvil) ···························*/
 @media (max-width: 768px) {
 
     #filters {
@@ -416,7 +459,7 @@ header {
 
 
 
-/* Mensaje de "No hay clases en la franja actual"*/
+/* ·································Mensaje de "No hay clases en la franja actual"···········································*/
 
 .empty-message {
     color: #888; 
@@ -443,6 +486,8 @@ header {
     
 }
 
+/*·······································MODAL DE ELIMINAR FILTROS·················································*/
+
 .modal-eliminar-filtros{
     display: none; 
     position: fixed; 
@@ -466,3 +511,5 @@ header {
     text-align: center;
 }
 
+
+/*························································································································*/

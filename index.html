@@ -83,7 +83,7 @@
                 <div class="container text-center"> 
                     <button id="eliminarFiltrosBtn" tabindex="0">Eliminar Filtros</button>
 
-                    <!------------------------------------------ Modal de Filtros ---------------------------------------------->
+             <!------------------------------------------ Modal de Filtros ---------------------------------------------->
 
                     
             <div id="myModal" class="modal-eliminar-filtros">
@@ -200,7 +200,7 @@
 
             <!----------------------------------------------------------------------------------------------------->
 
-            <!-------------------------------------------MODAL DE ELIMNAR CLASE-------------------------------------->
+            <!-------------------------------------------MODAL DE CADA CLASE-------------------------------------->
         
             </main>
             <div id="class-details-modal" class="modal" role="dialog" aria-labelledby="modal-heading" aria-hidden="true">
@@ -312,6 +312,17 @@
                 </div>
 
      <!------------------------------------------------------------------------------------------------------->
+
+     <!------------------------------MODAL ERROR CAMPOS AÑADIR CLASE (FALTAN CAMPOS)-------------------------->
+    <div id="myModal-error" class="modal-error" style="display:none;">
+        <div class="modal-content-error">
+            <span class="close-error" onclick="closeModalEliminar()">&times;</span>
+            <p class="modal-message-error">Complete todos los campos</p>
+        </div>
+    </div>
+
+    <!--------------------------------------------------------------------------------------------------------->
+
 
 
     <script src="js/inicio.js"></script>
