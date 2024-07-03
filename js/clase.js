@@ -152,8 +152,11 @@ function mostrarDetallesClase(clase) {
     <p tabindex='0' aria-label="Día: ${clase.dia}"><strong>Día:</strong> ${clase.dia}</p>
     <p tabindex='0' aria-label="Hora: ${clase.hora}"><strong>Hora:</strong> ${clase.hora}</p>
     <span class="close" onclick="closeModal()" tabindex="0" aria-label="Cerrar ventana">&times;</span>
+    <button id="delete-class-button" tabinex='0' aria-label="Eliminar clase">Eliminar Clase</button>
     `;
 
+
+    
     const classDetailsModal = document.getElementById('class-details-modal');
     classDetailsModal.style.display = 'block';
     classDetailsModal.setAttribute('tabindex', '0');
@@ -161,7 +164,44 @@ function mostrarDetallesClase(clase) {
 
     // Añadir un evento focusout para mantener el foco dentro del modal
     classDetailsModal.addEventListener('focusout', handleFocusOut);
+
+    const deleteButton = document.getElementById('delete-class-button');
+    deleteButton.addEventListener('click', () => eliminarClase(clase));
+
+    $('#modalDetallesClase').modal('show');
+
+
+
 }
+
+
+//Función ELIMINAR CLASE
+
+function eliminarClase(clase) {
+    // Encuentra el índice de la clase en el array
+    const index = clases.findIndex(c => c.nombre === clase.nombre && c.dia === clase.dia && c.hora === clase.hora);
+    const classDetailsModal = document.getElementById('class-details-modal');
+
+    if (index !== -1) {
+        // Elimina la clase del array
+        clases.splice(index, 1);
+        
+        classDetailsModal.style.display = 'none';
+
+        // Actualiza el localStorage
+        localStorage.setItem('clases', JSON.stringify(clases));
+
+        // Vuelve a aplicar los filtros para actualizar la vista
+        aplicarFiltros();
+
+        // Cierra el modal
+        $('#modalDetallesClase').modal('hide');
+    }
+}
+
+
+
+
 
 
 
@@ -357,9 +397,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     //Función del MODAL DE ELIMINAR FILTROS
-
-
-
 
     document.addEventListener('DOMContentLoaded', () => {
         const modal = document.getElementById("myModal");
