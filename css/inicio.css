@@ -69,8 +69,8 @@ button:focus {
 
 /* Estilos de enfoque para elementos select */
 select:focus {
-    outline: 2px solid #007bff; /* Resalta el borde cuando el select está enfocado */
-    box-shadow: 0 0 0 2px rgba(38, 143, 255, 0.5); /* Agrega una sombra alrededor del select cuando está enfocado */
+    outline:  2px solid #000; 
+    outline-offset: 2px; 
 }
 
 span:focus {
@@ -232,7 +232,7 @@ span:focus {
     position: fixed;
     z-index: 1000;
     left: 0;
-    top: 15%;
+    top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
