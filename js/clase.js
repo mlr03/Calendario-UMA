@@ -137,6 +137,7 @@ function generateHTMLForClases(clasesMostrados) {
     totalClasesCount.textContent = clasesMostrados.length;
 }
 
+
 // Función para mostrar los detalles de una clase
 function mostrarDetallesClase(clase) {
     const classDetails = document.getElementById('class-details');
@@ -165,10 +166,20 @@ function mostrarDetallesClase(clase) {
     // Añadir el manejador de eventos para el botón de eliminar
     deleteButton.addEventListener('click', () => {
         const modalEliminarClase = document.getElementById('myModalClase');
-        modalEliminarClase.style.display = 'block';
-
         const aceptarBtnEliminar = document.getElementById('aceptarBtnEliminar');
         const cancelarBtnEliminar = document.getElementById('cancelarBtnEliminar');
+
+        // Mueve el foco al modal de eliminar clase
+        classDetailsModal.style.display = 'none';
+        modalEliminarClase.style.display = 'block';
+        aceptarBtnEliminar.focus();
+
+        // Añadir eventos para evitar que el foco salga del modal de eliminar clase
+        modalEliminarClase.addEventListener('focusout', (event) => {
+            if (!modalEliminarClase.contains(event.relatedTarget)) {
+                aceptarBtnEliminar.focus();
+            }
+        });
 
         // Acción al hacer clic en Aceptar
         aceptarBtnEliminar.addEventListener('click', () => {
@@ -203,8 +214,6 @@ function eliminarClase(clase) {
         // Elimina la clase del array
         clases.splice(index, 1);
         
-        classDetailsModal.style.display = 'none';
-
         // Actualiza el localStorage
         localStorage.setItem('clases', JSON.stringify(clases));
 
@@ -215,9 +224,6 @@ function eliminarClase(clase) {
         $('#modalDetallesClase').modal('hide');
     }
 }
-
-
-
 
 // Función para cerrar el modal y mover el foco a la siguiente franja horaria
 function closeModal(scheduleId) {
@@ -239,8 +245,6 @@ function closeModal(scheduleId) {
     }
 }
 
-
-
 // Manejar focusout del modal
 function handleFocusOut(event) {
     const classDetailsModal = document.getElementById('class-details-modal');
@@ -248,24 +252,6 @@ function handleFocusOut(event) {
         document.getElementById('class-name').focus();
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
