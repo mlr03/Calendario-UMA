@@ -297,21 +297,21 @@ button:focus {
 
 
 #btnAplicarFiltros {
-    background-color: #ebb166; 
+    background-color:#218838;  
 }
 
 #btnAplicarFiltros:hover, #btnAplicarFiltros:focus {
-    background-color: #ebb166; 
+    background-color: #218838; 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
 }
 
 
 #eliminarFiltrosBtn {
-    background-color: #f0815f; 
+    background-color: #dc3545; 
 }
 
 #eliminarFiltrosBtn :hover, #eliminarFiltrosBtn :focus {
-    background-color: #f0815f; 
+    background-color:  #dc3545; 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
 }
 
