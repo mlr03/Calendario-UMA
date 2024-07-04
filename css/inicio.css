@@ -80,6 +80,11 @@ span:focus {
 
 }
 
+#totalClasesCount {
+    font-weight: bold;
+}
+
+
 /* ···········································FORMULARIO DE AÑADIR CLASE······································· */
 #add-class-form {
     background-color: #ecec97;
