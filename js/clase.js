@@ -110,6 +110,13 @@ function generateHTMLForClases(clasesMostrados) {
             classDiv.setAttribute('aria-label', `Clase de ${clase.nombre}`);
             classDiv.setAttribute('tabindex', '0');
 
+             // Añade un evento de teclado para abrir el modal con la tecla Enter
+             classDiv.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter') {
+                    mostrarDetallesClase(clase);
+                }
+            });
+
             // Añade un evento de clic a cada clase para mostrar los detalles en el modal
             classDiv.addEventListener('click', () => {
                 mostrarDetallesClase(clase);
@@ -225,6 +232,12 @@ function eliminarClase(clase) {
     }
 }
 
+
+
+
+
+
+
 // Función para cerrar el modal y mover el foco a la siguiente franja horaria
 function closeModal(scheduleId) {
     const classDetailsModal = document.getElementById('class-details-modal');
@@ -244,6 +257,10 @@ function closeModal(scheduleId) {
         }
     }
 }
+
+
+
+
 
 // Manejar focusout del modal
 function handleFocusOut(event) {
@@ -567,4 +584,5 @@ document.addEventListener('DOMContentLoaded', () => {
         // Llamar a generateHTMLForClases al cargar la página
         generateHTMLForClases(clases);
     });
+
     

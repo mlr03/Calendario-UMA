@@ -67,6 +67,19 @@ button:focus {
     outline-offset: 2px; /* Distancia del contorno respecto al botón */
 }
 
+/* Estilos de enfoque para elementos select */
+select:focus {
+    outline: 2px solid #007bff; /* Resalta el borde cuando el select está enfocado */
+    box-shadow: 0 0 0 2px rgba(38, 143, 255, 0.5); /* Agrega una sombra alrededor del select cuando está enfocado */
+}
+
+span:focus {
+
+    outline: 2px solid #000; 
+    outline-offset: 2px; 
+
+}
+
 /* ···········································FORMULARIO DE AÑADIR CLASE······································· */
 #add-class-form {
     background-color: #ecec97;
