@@ -366,16 +366,6 @@ function agregarClase() {
 
 
 
-
-
-
-
-
-
-
-
-
-
 // Llamar a generateHTMLForClases al cargar la página
 document.addEventListener('DOMContentLoaded', () => {
     // Mostrar todas las clases al cargar

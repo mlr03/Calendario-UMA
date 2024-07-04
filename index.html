@@ -93,8 +93,11 @@
                     <p id="modal-filtros-descripcion" class="text-black" tabindex="0" aria-live="polite">
                         ¿Seguro que deseas eliminar los filtros?
                     </p>
-                    <button id="aceptarBtn" tabindex="0" aria-label="Aceptar la eliminación de los filtros">Aceptar</button>
-                    <button id="cancelarBtn" tabindex="0" aria-label="Cancelar la eliminación de los filtros">Cancelar</button>
+                    <div class="button-container">
+                        <button id="aceptarBtn" tabindex="0" aria-label="Aceptar la eliminación de los filtros">Aceptar</button>
+                        <button id="cancelarBtn" tabindex="0" aria-label="Cancelar la eliminación de los filtros">Cancelar</button>
+                    </div>
+                    
                 </div>
             </div>
 
@@ -222,8 +225,10 @@
              <div id="myModalClase" class="modal-eliminar-clase" style="display:none;" role="dialog" aria-labelledby="modalEliminarClaseTitulo">
              <div class="modal-content-eliminar-clase">
                  <p class="text-black" tabindex="0" aria-live="polite">¿Seguro que deseas eliminar esta clase?<span aria-live="assertive"></span></p>
+                 <div class="button-container-eliminar-clase">
                  <button id="aceptarBtnEliminar" tabindex="0" aria-label="Aceptar eliminación de clase">Aceptar</button>
                  <button id="cancelarBtnEliminar" tabindex="0" aria-label="Cancelar eliminación de clase">Cancelar</button>
+                 </div>
              </div>
             </div>
 
@@ -238,7 +243,7 @@
                     
                     <!-- Recuadro blanco con mensaje adicional -->
                     <div class="info-box" aria-live="polite" tabindex="0">
-                        <p><strong>Nota:</strong> El símbolo <span class="required-symbol">*</span> indica que es un campo obligatorio o completar.</p>
+                        <p><strong>Nota:</strong> El símbolo <span class="required-symbol">*</span> indica que es un campo obligatorio a completar.</p>
                     </div>
                     
                     <div class="form-group">
