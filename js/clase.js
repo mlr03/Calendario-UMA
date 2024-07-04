@@ -48,10 +48,10 @@ localStorage.setItem('clases', JSON.stringify(clases));
 
 // Función para aplicar los filtros
 function aplicarFiltros() {
-    const filtroGrado = document.getElementById("grado").value.toLowerCase();
-    const filtroCurso = parseInt(document.getElementById("curso").value);
-    const filtroGrupo = document.getElementById("grupo").value.toLowerCase();
-    const filtroTipo = document.getElementById("tipo").value.toLowerCase();
+    const filtroGrado = document.getElementById("filtroGrado").value.toLowerCase();
+    const filtroCurso = parseInt(document.getElementById("filtroCurso").value);
+    const filtroGrupo = document.getElementById("filtroGrupo").value.toLowerCase();
+    const filtroTipo = document.getElementById("filtroTipo").value.toLowerCase();
     const filtroNombre = document.getElementById("filtroNombre").value.toLowerCase();
 
     const clasesFiltrados = clases.filter(clase => {
@@ -507,10 +507,10 @@ document.addEventListener('DOMContentLoaded', () => {
         // Eliminar filtros y cerrar el modal al hacer clic en "Aceptar"
         btnAceptar.onclick = function() {
             // Lógica para eliminar los filtros
-            document.getElementById("grado").value = '';
-            document.getElementById("curso").value = '';
-            document.getElementById("grupo").value = '';
-            document.getElementById("tipo").value = '';
+            document.getElementById("filtroGrado").value = '';
+            document.getElementById("filtroCurso").value = '';
+            document.getElementById("filtroGrupo").value = '';
+            document.getElementById("filtroTipo").value = '';
             document.getElementById("filtroNombre").value = '';
             aplicarFiltros();
             closeModal();
