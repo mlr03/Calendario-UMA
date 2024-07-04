@@ -314,24 +314,27 @@
      <!------------------------------------------------------------------------------------------------------->
 
      <!------------------------------MODAL ERROR CAMPOS AÑADIR CLASE (FALTAN CAMPOS)-------------------------->
-    <div id="myModal-error" class="modal-error" style="display:none;" role="dialog" aria-labelledby="modal-heading" aria-hidden="true">
-        <div class="modal-content-error">
-            <span class="close-error"   tabindex='0' aria-label="Cerrar Ventana" onclick="closeModalEliminar()">&times;</span>
-            <p class="modal-message-error" tabindex="0" aria-live="polite" >Complete todos los campos</p>
+
+        <div id="myModal-error" class="modal-error" style="display:none;" role="dialog" aria-labelledby="modal-heading" aria-hidden="true">
+            <div class="modal-content-error">
+                <span class="close-error" tabindex='0' aria-label="Cerrar Ventana" onclick="closeModalEliminar()">&times;</span>
+                <p class="modal-message-error" tabindex="0" aria-label="Complete todos los campos">Complete todos los campos</p>
+            </div>
         </div>
-    </div>
+
+     <!--------------------------------------------------------------------------------------------------------->
+
+    <!------------------------------MODAL ERROR CLASE OCUPADA(YA ESTÁ ESA CLASE DANDO CLASE)------------------->
+
+        <div id="myModal-error-existe" class="modal-error-existe" style="display:none;" role="dialog" aria-labelledby="modal-heading" aria-hidden="true">
+            <div class="modal-content-error-existe">
+                <span class="close-error-existe" tabindex='0' aria-label="Cerrar Ventana" onclick="closeModalEliminarExiste()">&times;</span>
+                <p class="modal-message-error-existe" tabindex="0" aria-label="Grado,curso y grupo ocupado">Grado,curso y grupo ocupado</p>
+            </div>
+        </div>
 
     <!--------------------------------------------------------------------------------------------------------->
 
-     <!------------------------------MODAL ERROR CLASE OCUPADA(YA ESTÁ ESA CLASE DANDO CLASE)------------------->
-     <div id="myModal-error-existe" class="modal-error-existe" style="display:none;" role="dialog" aria-labelledby="modal-heading" aria-hidden="true">
-        <div class="modal-content-error-existe">
-            <span class="close-error-existe" tabindex='0' aria-label="Cerrar Ventana" onclick="closeModalEliminarExiste()">&times;</span>
-            <p class="modal-message-error-existe" tabindex="0" aria-live="polite">Grado,curso y grupo ocupado</p>
-        </div>
-    </div>
-
-    <!--------------------------------------------------------------------------------------------------------->
 
 
 

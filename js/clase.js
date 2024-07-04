@@ -251,24 +251,83 @@ function handleFocusOut(event) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Función para mostrar el modal de error si no se completan todos los campos
 function mostrarModal() {
-    document.getElementById('myModal-error').style.display = 'block';
+    const modal = document.getElementById('myModal-error');
+    modal.style.display = 'block';
+    trapFocus(modal);
 }
 
-// Función para cerrar el modal de error  si no se completan todos los campos
+// Función para cerrar el modal de error si no se completan todos los campos
 function closeModalEliminar() {
-    document.getElementById('myModal-error').style.display = 'none';
+    const modal = document.getElementById('myModal-error');
+    modal.style.display = 'none';
+    releaseFocus();
 }
 
-// Función para mostrar el modal de error si  el grado,grupo y curso está ocupado
+// Función para mostrar el modal de error si el grado, grupo y curso está ocupado
 function mostrarModalExiste() {
-    document.getElementById('myModal-error-existe').style.display = 'block';
+    const modal = document.getElementById('myModal-error-existe');
+    modal.style.display = 'block';
+    trapFocus(modal);
 }
 
-// Función para cerrar el modal de error  si el grado,grupo y curso está ocupado
+// Función para cerrar el modal de error si el grado, grupo y curso está ocupado
 function closeModalEliminarExiste() {
-    document.getElementById('myModal-error-existe').style.display = 'none';
+    const modal = document.getElementById('myModal-error-existe');
+    modal.style.display = 'none';
+    releaseFocus();
+}
+
+// Atrapar el foco dentro del modal
+function trapFocus(modal) {
+    const focusableElements = modal.querySelectorAll('a, button, textarea, input, select, [tabindex]:not([tabindex="-1"])');
+    const firstElement = focusableElements[0];
+    const lastElement = focusableElements[focusableElements.length - 1];
+
+    modal.addEventListener('keydown', function(event) {
+        const isTabPressed = (event.key === 'Tab' || event.keyCode === 9);
+        if (!isTabPressed) {
+            return;
+        }
+
+        if (event.shiftKey) {
+            if (document.activeElement === firstElement) {
+                lastElement.focus();
+                event.preventDefault();
+            }
+        } else {
+            if (document.activeElement === lastElement) {
+                firstElement.focus();
+                event.preventDefault();
+            }
+        }
+    });
+
+    firstElement.focus();
+}
+
+// Liberar el foco cuando se cierra el modal
+function releaseFocus() {
+    document.removeEventListener('keydown', trapFocus);
 }
 
 // FUNCIÓN PARA AÑADIR UNA NUEVA CLASE 
@@ -316,6 +375,13 @@ function agregarClase() {
     document.getElementById('grupoClase').value = '';
     document.getElementById('tipoClase').value = '';
 }
+
+
+
+
+
+
+
 
 
 
