@@ -52,7 +52,7 @@ function aplicarFiltros() {
     const filtroCurso = parseInt(document.getElementById("curso").value);
     const filtroGrupo = document.getElementById("grupo").value.toLowerCase();
     const filtroTipo = document.getElementById("tipo").value.toLowerCase();
-    const filtroNombre = document.getElementById("keyword").value.toLowerCase();
+    const filtroNombre = document.getElementById("filtroNombre").value.toLowerCase();
 
     const clasesFiltrados = clases.filter(clase => {
         const gradoMatch = filtroGrado === "" || clase.grado.toLowerCase() === filtroGrado;
@@ -511,7 +511,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById("curso").value = '';
             document.getElementById("grupo").value = '';
             document.getElementById("tipo").value = '';
-            document.getElementById("keyword").value = '';
+            document.getElementById("filtroNombre").value = '';
             aplicarFiltros();
             closeModal();
         }
