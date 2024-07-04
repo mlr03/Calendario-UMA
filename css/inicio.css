@@ -76,6 +76,28 @@ header {
     text-align: center; /* Centrar el texto */
 }
 
+
+.info-box {
+    background-color: #f9f9f9; /* Color de fondo blanco */
+    border: 1px solid #ddd; /* Borde gris claro */
+    border-radius: 5px; /* Esquinas redondeadas */
+    padding: 10px; /* Espaciado interior */
+    margin-top: 15px; /* Espacio superior */
+    margin-bottom: 15px; /* Espacio inferior */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+
+.required-symbol {
+    color: red; /* Color rojo */
+    font-weight: bold; /* Negrita */
+}
+
+/* Opcional: Asegura que el texto del modal sea accesible para tecnologías de asistencia */
+[aria-live="polite"] {
+    display: inline-block; /* Asegura que el aria-live sea detectado */
+}
+
 /* ·············································································································*/
 
 /* ············································MODAL DE ERROR DE AÑADIR CLASE···································*/
@@ -115,9 +137,6 @@ header {
     text-align: center;
     
 }
-
-
-
 
 
 
