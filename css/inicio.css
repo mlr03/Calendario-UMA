@@ -90,13 +90,14 @@ span:focus {
     background-color: #ecec97;
     border: 1px solid #ccc; 
     padding: 20px; 
-    margin: 30px 0 50px; 
+    margin: 5vh 3vh 5vh; /* Aquí 3vh es el margen en los lados derecho e izquierdo */
     border-radius: 10px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     display: flex;
     flex-wrap: wrap; /* Permitir que los filtros se envuelvan en varias lineas si es necesario */
     justify-content: center; 
     text-align: center; 
+    
 }
 
 #add-class-form label, #add-class-form input, #add-class-form select, #add-class-form button {
