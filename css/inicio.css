@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #add8e6; 
+    background-color: #cfeef9; 
     
     
 }
@@ -361,7 +361,7 @@ span:focus {
     flex-wrap: nowrap; /* Para que los días se muestren en una sola línea */
     overflow-y: auto; /* Permitir desplazamiento vertical si los días no caben en la pantalla */
     margin-top: 20px;
-    background-color: #add8e6; 
+    background-color: #cfeef9;
     padding: 10px; /* Añadido espacio interno al calendario */
 }
 .day-column {
