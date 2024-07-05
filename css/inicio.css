@@ -389,12 +389,18 @@ span:focus {
     margin-left: 5%;
     width: 100%;
     max-width: 150%;
+    
 }
 
 .selected {
     background-color: #e0e0e0;
 }
 
+.time-label{
+
+    font-weight: bold;
+    background-color:whitesmoke;
+}
 
 /*··················································································································*/
 
@@ -640,6 +646,7 @@ span:focus {
         box-sizing: border-box;
         text-align: center;
         margin-left: 0%;
+        text: bold;
       
     
     }
