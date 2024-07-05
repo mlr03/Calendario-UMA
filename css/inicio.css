@@ -315,7 +315,7 @@ span:focus {
     justify-content: center; 
     margin: 20px 10px; 
     text-align: center; 
-    margin: 5vh 40vh 5vh; /* Aquí 3vh es el margen en los lados derecho e izquierdo */
+    margin: 5vh 35vh 5vh; /* Aquí 35vh es el margen en los lados derecho e izquierdo */
 }
 
 

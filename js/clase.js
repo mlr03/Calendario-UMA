@@ -70,11 +70,11 @@ function aplicarFiltros() {
 // Función para generar el HTML para las clases mostradas
 function generateHTMLForClases(clasesMostrados) {
     const dayColumns = {
-        'Lunes': document.querySelector('[aria-labelledby="lunes-heading"]'),
-        'Martes': document.querySelector('[aria-labelledby="martes-heading"]'),
-        'Miércoles': document.querySelector('[aria-labelledby="miercoles-heading"]'),
-        'Jueves': document.querySelector('[aria-labelledby="jueves-heading"]'),
-        'Viernes': document.querySelector('[aria-labelledby="viernes-heading"]')
+        'Lunes': document.querySelector('[aria-label="lunes"]'),
+        'Martes': document.querySelector('[aria-label="martes"]'),
+        'Miércoles': document.querySelector('[aria-label="miercoles"]'),
+        'Jueves': document.querySelector('[aria-label="jueves"]'),
+        'Viernes': document.querySelector('[aria-label="viernes"]')
     };
 
     // Limpiar el contenido actual de las columnas
