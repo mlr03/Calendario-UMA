@@ -145,6 +145,11 @@ span:focus {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
 }
 
+.form-group{
+
+    font-weight: bold;
+}
+
 /* ·············································································································*/
 
 /* ············································MODAL DE ERROR DE AÑADIR CLASE···································*/
@@ -313,6 +318,7 @@ span:focus {
 
 #filters label {
     display: block; /* Asegurar que los labels sean bloques */
+    font-weight: bold;
 }
 
 
@@ -647,14 +653,11 @@ span:focus {
         box-sizing: border-box;
         text-align: center;
         margin-left: 0%;
-        text: bold;
       
     
     }
 
     
-
-
 
 }
 
