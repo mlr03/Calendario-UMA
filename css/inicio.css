@@ -457,6 +457,7 @@ span:focus {
     word-wrap: break-word; 
     overflow-wrap: break-word; 
     overflow: hidden; /* Añadido para ajustar el tamaño del texto */
+    font-style: italic;
 }
 
 .class h2 {
