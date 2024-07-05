@@ -89,7 +89,7 @@
         <!------------------------------------------------------------------------------------------------------------>
           <!------------------------------------------ Modal de Filtros ---------------------------------------------->
 
-            <div id="myModal" class="modal-eliminar-filtros" role="dialog" aria-labelledby="modal-filtros-titulo" aria-describedby="modal-filtros-descripcion" tabindex="-1">
+            <div id="myModal" class="modal-eliminar-filtros" role="dialog" aria-label="modal eliminar filtros"  tabindex="-1">
                 <div class="modal-content-eliminar-filtros" role="document">
                     <p id="modal-filtros-descripcion" class="text-black" tabindex="0" aria-live="polite">
                         ¿Seguro que deseas eliminar los filtros?
@@ -216,7 +216,7 @@
             <!-------------------------------------------MODAL DE CADA CLASE-------------------------------------->
         
             </main>
-            <div id="class-details-modal" class="modal" role="dialog" aria-labelledby="modal-heading" aria-hidden="true">
+            <div id="class-details-modal" class="modal" role="dialog" aria-label="modal de clase" aria-hidden="true">
                 <div class="modal-content">
                     <div id="class-details" aria-live="polite"></div>
                 </div>
@@ -226,7 +226,7 @@
 
              <!-------------------------------------------MODAL DE ELIMINAR CLASE-------------------------------------->
             
-             <div id="myModalClase" class="modal-eliminar-clase" style="display:none;" role="dialog" aria-labelledby="modalEliminarClaseTitulo">
+             <div id="myModalClase" class="modal-eliminar-clase" style="display:none;" role="dialog" aria-label="modal de eliminar clase">
              <div class="modal-content-eliminar-clase">
                  <p class="text-black" tabindex="0" aria-live="polite">¿Seguro que deseas eliminar esta clase?<span aria-live="assertive"></span></p>
                  <div class="button-container-eliminar-clase">
@@ -242,7 +242,7 @@
             <!------------------------------------------AÑADIR CLASE-------------------------------------------------------->
 
 
-                <div id="add-class-form" aria-labelledby="add-class-form-heading">
+                <div id="add-class-form" aria-label="añadir clase">
                     <h3 id="add-class-form-heading" tabindex="0">A continuación, deberá de completar los siguientes campos para poder añadir una nueva clase a su horario. Posteriormente, pulse "Añadir Clase" para añadir la clase a su horario</h3>
                     
                     <!-- Recuadro blanco con mensaje adicional -->
@@ -331,7 +331,7 @@
 
      <!------------------------------MODAL ERROR CAMPOS AÑADIR CLASE (FALTAN CAMPOS)-------------------------->
 
-        <div id="myModal-error" class="modal-error" style="display:none;" role="dialog" aria-labelledby="modal-heading" aria-hidden="true">
+        <div id="myModal-error" class="modal-error" style="display:none;" role="dialog" aria-label="modal de error" aria-hidden="true">
             <div class="modal-content-error">
                 <p class="modal-message-error" tabindex="0" aria-label="Complete todos los campos">Complete todos los campos</p>
                 <button  class="close-error" tabindex="0" aria-label="Cerrar Ventana" onclick="closeModalEliminar()">&times;</button>
@@ -342,7 +342,7 @@
 
     <!------------------------------MODAL ERROR CLASE OCUPADA(YA ESTÁ ESA CLASE DANDO CLASE)------------------->
 
-        <div id="myModal-error-existe" class="modal-error-existe" style="display:none;" role="dialog" aria-labelledby="modal-heading" aria-hidden="true">
+        <div id="myModal-error-existe" class="modal-error-existe" style="display:none;" role="dialog" aria-label="modal clase ocupada" aria-hidden="true">
             <div class="modal-content-error-existe">
                 <p class="modal-message-error-existe" tabindex="0" aria-label="Grado,curso y grupo ocupado">Grado,curso y grupo ocupado</p>
                 <button class="close-error-existe" tabindex="0" aria-label="Cerrar Ventana" onclick="closeModalEliminarExiste()">&times;</button>
