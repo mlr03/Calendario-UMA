@@ -432,8 +432,8 @@ span:focus {
 
 .close {
     color: rgb(169, 14, 14); 
-    background-color:white; 
     float: right;
+    background-color: white;
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
@@ -477,6 +477,12 @@ span:focus {
     text-overflow: ellipsis; /* Muestra puntos suspensivos si el texto es demasiado largo */
 }
 
+ 
+#class-name {
+    text-align: center;
+    margin-left: 35vh;
+    position: relative;
+}
 
 .class:hover {
     background-color: #e9a45a; 
@@ -659,6 +665,28 @@ span:focus {
     
     }
 
+    #class-name {
+        text-align: center;
+        margin-left: 0%;
+        position: relative;
+        word-wrap: break-word; 
+        overflow-wrap: break-word; 
+
+    }
+
+    .close {
+
+        color: rgb(169, 14, 14); 
+        float: right;
+        background-color: white;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+        position: absolute; 
+        top: 7vh; 
+        right: 3vh; 
+        transform: translateY(-50%); /* Ajusta la posición vertical */
+    }
     
 
 }
