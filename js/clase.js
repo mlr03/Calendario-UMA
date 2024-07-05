@@ -156,7 +156,7 @@ function mostrarDetallesClase(clase) {
     <p tabindex='0' aria-label="Tipo: ${clase.tipo}"><strong>Tipo:</strong> ${clase.tipo}</p>
     <p tabindex='0' aria-label="Día: ${clase.dia}"><strong>Día:</strong> ${clase.dia}</p>
     <p tabindex='0' aria-label="Hora: ${clase.hora}"><strong>Hora:</strong> ${clase.hora}</p>
-    <span class="close" onclick="closeModal()" tabindex="0" aria-label="Cerrar ventana">&times;</span>
+    <button class="close" onclick="closeModal()" tabindex="0" aria-label="Cerrar ventana">&times;</button>
     <button id="delete-class-button" tabindex='0' aria-label="Eliminar clase">Eliminar Clase</button>
     `;
 

@@ -52,9 +52,9 @@ header {
 
 /* Estilo base para los botones */
 button {
-    padding: 10px 15px; /* Tamaño del botón */
-    font-size: 16px; /* Tamaño de la fuente */
-    color: #fff; 
+    padding: 2vh 2vh; /* Tamaño del botón */
+    font-size: 2vh; /* Tamaño de la fuente */
+    color: white; 
     border: none; 
     border-radius: 5px; 
     cursor: pointer; 
@@ -113,8 +113,8 @@ span:focus {
 
 
 .info-box {
-    background-color: #f9f9f9; 
-    border: 1px solid #ddd; 
+    background-color: white; 
+    border: 1px solid white; 
     border-radius: 5px; 
     padding: 10px; 
     margin-top: 15px; 
@@ -141,7 +141,7 @@ span:focus {
 }
 
 #añadir{
-    background-color: #218838; /* Verde más oscuro */
+    background-color: #218838; 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
 }
 
@@ -151,7 +151,6 @@ span:focus {
 
 
 .modal-error {
-   
     display: none; 
     position: fixed; 
     z-index: 1; 
@@ -165,32 +164,30 @@ span:focus {
 }
 
 .modal-content-error {
-    background-color: #fefefe;
+    background-color: white;
     margin: 15% auto; 
     padding: 20px;
-    border: 1px solid #888;
     width: 80%;
     max-width: 400px;
     text-align: center;
+    position: relative; /* Necesario para el posicionamiento absoluto del botón */
 }
 
 .close-error {
     color: rgb(169, 14, 14); 
+    background-color: white; 
     font-size: 24px;
     font-weight: bold;
     cursor: pointer;
-    position: relative;
-    width: 25%;
-    text-align: center;
-    left: 45%;
-    
+    position: absolute; 
+    top: 10px; 
+    right: 10px; 
+    border: none; 
+    padding: 5px;
 }
 
 
-
-
 .modal-error-existe {
-   
     display: none; 
     position: fixed; 
     z-index: 1; 
@@ -204,27 +201,30 @@ span:focus {
 }
 
 .modal-content-error-existe {
-    background-color: #fefefe;
+    background-color: white;
     margin: 15% auto; 
     padding: 20px;
-    border: 1px solid #888;
     width: 80%;
     max-width: 400px;
     text-align: center;
+    position: relative; 
 }
 
 .close-error-existe {
-    
     color: rgb(169, 14, 14); 
+    background-color: white; 
     font-size: 24px;
     font-weight: bold;
     cursor: pointer;
-    position: relative;
-    width: 25%;
-    text-align: center;
-    left: 45%;
-    
+    position: absolute; 
+    top: 10px; 
+    right: 10px; 
+    border: none; 
+    padding: 5px;
 }
+
+
+
 
 
 
@@ -246,7 +246,7 @@ span:focus {
 }
 
 .modal-content-eliminar-clase {
-    background-color: #fefefe;
+    background-color: white;
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
@@ -409,7 +409,7 @@ span:focus {
 }
 
 .modal-content {
-    background-color: whitesmoke;
+    background-color: white;
     margin: 15% auto;
     padding: 50px;
     border: 1px solid #888;
@@ -419,6 +419,7 @@ span:focus {
 
 .close {
     color: rgb(169, 14, 14); 
+    background-color:white; 
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -432,9 +433,10 @@ span:focus {
 
 
 
+
 .class {
-    border: 2px dashed #f0f0f0; /* Borde de franjas */
-    background-color: #f0f0f0; 
+    border: 2px dashed white; /* Borde de franjas */
+    background-color: white; 
     padding: 20px; 
     margin: 10px 0; /* Margen entre franjas */
     border-radius: 5px; 
@@ -472,7 +474,7 @@ span:focus {
 
 #delete-class-button {
     background-color: #dc3545; 
-    color: #fff; /* Color del texto */
+    color: white; /* Color del texto */
     border: none; 
     padding: 10px 15px;
     font-size: 16px; 
@@ -603,7 +605,7 @@ span:focus {
         justify-content: flex-start; 
         align-items: flex-start; 
         padding: 20px; 
-        background-color: #f9f9f9; 
+        background-color: white; 
         text-align: center;
         word-wrap: break-word; 
         overflow-wrap: break-word; 
@@ -616,7 +618,7 @@ span:focus {
         max-width: 100%; 
         margin: 10px auto; /* Centrar horizontalmente */
         padding: 20px;
-        background-color: #f9f9f9; 
+        background-color: white; 
     }
 
     .day-column {
