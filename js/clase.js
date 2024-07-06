@@ -11,7 +11,10 @@ class Clase {
     }
 }
 
-// Array de objetos que representan las diferentes clases
+
+
+
+// ARRAY QUE REPRESENTA LAS DIFERENTES CLASES 
 const clases = [
     new Clase('Matemática Discreta', 'Jueves', '08:45', 'Informática', 1, 'B', 'Teórica'),
     new Clase('Tecnologías Web', 'Martes', '10:45', 'Software', 3, 'A', 'Práctica'),
@@ -44,9 +47,12 @@ const clases = [
 
 ];
 
-localStorage.setItem('clases', JSON.stringify(clases));
 
-// Función para aplicar los filtros
+// PARA ALMACENAR LAS CLASES AÑADIDAS
+localStorage.setItem('clases', JSON.stringify(clases)); 
+
+
+// FUNCIÓN PARA APLICAR FILTROS
 function aplicarFiltros() {
     const filtroGrado = document.getElementById("filtroGrado").value.toLowerCase();
     const filtroCurso = parseInt(document.getElementById("filtroCurso").value);
@@ -67,7 +73,9 @@ function aplicarFiltros() {
     generateHTMLForClases(clasesFiltrados);
 }
 
-// Función para generar el HTML para las clases mostradas
+
+
+// FUNCIÓN PARA GENERAR EL HTML DE LAS CLASES MOSTRADAS
 function generateHTMLForClases(clasesMostrados) {
     const dayColumns = {
         'Lunes': document.querySelector('[aria-label="lunes"]'),
@@ -77,14 +85,12 @@ function generateHTMLForClases(clasesMostrados) {
         'Viernes': document.querySelector('[aria-label="viernes"]')
     };
 
-    // Limpiar el contenido actual de las columnas
     Object.values(dayColumns).forEach(column => {
         column.querySelectorAll('.time-slot').forEach(slot => {
             slot.innerHTML = '';
         });
     });
 
-    // Limpiar mensajes de no hay clases
     Object.values(dayColumns).forEach(column => {
         column.querySelectorAll('.no-clases').forEach(message => {
             message.remove();
@@ -106,28 +112,27 @@ function generateHTMLForClases(clasesMostrados) {
             classDiv.dataset.dia = clase.dia;
             classDiv.dataset.hora = clase.hora;
 
-            // Añade atributos ARIA para cada clase
+
             classDiv.setAttribute('aria-label', `Clase de ${clase.nombre}`);
             classDiv.setAttribute('tabindex', '0');
 
-             // Añade un evento de teclado para abrir el modal con la tecla Enter
+           
              classDiv.addEventListener('keydown', (event) => {
                 if (event.key === 'Enter') {
                     mostrarDetallesClase(clase);
                 }
             });
 
-            // Añade un evento de clic a cada clase para mostrar los detalles en el modal
+         
             classDiv.addEventListener('click', () => {
                 mostrarDetallesClase(clase);
             });
 
-            // Añade la clase a la franja horaria correspondiente
             timeSlot.appendChild(classDiv);
         }
     });
 
-    // Añadir mensaje "No hay clases en la franja actual" si no hay clases en una franja
+    
     Object.values(dayColumns).forEach(column => {
         column.querySelectorAll('.time-slot').forEach(slot => {
             if (!slot.querySelector('.class')) {
@@ -145,7 +150,9 @@ function generateHTMLForClases(clasesMostrados) {
 }
 
 
-// Función para mostrar los detalles de una clase
+
+
+// FUNCIÓN PARA MOSTRAR LOS DETALLES DE LAS CLASES
 function mostrarDetallesClase(clase) {
     const classDetails = document.getElementById('class-details');
     classDetails.innerHTML = `
@@ -165,42 +172,42 @@ function mostrarDetallesClase(clase) {
     classDetailsModal.setAttribute('tabindex', '0');
     classDetailsModal.focus();
 
-    // Añadir un evento focusout para mantener el foco dentro del modal
+    
     classDetailsModal.addEventListener('focusout', handleFocusOut);
 
     const deleteButton = document.getElementById('delete-class-button');
 
-    // Añadir el manejador de eventos para el botón de eliminar
+
     deleteButton.addEventListener('click', () => {
         const modalEliminarClase = document.getElementById('myModalClase');
         const aceptarBtnEliminar = document.getElementById('aceptarBtnEliminar');
         const cancelarBtnEliminar = document.getElementById('cancelarBtnEliminar');
 
-        // Mueve el foco al modal de eliminar clase
+
         classDetailsModal.style.display = 'none';
         modalEliminarClase.style.display = 'block';
         aceptarBtnEliminar.focus();
 
-        // Añadir eventos para evitar que el foco salga del modal de eliminar clase
+
         modalEliminarClase.addEventListener('focusout', (event) => {
             if (!modalEliminarClase.contains(event.relatedTarget)) {
                 aceptarBtnEliminar.focus();
             }
         });
 
-        // Acción al hacer clic en Aceptar
+
         aceptarBtnEliminar.addEventListener('click', () => {
             eliminarClase(clase);
-            // Cierra el modal de confirmación
+            
             modalEliminarClase.style.display = 'none';
         });
 
-        // Cierra el modal de confirmación al hacer clic en Cancelar
+
         cancelarBtnEliminar.addEventListener('click', () => {
             modalEliminarClase.style.display = 'none';
         });
 
-        // Cierra el modal de confirmación al hacer clic fuera del contenido
+  
         modalEliminarClase.addEventListener('click', (event) => {
             if (event.target === modalEliminarClase) {
                 modalEliminarClase.style.display = 'none';
@@ -211,46 +218,36 @@ function mostrarDetallesClase(clase) {
     $('#modalDetallesClase').modal('show');
 }
 
-// Función ELIMINAR CLASE
+
+
+// FUNCIÓN ELIMINAR CLASE
 function eliminarClase(clase) {
-    // Encuentra el índice de la clase en el array
+
     const index = clases.findIndex(c => c.nombre === clase.nombre && c.dia === clase.dia && c.hora === clase.hora);
     const classDetailsModal = document.getElementById('class-details-modal');
 
     if (index !== -1) {
-        // Elimina la clase del array
+     
         clases.splice(index, 1);
-        
-        // Actualiza el localStorage
         localStorage.setItem('clases', JSON.stringify(clases));
-
-        // Vuelve a aplicar los filtros para actualizar la vista
         aplicarFiltros();
-
-        // Cierra el modal de detalles de clase
         $('#modalDetallesClase').modal('hide');
     }
 }
 
 
 
-
-
-
-
-// Función para cerrar el modal y mover el foco a la siguiente franja horaria
+// FUNCIÓN PARA CERRAR EL MODAL DE "DETALLES CLASE" EL MOVER EL FOCO A LA SIGUIENTE FRANJA HORARIA
 function closeModal(scheduleId) {
     const classDetailsModal = document.getElementById('class-details-modal');
     classDetailsModal.style.display = 'none';
-
-    // Mover el foco a la siguiente franja horaria
     const currentSchedule = document.querySelector(`.time-slot[data-schedule-id="${scheduleId}"]`);
     const nextSchedule = document.querySelector(`.time-slot[data-schedule-id="${parseInt(scheduleId) + 1}"]`);
 
     if (nextSchedule) {
         nextSchedule.focus();
     } else {
-        // Si no hay siguiente franja horaria, volver a la primera
+
         const firstSchedule = document.querySelector('.time-slot[data-schedule-id="1"]');
         if (firstSchedule) {
             firstSchedule.focus();
@@ -260,9 +257,7 @@ function closeModal(scheduleId) {
 
 
 
-
-
-// Manejar focusout del modal
+// FUNCIÓN PARA MANEJAR EL FOCO DEL MODAL DE "DETALLES CLASE"
 function handleFocusOut(event) {
     const classDetailsModal = document.getElementById('class-details-modal');
     if (!classDetailsModal.contains(event.relatedTarget)) {
@@ -272,35 +267,36 @@ function handleFocusOut(event) {
 
 
 
-// Función para mostrar el modal de error si no se completan todos los campos
+// FUNCIÓN PARA MOSTRAR EL MODAL DE ERROR SI NO SE COMPELTAN LOS CAMPOS DE "AÑADIR CLASE"
 function mostrarModal() {
     const modal = document.getElementById('myModal-error');
     modal.style.display = 'block';
     trapFocus(modal);
 }
 
-// Función para cerrar el modal de error si no se completan todos los campos
+
+// FUNCIÓN PARA CERRAR EL MODAL DE ERROR SI NO SE COMPELTAN LOS CAMPOS DE "AÑADIR CLASE"
 function closeModalEliminar() {
     const modal = document.getElementById('myModal-error');
     modal.style.display = 'none';
     releaseFocus();
 }
 
-// Función para mostrar el modal de error si el grado, grupo y curso está ocupado
+ // FUNCIÓN PARA MOSTRAR EL MODAL DE ERROR SI EL GRADO ,CURSO Y GRUPO ESTÁ OCUPADO DE "AÑADIR CLASE"  
 function mostrarModalExiste() {
     const modal = document.getElementById('myModal-error-existe');
     modal.style.display = 'block';
     trapFocus(modal);
 }
 
-// Función para cerrar el modal de error si el grado, grupo y curso está ocupado
+// FUNCIÓN PARA CERRAR MODAL DE ERROR SI EL GRADO ,CURSO Y GRUPO ESTÁ OCUPADO DE "AÑADIR CLASE"  
 function closeModalEliminarExiste() {
     const modal = document.getElementById('myModal-error-existe');
     modal.style.display = 'none';
     releaseFocus();
 }
 
-// Atrapar el foco dentro del modal
+// ATRAPA EL FOCO EN LOS MODALES DE ERROR DE AÑADIR CLASE
 function trapFocus(modal) {
     const focusableElements = modal.querySelectorAll('a, button, textarea, input, select, [tabindex]:not([tabindex="-1"])');
     const firstElement = focusableElements[0];
@@ -328,7 +324,7 @@ function trapFocus(modal) {
     firstElement.focus();
 }
 
-// Liberar el foco cuando se cierra el modal
+// LIBERA EL FOCO DEL MODAL EN LOS MODALES DE ERROR DE AÑADIR CLASE
 function releaseFocus() {
     document.removeEventListener('keydown', trapFocus);
 }
@@ -343,33 +339,29 @@ function agregarClase() {
     const grupo = document.getElementById('grupoClase').value;
     const tipo = document.getElementById('tipoClase').value;
 
-    // Verifica si todos los campos están completos
+
     if (nombre && dia && hora && grado && curso && grupo && tipo) {
-        // Comprueba si ya existe una clase en el mismo día, hora, grado, curso y grupo
         const claseExistente = clases.some(clase =>
             clase.dia === dia && clase.hora === hora && clase.grado === grado && clase.curso === curso && clase.grupo === grupo
         );
 
         if (claseExistente) {
-            // Muestra un mensaje de error si ya existe una clase en esa franja horaria
             mostrarModalExiste();
         } else {
-            // Crea una nueva instancia de la clase Clase
+          
             const nuevaClase = new Clase(nombre, dia, hora, grado, curso, grupo, tipo);
 
-            // Añadir la nueva clase al array y al localStorage
             clases.push(nuevaClase);
             localStorage.setItem('clases', JSON.stringify(clases));
 
-            // Aplicar filtros y actualizar la vista del calendario
             aplicarFiltros();
         }
     } else {
-        // Muestra el modal de error si los campos no están completos
+        
         mostrarModal();
     }
 
-    // Limpiar el formulario en todos los casos
+    //LIMPIA EL FORMULARIO EN TODOS LOS CASOS
     document.getElementById('nombreClase').value = '';
     document.getElementById('diaClase').value = '';
     document.getElementById('horaClase').value = '';
@@ -383,9 +375,9 @@ function agregarClase() {
 
 
 
-// Llamar a generateHTMLForClases al cargar la página
+
 document.addEventListener('DOMContentLoaded', () => {
-    // Mostrar todas las clases al cargar
+
     generateHTMLForClases(clases);
 
     // CAMBIOS DE LOS DESPLEGABLES EN AÑADIR CLASE SEGÚN GRADO Y CURSO
@@ -457,8 +449,6 @@ document.addEventListener('DOMContentLoaded', () => {
             <option value="C">C</option>
         `
 
-
-
         } else {
 
             cursoClaseSelect.innerHTML = `
@@ -485,9 +475,6 @@ document.addEventListener('DOMContentLoaded', () => {
             ; 
         }
     });
-
-
-
     
     });
 
@@ -495,7 +482,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     //Función del MODAL DE ELIMINAR FILTROS
-
     document.addEventListener('DOMContentLoaded', () => {
         const modal = document.getElementById("myModal");
         const btnEliminarFiltros = document.getElementById("eliminarFiltrosBtn");
@@ -504,24 +490,22 @@ document.addEventListener('DOMContentLoaded', () => {
         
         let previouslyFocusedElement;
     
-        // Mostrar el modal al hacer clic en el botón de eliminar filtros
+
         btnEliminarFiltros.onclick = function() {
             previouslyFocusedElement = document.activeElement;
             modal.style.display = "block";
-            // Foco en el primer elemento del modal
+
             btnAceptar.focus();
-            // Añadir evento para gestionar el enfoque dentro del modal
             modal.addEventListener('keydown', trapFocus);
         }
     
-        // Cerrar el modal al hacer clic fuera del contenido del modal
+      
         window.onclick = function(event) {
             if (event.target == modal) {
                 closeModal();
             }
         }
     
-        // Eliminar filtros y cerrar el modal al hacer clic en "Aceptar"
         btnAceptar.onclick = function() {
             // Lógica para eliminar los filtros
             document.getElementById("filtroGrado").value = '';
@@ -533,30 +517,22 @@ document.addEventListener('DOMContentLoaded', () => {
             closeModal();
         }
     
-        // Cerrar el modal al hacer clic en "Cancelar"
+  
         btnCancelar.onclick = function() {
             closeModal();
         }
     
-        // Cerrar el modal al presionar la tecla ESC
-        window.addEventListener('keydown', (event) => {
-            if (event.key === 'Escape' && modal.style.display === 'block') {
-                closeModal();
-            }
-        });
     
-        // Función para cerrar el modal y restaurar el enfoque previo
+        // FUNCIÓN PARA CERRAR EL MODAL DE DETALLES CLASE
         function closeModal() {
             modal.style.display = "none";
-            // Restaurar el foco en el elemento que estaba enfocado antes de mostrar el modal
             if (previouslyFocusedElement) {
                 previouslyFocusedElement.focus();
             }
-            // Eliminar el evento de trampa de enfoque
             modal.removeEventListener('keydown', trapFocus);
         }
     
-        // Función para mantener el enfoque dentro del modal
+        //FUNCIÓN PARA MANTENER EL FOCO EN EL MODAL DE DETALLES CLASE
         function trapFocus(event) {
             const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
             const firstElement = focusableElements[0];
@@ -577,11 +553,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     
-        // Lógica existente para aplicar filtros
         const btnAplicarFiltros = document.getElementById('btnAplicarFiltros');
         btnAplicarFiltros.addEventListener('click', aplicarFiltros);
     
-        // Llamar a generateHTMLForClases al cargar la página
+  
         generateHTMLForClases(clases);
     });
 

@@ -21,7 +21,7 @@ header, footer {
 
 
 .text-black{
-    color: black;  /*color texto modal "Eliminar filtros"*/
+    color: black;  
 }
 
 #logo-container {
@@ -71,11 +71,11 @@ button {
 
 /* Asegura que los botones sean accesibles en el teclado */
 button:focus {
-    outline: 2px solid #000; /* Contorno visible al enfocar el botón */
-    outline-offset: 2px; /* Distancia del contorno respecto al botón */
+    outline: 2px solid #000; 
+    outline-offset: 2px; 
 }
 
-/* Estilos de enfoque para elementos select */
+
 select:focus {
     outline:  2px solid #000; 
     outline-offset: 2px; 
@@ -93,7 +93,377 @@ span:focus {
 }
 
 
-/* ···········································FORMULARIO DE AÑADIR CLASE······································· */
+/* ·······························FORMULARIO DE FILTROS························································ */
+#filters {
+    border: 1px solid white; 
+    padding: 15px; 
+    border-radius: 50px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    margin: 20px 10px; 
+    text-align: center; 
+    margin: 5vh 35vh 5vh; /* Aquí 35vh es el margen en los lados derecho e izquierdo */
+}
+
+
+
+
+#filters label, #filters select, #filters input, #filters button {
+    margin: 7px; 
+}
+
+#filters label {
+    display: block; /* Asegurar que los labels sean bloques */
+    font-weight: bold;
+}
+
+
+
+#btnAplicarFiltros {
+    background-color:#218838;  
+}
+
+#btnAplicarFiltros:hover, #btnAplicarFiltros:focus {
+    background-color: #218838; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+
+#eliminarFiltrosBtn {
+    background-color: #dc3545; 
+}
+
+#eliminarFiltrosBtn :hover, #eliminarFiltrosBtn :focus {
+    background-color:  #dc3545; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+/*·····························································································································*/
+
+
+/*···················································MODAL DE ELIMINAR FILTROS·················································*/
+
+.modal-eliminar-filtros{
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content-eliminar-filtros {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+}
+
+
+.button-container {
+    display: flex; 
+    gap: 10px; 
+    justify-content: center; 
+    margin-top: 20px; 
+}
+
+
+
+#aceptarBtn {
+    background-color: #28a745; 
+}
+
+#aceptarBtn:hover, #aceptarBtn:focus {
+    background-color: #218838; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+
+#cancelarBtn {
+    background-color: #dc3545; 
+}
+
+#cancelarBtn:hover, #cancelarBtn:focus {
+    background-color: #c82333; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+
+/*·····························································································································*/
+
+
+/*······················································CALENDARIO·····························································*/
+
+#calendar {
+    display: flex;
+    flex-wrap: nowrap; /* Para que los días se muestren en una sola línea */
+    overflow-y: auto; 
+    margin-top: 20px;
+    background-color: #cfeef9;
+    padding: 10px; 
+}
+.day-column {
+    flex: 1; /* Ocupar espacio igualmente en la línea */
+    border: 1px solid #ccc;
+    padding: 10px; 
+    box-sizing: border-box;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column; /* Asegurar que los slots se alineen verticalmente */
+    background-color: #d3d3d3; 
+    margin: 10px; 
+    width: 30vh;
+}
+.day-column h3 {
+    margin: 5vh; 
+    font-size: 1.2em; /* Tamaño de fuente ligeramente más pequeño */
+  
+}
+
+
+
+.time-slot {
+    flex: 0; /* No permitir que las franjas horarias crezcan automáticamente */
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    margin-left: 0% ; 
+    width: 100%;
+    max-width: 150%;
+}
+
+
+
+
+.time-slot p {
+    margin: 0; /* Ajustar el margen de los párrafos dentro de los slots */
+    margin-left: 5%;
+    width: 100%;
+    max-width: 150%;
+    
+}
+
+.selected {
+    background-color: #e0e0e0;
+}
+
+.time-label{
+
+    font-weight: bold;
+    background-color:whitesmoke;
+}
+
+/*·····························································································································*/
+
+/*················································ ESTILOS MODAL CLASES······················································· */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 50px;
+    border: 1px solid #888;
+    width: 60%;
+    position: relative;
+}
+
+.close {
+    color: rgb(169, 14, 14); 
+    float: right;
+    background-color: white;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; 
+    top: 10vh; 
+    right: 10vh; 
+    transform: translateY(-50%); /* Ajusta la posición vertical */
+}
+
+
+
+
+
+.class {
+    border: 2px dashed white; 
+    background-color: white; 
+    padding: 20px; 
+    margin: 10px 0; 
+    border-radius: 5px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    cursor: pointer; 
+    width: 70%; 
+    margin-left: 3%;
+    text-align: center;
+    word-wrap: break-word; 
+    overflow-wrap: break-word; 
+    overflow: hidden; /* Añadido para ajustar el tamaño del texto */
+    font-style: italic;
+}
+
+.class h2 {
+    margin: 0; 
+    padding: 0;
+    font-size: 1em; 
+    line-height: 1.2; /* Ajusta la altura de línea */
+    text-align: center; 
+    overflow: hidden; 
+    text-overflow: ellipsis; /* Muestra puntos suspensivos si el texto es demasiado largo */
+}
+
+ 
+#class-name {
+    text-align: center;
+    margin-left: 35vh;
+    position: relative;
+}
+
+.class:hover {
+    background-color: #e9a45a; 
+    border: 2px dashed #e9a45a; 
+    margin: 15px; 
+    padding: 20px;
+}
+
+
+#delete-class-button {
+    background-color: #dc3545; 
+    color: white; 
+    border: none; 
+    padding: 10px 15px;
+    font-size: 16px; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s, box-shadow 0.3s; 
+}
+
+
+#delete-class-button:hover, #delete-class-button:focus {
+    background-color: #c82333; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+
+#delete-class-button:focus {
+    outline: 2px solid #000; 
+    outline-offset: 2px; 
+}
+
+
+/*·····························································································································*/
+
+/* ·················································MODAL DE ELIMNAR CLASE·····················································*/
+
+.modal-eliminar-clase {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content-eliminar-clase {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    border-radius: 4px;
+}
+
+
+.button-container-eliminar-clase {
+    display: flex; 
+    gap: 10px; /* Espacio entre los botones */
+    justify-content: center; /* Centra los botones horizontalmente */
+    margin-top: 20px; 
+}
+
+
+
+#aceptarBtnEliminar {
+    background-color: #28a745; 
+}
+
+#aceptarBtnEliminar:hover, #aceptarBtnEliminar:focus {
+    background-color: #218838; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+
+#cancelarBtnEliminar {
+    background-color: #dc3545;
+}
+
+#cancelarBtnEliminar:hover, #cancelarBtnEliminar:focus {
+    background-color: #c82333; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+
+
+
+
+/* ····························································································································*/
+
+
+/* ·································Mensaje de "No hay clases en la franja actual"···········································*/
+
+.empty-message {
+    color: #888; 
+    font-style: italic;
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9; 
+    width: 70%; /* Igualar el ancho */
+    max-width: 100%; /* Ajusta el máximo ancho según tus necesidades */
+    margin: 10px auto; /* Centrar horizontalmente */
+}
+.no-clases {
+    color: #888; 
+    font-style: italic;
+    text-align: center;
+    background-color: #f9f9f9; 
+    padding: 20px; 
+    margin: 10px 0; 
+    border-radius: 5px; 
+    display: flex;
+    justify-content: flex-start; 
+    align-items: flex-start; 
+    width: 70%; 
+    
+}
+
+/*·····························································································································*/
+
+
+/* ···········································FORMULARIO DE AÑADIR CLASE······················································ */
 #add-class-form {
     background-color: #ecec97;
     border: 1px solid #ccc; 
@@ -150,7 +520,7 @@ span:focus {
 
 #añadir{
     background-color: #218838; 
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
 }
 
 .form-group{
@@ -158,9 +528,9 @@ span:focus {
     font-weight: bold;
 }
 
-/* ·············································································································*/
+/* ····························································································································*/
 
-/* ············································MODAL DE ERROR DE AÑADIR CLASE···································*/
+/* ············································MODAL DE ERROR DE AÑADIR CLASE··················································*/
 
 
 .modal-error {
@@ -237,295 +607,10 @@ span:focus {
 }
 
 
+/*·····························································································································*/
 
 
-
-
-
-/*···················································································································*/
-
-
-/* ·················································MODAL DE ELIMNAR CLASE········································*/
-
-.modal-eliminar-clase {
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4);
-}
-
-.modal-content-eliminar-clase {
-    background-color: white;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 500px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    border-radius: 4px;
-}
-
-
-.button-container-eliminar-clase {
-    display: flex; 
-    gap: 10px; /* Espacio entre los botones */
-    justify-content: center; /* Centra los botones horizontalmente */
-    margin-top: 20px; 
-}
-
-
-
-#aceptarBtnEliminar {
-    background-color: #28a745; 
-}
-
-#aceptarBtnEliminar:hover, #aceptarBtnEliminar:focus {
-    background-color: #218838; 
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
-}
-
-
-#cancelarBtnEliminar {
-    background-color: #dc3545;
-}
-
-#cancelarBtnEliminar:hover, #cancelarBtnEliminar:focus {
-    background-color: #c82333; 
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-}
-
-
-
-
-
-/* ·············································································································*/
-
-/* ·······························FORMULARIO DE FILTROS························································ */
-#filters {
-    border: 1px solid white; 
-    padding: 15px; /* Espacio interno */
-    border-radius: 50px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    display: flex;
-    flex-wrap: wrap; 
-    justify-content: center; 
-    margin: 20px 10px; 
-    text-align: center; 
-    margin: 5vh 35vh 5vh; /* Aquí 35vh es el margen en los lados derecho e izquierdo */
-}
-
-
-
-
-#filters label, #filters select, #filters input, #filters button {
-    margin: 7px; 
-}
-
-#filters label {
-    display: block; /* Asegurar que los labels sean bloques */
-    font-weight: bold;
-}
-
-
-
-#btnAplicarFiltros {
-    background-color:#218838;  
-}
-
-#btnAplicarFiltros:hover, #btnAplicarFiltros:focus {
-    background-color: #218838; 
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
-}
-
-
-#eliminarFiltrosBtn {
-    background-color: #dc3545; 
-}
-
-#eliminarFiltrosBtn :hover, #eliminarFiltrosBtn :focus {
-    background-color:  #dc3545; 
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
-}
-
-
-
-
-/*····························CALENDARIO······························································*/
-
-#calendar {
-    display: flex;
-    flex-wrap: nowrap; /* Para que los días se muestren en una sola línea */
-    overflow-y: auto; /* Permitir desplazamiento vertical si los días no caben en la pantalla */
-    margin-top: 20px;
-    background-color: #cfeef9;
-    padding: 10px; /* Añadido espacio interno al calendario */
-}
-.day-column {
-    flex: 1; /* Ocupar espacio igualmente en la línea */
-    border: 1px solid #ccc;
-    padding: 10px; /* Ajustar el padding */
-    box-sizing: border-box;
-    text-align: center;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column; /* Asegurar que los slots se alineen verticalmente */
-    background-color: #d3d3d3; 
-    margin: 10px; /* Margen entre los contenedores */
-    width: 30vh;
-}
-.day-column h3 {
-    margin: 5vh; 
-    font-size: 1.2em; /* Tamaño de fuente ligeramente más pequeño */
-  
-}
-
-
-
-.time-slot {
-    flex: 0; /* No permitir que las franjas horarias crezcan automáticamente */
-    border: 1px solid #ccc;
-    padding: 20px;
-    box-sizing: border-box;
-    text-align: center;
-    margin-left: 0% ; /* Añadir margen entre las franjas horarias */
-    width: 100%;
-    max-width: 150%;
-}
-
-
-
-
-.time-slot p {
-    margin: 0; /* Ajustar el margen de los párrafos dentro de los slots */
-    margin-left: 5%;
-    width: 100%;
-    max-width: 150%;
-    
-}
-
-.selected {
-    background-color: #e0e0e0;
-}
-
-.time-label{
-
-    font-weight: bold;
-    background-color:whitesmoke;
-}
-
-/*··················································································································*/
-
-/*················································ ESTILOS MODAL CLASES·········································· */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
-}
-
-.modal-content {
-    background-color: white;
-    margin: 15% auto;
-    padding: 50px;
-    border: 1px solid #888;
-    width: 60%;
-    position: relative;
-}
-
-.close {
-    color: rgb(169, 14, 14); 
-    float: right;
-    background-color: white;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-    position: absolute; 
-    top: 10vh; 
-    right: 10vh; 
-    transform: translateY(-50%); /* Ajusta la posición vertical */
-}
-
-
-
-
-
-.class {
-    border: 2px dashed white; /* Borde de franjas */
-    background-color: white; 
-    padding: 20px; 
-    margin: 10px 0; /* Margen entre franjas */
-    border-radius: 5px; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    cursor: pointer; 
-    width: 70%; 
-    margin-left: 3%;
-    text-align: center;
-    word-wrap: break-word; 
-    overflow-wrap: break-word; 
-    overflow: hidden; /* Añadido para ajustar el tamaño del texto */
-    font-style: italic;
-}
-
-.class h2 {
-    margin: 0; 
-    padding: 0;
-    font-size: 1em; /* Tamaño de fuente adaptable */
-    line-height: 1.2; /* Ajusta la altura de línea */
-    text-align: center; 
-    overflow: hidden; 
-    text-overflow: ellipsis; /* Muestra puntos suspensivos si el texto es demasiado largo */
-}
-
- 
-#class-name {
-    text-align: center;
-    margin-left: 35vh;
-    position: relative;
-}
-
-.class:hover {
-    background-color: #e9a45a; 
-    border: 2px dashed #e9a45a; 
-    margin: 15px; 
-    padding: 20px;
-}
-
-
-#delete-class-button {
-    background-color: #dc3545; 
-    color: white; /* Color del texto */
-    border: none; 
-    padding: 10px 15px;
-    font-size: 16px; 
-    border-radius: 5px; 
-    cursor: pointer; 
-    transition: background-color 0.3s, box-shadow 0.3s; 
-}
-
-
-#delete-class-button:hover, #delete-class-button:focus {
-    background-color: #c82333; 
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
-}
-
-
-#delete-class-button:focus {
-    outline: 2px solid #000; 
-    outline-offset: 2px; 
-}
-
-
-
-/* ···································Media Queries para pantallas pequeñas (Modo móvil) ···························*/
+/* ···································Media Queries para pantallas pequeñas (MODO MÓVIL) ······································*/
 @media (max-width: 768px) {
 
     #filters {
@@ -622,7 +707,7 @@ span:focus {
     }
     
     .class h2 {
-        font-size: 1em; /* Ajusta el tamaño de la fuente para pantallas más pequeñas */
+        font-size: 1em; 
     }
 
 
@@ -651,7 +736,7 @@ span:focus {
     }
 
     .day-column {
-        flex: 1; /* Ocupar espacio igualmente en la línea */
+        flex: 1; 
         width: 45vh; 
         box-sizing: border-box;
         text-align: center;
@@ -700,93 +785,4 @@ span:focus {
 }
 
 
-
-
-
-
-
-/* ·································Mensaje de "No hay clases en la franja actual"···········································*/
-
-.empty-message {
-    color: #888; 
-    font-style: italic;
-    text-align: center;
-    padding: 20px;
-    background-color: #f9f9f9; 
-    width: 70%; /* Igualar el ancho */
-    max-width: 100%; /* Ajusta el máximo ancho según tus necesidades */
-    margin: 10px auto; /* Centrar horizontalmente */
-}
-.no-clases {
-    color: #888; 
-    font-style: italic;
-    text-align: center;
-    background-color: #f9f9f9; 
-    padding: 20px; 
-    margin: 10px 0; 
-    border-radius: 5px; 
-    display: flex;
-    justify-content: flex-start; 
-    align-items: flex-start; 
-    width: 70%; 
-    
-}
-
-/*·······································MODAL DE ELIMINAR FILTROS·················································*/
-
-.modal-eliminar-filtros{
-    display: none; 
-    position: fixed; 
-    z-index: 1; 
-    left: 0;
-    top: 0;
-    width: 100%; 
-    height: 100%; 
-    overflow: auto; 
-    background-color: rgb(0,0,0); 
-    background-color: rgba(0,0,0,0.4); 
-}
-
-.modal-content-eliminar-filtros {
-    background-color: #fefefe;
-    margin: 15% auto; 
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 400px;
-    text-align: center;
-}
-
-
-.button-container {
-    display: flex; 
-    gap: 10px; 
-    justify-content: center; 
-    margin-top: 20px; 
-}
-
-
-
-#aceptarBtn {
-    background-color: #28a745; 
-}
-
-#aceptarBtn:hover, #aceptarBtn:focus {
-    background-color: #218838; 
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-}
-
-
-#cancelarBtn {
-    background-color: #dc3545; 
-}
-
-#cancelarBtn:hover, #cancelarBtn:focus {
-    background-color: #c82333; 
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-}
-
-
-
-
-/*························································································································*/
+/*······························································································································*/
