@@ -372,10 +372,6 @@ function agregarClase() {
 }
 
 
-
-
-
-
 document.addEventListener('DOMContentLoaded', () => {
 
     generateHTMLForClases(clases);
@@ -481,7 +477,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-    //Función del MODAL DE ELIMINAR FILTROS
+    //FUNCIÓN DEL  MODAL DE ELIMINAR FILTROS
     document.addEventListener('DOMContentLoaded', () => {
         const modal = document.getElementById("myModal");
         const btnEliminarFiltros = document.getElementById("eliminarFiltrosBtn");
