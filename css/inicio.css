@@ -58,7 +58,7 @@ header {
     text-align: center;
 }
 
-/* Estilo base para los botones */
+
 button {
     padding: 2vh 2vh; /* Tamaño del botón */
     font-size: 2vh; /* Tamaño de la fuente */
@@ -69,7 +69,7 @@ button {
     transition: background-color 0.3s, box-shadow 0.3s; /* Efecto de transición para color y sombra */
 }
 
-/* Asegura que los botones sean accesibles en el teclado */
+
 button:focus {
     outline: 2px solid #000; 
     outline-offset: 2px; 
@@ -201,47 +201,6 @@ span:focus {
 /*·····························································································································*/
 
 
-/* ··················································MODAL DE APLICAR FILTROS···················································*/
-
-
-.modal-aplicar-filtros {
-    display: none; 
-    position: fixed; 
-    z-index: 1; 
-    left: 0;
-    top: 0;
-    width: 100%; 
-    height: 100%; 
-    overflow: auto; 
-    background-color: rgb(0,0,0); 
-    background-color: rgba(0,0,0,0.4);
-}
-
-.modal-content-aplicar-filtros {
-    background-color: white;
-    margin: 15% auto; 
-    padding: 20px;
-    width: 80%;
-    max-width: 400px;
-    text-align: center;
-    position: relative; 
-}
-
-.close-aplicar {
-    color: rgb(169, 14, 14); 
-    background-color: white; 
-    font-size: 24px;
-    font-weight: bold;
-    cursor: pointer;
-    position: absolute; 
-    top: 10px; 
-    right: 10px; 
-    border: none; 
-    padding: 5px;
-}
-
-/*·····························································································································*/
-
 /*······················································CALENDARIO·····························································*/
 
 #calendar {
@@ -314,7 +273,7 @@ span:focus {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
+    background-color: rgba(0, 0, 0, 0.5); 
 }
 
 .modal-content {
@@ -338,6 +297,9 @@ span:focus {
     right: 10vh; 
     transform: translateY(-50%); /* Ajusta la posición vertical */
 }
+
+
+
 
 
 .class {
@@ -824,6 +786,3 @@ span:focus {
 
 
 /*······························································································································*/
-
-
-  

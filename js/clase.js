@@ -52,53 +52,13 @@ const clases = [
 localStorage.setItem('clases', JSON.stringify(clases)); 
 
 
-
 // FUNCIÓN PARA APLICAR FILTROS
-function aplicarFiltros(showNoFiltersModal = true) {
+function aplicarFiltros() {
     const filtroGrado = document.getElementById("filtroGrado").value.toLowerCase();
     const filtroCurso = parseInt(document.getElementById("filtroCurso").value);
     const filtroGrupo = document.getElementById("filtroGrupo").value.toLowerCase();
     const filtroTipo = document.getElementById("filtroTipo").value.toLowerCase();
     const filtroNombre = document.getElementById("filtroNombre").value.toLowerCase();
-
-    
-    const noFiltrosAplicados = filtroGrado === "" && isNaN(filtroCurso) && filtroGrupo === "" && filtroTipo === "" && filtroNombre === "";
-
-    if (showNoFiltersModal && noFiltrosAplicados) {
-        
-        const modal = document.getElementById("filtroModal");
-        modal.style.display = "block";
-
-        const modalMessage = modal.querySelector('.modal-message-aplicar-filtros');
-        modalMessage.focus();
-
-        const closeButton = document.getElementsByClassName("close-aplicar")[0];
-        closeButton.onclick = function() {
-            modal.style.display = "none";
-        };
-
-        modal.addEventListener('keydown', function(event) {
-            const focusableElements = modal.querySelectorAll('a, button, textarea, input, select, [tabindex="0"]');
-            const firstElement = focusableElements[0];
-            const lastElement = focusableElements[focusableElements.length - 1];
-
-            if (event.key === 'Tab') {
-                if (event.shiftKey) { // Shift + Tab
-                    if (document.activeElement === firstElement) {
-                        event.preventDefault();
-                        lastElement.focus();
-                    }
-                } else { // Tab
-                    if (document.activeElement === lastElement) {
-                        event.preventDefault();
-                        firstElement.focus();
-                    }
-                }
-            }
-        });
-
-        return; 
-    }
 
     const clasesFiltrados = clases.filter(clase => {
         const gradoMatch = filtroGrado === "" || clase.grado.toLowerCase() === filtroGrado;
@@ -112,6 +72,7 @@ function aplicarFiltros(showNoFiltersModal = true) {
 
     generateHTMLForClases(clasesFiltrados);
 }
+
 
 
 // FUNCIÓN PARA GENERAR EL HTML DE LAS CLASES MOSTRADAS
@@ -276,7 +237,7 @@ function eliminarClase(clase) {
 
 
 
-// FUNCIÓN PARA CERRAR EL MODAL DE "DETALLES CLASE" EL MOVER EL FOCO A LA SIGUIENTE FRANJA HORARIA
+// FUNCIÓN PARA QUE AL  CERRAR EL MODAL DE "DETALLES CLASE" EL FOCO  SE MUEVA A LA SIGUIENTE FRANJA HORARIA
 function closeModal(scheduleId) {
     const classDetailsModal = document.getElementById('class-details-modal');
     classDetailsModal.style.display = 'none';
@@ -459,6 +420,10 @@ document.addEventListener('DOMContentLoaded', () => {
             gradoClaseSelect.innerHTML = '<option value="Software">Software</option>';
             grupoClaseSelect.innerHTML = '<option value="A">A</option>';
 
+        }else if(nombreClase === 'Proyectos y Legislación'){
+            
+            cursoClaseSelect.innerHTML = '<option value="4">4</option>'; // Solo el curso 4
+
         }else if(clases.push(nuevaClase)){
 
 
@@ -515,77 +480,84 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-// FUNCIÓN DEL MODAL DE ELIMINAR FILTROS
-document.addEventListener('DOMContentLoaded', () => {
-    const modal = document.getElementById("myModal");
-    const btnEliminarFiltros = document.getElementById("eliminarFiltrosBtn");
-    const btnAceptar = document.getElementById("aceptarBtn");
-    const btnCancelar = document.getElementById("cancelarBtn");
+
+    //FUNCIÓN DEL  MODAL DE ELIMINAR FILTROS
+    document.addEventListener('DOMContentLoaded', () => {
+        const modal = document.getElementById("myModal");
+        const btnEliminarFiltros = document.getElementById("eliminarFiltrosBtn");
+        const btnAceptar = document.getElementById("aceptarBtn");
+        const btnCancelar = document.getElementById("cancelarBtn");
+        
+        let previouslyFocusedElement;
     
-    let previouslyFocusedElement;
 
-    btnEliminarFiltros.onclick = function() {
-        previouslyFocusedElement = document.activeElement;
-        modal.style.display = "block";
+        btnEliminarFiltros.onclick = function() {
+            previouslyFocusedElement = document.activeElement;
+            modal.style.display = "block";
 
-        btnAceptar.focus();
-        modal.addEventListener('keydown', trapFocus);
-    }
-
-    window.onclick = function(event) {
-        if (event.target == modal) {
+            btnAceptar.focus();
+            modal.addEventListener('keydown', trapFocus);
+        }
+    
+      
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    
+        btnAceptar.onclick = function() {
+            // Lógica para eliminar los filtros
+            document.getElementById("filtroGrado").value = '';
+            document.getElementById("filtroCurso").value = '';
+            document.getElementById("filtroGrupo").value = '';
+            document.getElementById("filtroTipo").value = '';
+            document.getElementById("filtroNombre").value = '';
+            aplicarFiltros();
             closeModal();
         }
-    }
-
-    btnAceptar.onclick = function() {
-        // Lógica para eliminar los filtros
-        document.getElementById("filtroGrado").value = '';
-        document.getElementById("filtroCurso").value = '';
-        document.getElementById("filtroGrupo").value = '';
-        document.getElementById("filtroTipo").value = '';
-        document.getElementById("filtroNombre").value = '';
-        aplicarFiltros(false); // Pasar false para no mostrar el modal "filtros no aplicados"
-        closeModal();
-    }
-
-    btnCancelar.onclick = function() {
-        closeModal();
-    }
-
-    // FUNCIÓN PARA CERRAR EL MODAL DE DETALLES CLASE
-    function closeModal() {
-        modal.style.display = "none";
-        if (previouslyFocusedElement) {
-            previouslyFocusedElement.focus();
+    
+  
+        btnCancelar.onclick = function() {
+            closeModal();
         }
-        modal.removeEventListener('keydown', trapFocus);
-    }
-
-    // FUNCIÓN PARA MANTENER EL FOCO EN EL MODAL DE DETALLES CLASE
-    function trapFocus(event) {
-        const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
-        const firstElement = focusableElements[0];
-        const lastElement = focusableElements[focusableElements.length - 1];
-
-        if (event.key === 'Tab') {
-            if (event.shiftKey) { // Shift + Tab
-                if (document.activeElement === firstElement) {
-                    lastElement.focus();
-                    event.preventDefault();
-                }
-            } else { // Tab
-                if (document.activeElement === lastElement) {
-                    firstElement.focus();
-                    event.preventDefault();
+    
+    
+        // FUNCIÓN PARA CERRAR EL MODAL DE DETALLES CLASE
+        function closeModal() {
+            modal.style.display = "none";
+            if (previouslyFocusedElement) {
+                previouslyFocusedElement.focus();
+            }
+            modal.removeEventListener('keydown', trapFocus);
+        }
+    
+        //FUNCIÓN PARA MANTENER EL FOCO EN EL MODAL DE DETALLES CLASE
+        function trapFocus(event) {
+            const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+            const firstElement = focusableElements[0];
+            const lastElement = focusableElements[focusableElements.length - 1];
+    
+            if (event.key === 'Tab') {
+                if (event.shiftKey) { // Shift + Tab
+                    if (document.activeElement === firstElement) {
+                        lastElement.focus();
+                        event.preventDefault();
+                    }
+                } else { // Tab
+                    if (document.activeElement === lastElement) {
+                        firstElement.focus();
+                        event.preventDefault();
+                    }
                 }
             }
         }
-    }
+    
+        const btnAplicarFiltros = document.getElementById('btnAplicarFiltros');
+        btnAplicarFiltros.addEventListener('click', aplicarFiltros);
+    
+  
+        generateHTMLForClases(clases);
+    });
 
-    const btnAplicarFiltros = document.getElementById('btnAplicarFiltros');
-    btnAplicarFiltros.addEventListener('click', () => aplicarFiltros(true)); // Pasar true para mostrar el modal "filtros no aplicados"
-
-    generateHTMLForClases(clases);
-});
     
