@@ -54,6 +54,10 @@ localStorage.setItem('clases', JSON.stringify(clases));
 
 
 
+
+
+
+
 // FUNCIÓN PARA APLICAR FILTROS
 function aplicarFiltros(showNoFiltersModal = true) {
     const filtroGrado = document.getElementById("filtroGrado").value.toLowerCase();
@@ -70,18 +74,36 @@ function aplicarFiltros(showNoFiltersModal = true) {
         const modal = document.getElementById("filtroModal");
         modal.style.display = "block";
 
+        // Enfocar el mensaje del modal
+        const modalMessage = modal.querySelector('.modal-message-aplicar-filtros');
+        modalMessage.focus();
+
         // Cerrar el modal cuando se haga clic en el botón de cerrar
         const closeButton = document.getElementsByClassName("close-aplicar")[0];
         closeButton.onclick = function() {
             modal.style.display = "none";
         };
 
-        // Cerrar el modal cuando el usuario haga clic fuera del modal
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
+        // Manejar el foco dentro del modal
+        modal.addEventListener('keydown', function(event) {
+            const focusableElements = modal.querySelectorAll('a, button, textarea, input, select, [tabindex="0"]');
+            const firstElement = focusableElements[0];
+            const lastElement = focusableElements[focusableElements.length - 1];
+
+            if (event.key === 'Tab') {
+                if (event.shiftKey) { // Shift + Tab
+                    if (document.activeElement === firstElement) {
+                        event.preventDefault();
+                        lastElement.focus();
+                    }
+                } else { // Tab
+                    if (document.activeElement === lastElement) {
+                        event.preventDefault();
+                        firstElement.focus();
+                    }
+                }
             }
-        };
+        });
 
         return; // Salir de la función si no se han aplicado filtros
     }
