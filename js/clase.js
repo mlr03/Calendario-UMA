@@ -11,9 +11,6 @@ class Clase {
     }
 }
 
-
-
-
 // ARRAY QUE REPRESENTA LAS DIFERENTES CLASES 
 const clases = [
     new Clase('Matemática Discreta', 'Jueves', '08:45', 'Informática', 1, 'B', 'Teórica'),
