@@ -53,11 +53,6 @@ localStorage.setItem('clases', JSON.stringify(clases));
 
 
 
-
-
-
-
-
 // FUNCIÓN PARA APLICAR FILTROS
 function aplicarFiltros(showNoFiltersModal = true) {
     const filtroGrado = document.getElementById("filtroGrado").value.toLowerCase();
@@ -66,25 +61,22 @@ function aplicarFiltros(showNoFiltersModal = true) {
     const filtroTipo = document.getElementById("filtroTipo").value.toLowerCase();
     const filtroNombre = document.getElementById("filtroNombre").value.toLowerCase();
 
-    // Verificar si no se ha aplicado ningún filtro
+    
     const noFiltrosAplicados = filtroGrado === "" && isNaN(filtroCurso) && filtroGrupo === "" && filtroTipo === "" && filtroNombre === "";
 
     if (showNoFiltersModal && noFiltrosAplicados) {
-        // Mostrar el modal
+        
         const modal = document.getElementById("filtroModal");
         modal.style.display = "block";
 
-        // Enfocar el mensaje del modal
         const modalMessage = modal.querySelector('.modal-message-aplicar-filtros');
         modalMessage.focus();
 
-        // Cerrar el modal cuando se haga clic en el botón de cerrar
         const closeButton = document.getElementsByClassName("close-aplicar")[0];
         closeButton.onclick = function() {
             modal.style.display = "none";
         };
 
-        // Manejar el foco dentro del modal
         modal.addEventListener('keydown', function(event) {
             const focusableElements = modal.querySelectorAll('a, button, textarea, input, select, [tabindex="0"]');
             const firstElement = focusableElements[0];
@@ -105,7 +97,7 @@ function aplicarFiltros(showNoFiltersModal = true) {
             }
         });
 
-        return; // Salir de la función si no se han aplicado filtros
+        return; 
     }
 
     const clasesFiltrados = clases.filter(clase => {
@@ -120,16 +112,6 @@ function aplicarFiltros(showNoFiltersModal = true) {
 
     generateHTMLForClases(clasesFiltrados);
 }
-
-
-
-
-
-
-
-
-
-
 
 
 // FUNCIÓN PARA GENERAR EL HTML DE LAS CLASES MOSTRADAS

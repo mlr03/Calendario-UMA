@@ -224,7 +224,7 @@ span:focus {
     width: 80%;
     max-width: 400px;
     text-align: center;
-    position: relative; /* Necesario para el posicionamiento absoluto del botón */
+    position: relative; 
 }
 
 .close-aplicar {
