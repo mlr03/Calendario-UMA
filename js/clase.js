@@ -68,6 +68,8 @@ function aplicarFiltros() {
     });
 
     generateHTMLForClases(clasesFiltrados);
+   
+    
 }
 
 
@@ -263,6 +265,22 @@ function handleFocusOut(event) {
 }
 
 
+// FUNCIÓN PARA MOSTRAR EL MODAL SI SE AÑADE UNA CLASE
+function mostrarModalAñadir() {
+    const modal = document.getElementById('myModal-añadir');
+    modal.style.display = 'block';
+    trapFocus(modal);
+}
+
+
+// FUNCIÓN PARA CERRAR EL MODAL SI SE AÑADE UNA CLASE
+function closeModalAñadir() {
+    const modal = document.getElementById('myModal-añadir');
+    modal.style.display = 'none';
+    releaseFocus();
+}
+
+
 
 // FUNCIÓN PARA MOSTRAR EL MODAL DE ERROR SI NO SE COMPELTAN LOS CAMPOS DE "AÑADIR CLASE"
 function mostrarModal() {
@@ -351,7 +369,10 @@ function agregarClase() {
             clases.push(nuevaClase);
             localStorage.setItem('clases', JSON.stringify(clases));
 
+            
             aplicarFiltros();
+            mostrarModalAñadir();
+            
         }
     } else {
         
