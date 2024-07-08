@@ -13,14 +13,14 @@ class Clase {
 
 // ARRAY QUE REPRESENTA LAS DIFERENTES CLASES 
 const clases = [
-    new Clase('Matemática Discreta', 'Jueves', '08:45', 'Informática', 1, 'B', 'Teórica'),
+    new Clase('Programación Orientada a Objetos', 'Jueves', '08:45', 'Informática', 1, 'B', 'Teórica'),
     new Clase('Tecnologías Web', 'Martes', '10:45', 'Software', 3, 'A', 'Práctica'),
-    new Clase('Estructuras de Computadores', 'Lunes', '08:45', 'Computadores', 2, 'C', 'Práctica'),
+    new Clase('Tecnología de Computadores', 'Lunes', '08:45', 'Computadores', 1, 'C', 'Práctica'),
     new Clase('Interfaces de Usuario', 'Jueves', '08:45', 'Software', 3, 'A', 'Práctica'),
     new Clase('Organización Empresarial', 'Viernes', '12:45', 'Informática', 1, 'A', 'Teórica'),
     new Clase('Proyectos y Legislación', 'Miércoles', '08:45', 'Computadores', 4, 'B', 'Prueba'),
-    new Clase('Análisis y Diseño de Algoritmos', 'Viernes', '08:45', 'Informática', 2, 'B', 'Teórica'),
-    new Clase('Gestión de la Información', 'Martes', '12:45', 'Software', 3, 'A', 'Práctica'),
+    new Clase('Programación Concurrente', 'Viernes', '08:45', 'Informática', 2, 'B', 'Teórica'),
+    new Clase('Mantenimiento', 'Martes', '12:45', 'Software', 3, 'A', 'Práctica'),
     new Clase('Sistemas Operativos', 'Viernes', '10:45', 'Computadores', 2, 'C', 'Prueba'),
     new Clase('Interfaces de Usuario', 'Miércoles', '08:45', 'Software', 3, 'A', 'Práctica'),
     new Clase('Sistemas Inteligentes', 'Jueves', '12:45', 'Computadores', 2, 'C', 'Prueba'),
@@ -30,14 +30,14 @@ const clases = [
     new Clase('Tecnología de Computadores', 'Jueves', '10:45', 'Informática', 1, 'A', 'Práctica'),
     new Clase('Métodos estadísticos', 'Lunes', '10:45', 'Software', 1, 'B', 'Teoría'),
     new Clase('Programación Concurrente', 'Miércoles', '12:45', 'Computadores',2 , 'A', 'Teórica'),
-    new Clase('Organización Empresarial', 'Miércoles', '08:45', 'Software',2 , 'B', 'Teórica'),
+    new Clase('Organización Empresarial', 'Miércoles', '08:45', 'Software',1 , 'B', 'Teórica'),
     new Clase('Estructuras Algebráicas', 'Jueves', '12:45', 'Computadores',1 , 'A', 'Teórica'),
     new Clase('Estructuras Algebráicas', 'Lunes', '12:45', 'Informática',1 , 'B', 'Teórica'),
     new Clase('Interfaces de Usuario', 'Martes', '12:45', 'Software',3 , 'A', 'Teórica'),
     new Clase('Sistemas Inteligentes', 'Viernes', '12:45', 'Software',2 , 'B', 'Teórica'),
-    new Clase('Matemática Discreta', 'Miércoles', '12:45', 'Informática',1 , 'B', 'Prueba'),
-    new Clase('Gestión de la Información', 'Martes', '08:45', 'Software',3 , 'B', 'Práctica'),
-    new Clase('Análisis y Diseño de Algoritmos', 'Viernes', '08:45', 'Software',2 , 'A', 'Teórica'),
+    new Clase('Programación Orientada a 0bjetos', 'Miércoles', '12:45', 'Informática',1 , 'B', 'Prueba'),
+    new Clase('Mantenimiento', 'Martes', '08:45', 'Software',3 , 'B', 'Práctica'),
+    new Clase('Sistemas Inteligentes', 'Viernes', '08:45', 'Software',2 , 'A', 'Teórica'),
     new Clase('Sistemas Operativos', 'Lunes', '08:45', 'Software',2 , 'A', 'Práctica'),
     
 
@@ -402,7 +402,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     nombreClaseSelect.addEventListener('change', () => {
         const nombreClase = nombreClaseSelect.value;
-        if (nombreClase === 'Matemática Discreta' || nombreClase === 'Estructuras Algebráicas' || nombreClase === 'Organización Empresarial' || nombreClase === 'Tecnología de Computadores') {
+        if (nombreClase === 'Programación Orientada a Objetos' || nombreClase === 'Estructuras Algebráicas' || nombreClase === 'Organización Empresarial' || nombreClase === 'Tecnología de Computadores') {
             cursoClaseSelect.innerHTML = '<option value="1">1</option>'; // Solo el curso 1
             gradoClaseSelect.innerHTML =`
             <option value="">Grado</option>
@@ -418,7 +418,7 @@ document.addEventListener('DOMContentLoaded', () => {
     `
 
 
-        }else if (nombreClase === 'Redes y Sistemas distribuidos' || nombreClase === 'Análisis y Diseño de Algorítmos' || nombreClase === 'Sistemas Inteligentes' || nombreClase === 'Sistemas Operativos' || nombreClase === 'Estructuras de Computadores'){
+        }else if (nombreClase === 'Redes y Sistemas distribuidos'  || nombreClase === 'Programación Concurrente'|| nombreClase === 'Sistemas Inteligentes' || nombreClase === 'Sistemas Operativos' || nombreClase === 'Estructuras de Computadores'){
             cursoClaseSelect.innerHTML = '<option value="2">2</option>'; // Solo el curso 2
             gradoClaseSelect.innerHTML =`
             <option value="">Grado</option>
@@ -433,7 +433,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <option value="C">C</option>
     `
 
-        }else if(nombreClase === 'Interfaces de Usuario'|| nombreClase === 'Gestión de la Información' || nombreClase ==='Tecnologías Web' || nombreClase === 'Mantenimiento' ){
+        }else if(nombreClase === 'Interfaces de Usuario' || nombreClase ==='Tecnologías Web' || nombreClase === 'Mantenimiento' ){
             cursoClaseSelect.innerHTML = '<option value="3">3</option>'; // Solo el curso 3
             gradoClaseSelect.innerHTML = '<option value="Software">Software</option>';
             grupoClaseSelect.innerHTML = '<option value="A">A</option>';
